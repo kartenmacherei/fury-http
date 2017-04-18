@@ -12,7 +12,7 @@ abstract class ErrorHandler
     public function register()
     {
         error_reporting(-1);
-        ini_set('display_errors', false);
+        ini_set('display_errors', 'false');
         class_exists(ErrorException::class, true);
         set_error_handler([$this, 'handleError']);
         set_exception_handler([$this, 'handleException']);
