@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
 class File
@@ -43,6 +45,7 @@ class File
 
     /**
      * @param Path $path
+     *
      * @throws NotAFileException
      */
     private function ensureIsAFile(Path $path)
@@ -51,5 +54,4 @@ class File
             throw new NotAFileException();
         }
     }
-
 }

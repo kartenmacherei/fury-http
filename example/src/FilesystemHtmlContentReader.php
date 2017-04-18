@@ -1,7 +1,9 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
-use Fury\Http\HtmlContent;
+use Fury\Application\HtmlContent;
 
 class FilesystemHtmlContentReader implements HtmlContentReader
 {
@@ -20,6 +22,7 @@ class FilesystemHtmlContentReader implements HtmlContentReader
 
     /**
      * @param Identifier $key
+     *
      * @return bool
      */
     public function has(Identifier $key): bool
@@ -29,6 +32,7 @@ class FilesystemHtmlContentReader implements HtmlContentReader
 
     /**
      * @param Identifier $key
+     *
      * @return HtmlContent
      */
     public function read(Identifier $key): HtmlContent
@@ -40,11 +44,11 @@ class FilesystemHtmlContentReader implements HtmlContentReader
 
     /**
      * @param Identifier $key
+     *
      * @return RelativePath
      */
     private function getPath(Identifier $key): RelativePath
     {
         return new RelativePath($key->asString() . '.html');
     }
-
 }

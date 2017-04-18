@@ -1,9 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
-use Fury\GetRouter;
+use Fury\Http\GetRouter;
 
-class Factory extends \Fury\Factory
+class Factory extends \Fury\Application\Factory
 {
     /**
      * @return Application
@@ -37,4 +39,3 @@ class Factory extends \Fury\Factory
         return new FilesystemHtmlContentReader(new Directory(new Path(__DIR__ . '/../static')));
     }
 }
-

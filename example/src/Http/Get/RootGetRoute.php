@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
 use Fury\Http\GetRequest;
@@ -9,6 +11,7 @@ class RootGetRoute extends GetRoute
 {
     /**
      * @param GetRequest $request
+     *
      * @return bool
      */
     protected function canRoute(GetRequest $request): bool
@@ -18,6 +21,7 @@ class RootGetRoute extends GetRoute
 
     /**
      * @param GetRequest $request
+     *
      * @return Query
      */
     protected function getQuery(GetRequest $request): Query

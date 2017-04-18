@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
 class Path
@@ -51,6 +53,7 @@ class Path
 
     /**
      * @param RelativePath $path
+     *
      * @return Path
      */
     public function getChild(RelativePath $path): Path
@@ -60,6 +63,7 @@ class Path
 
     /**
      * @param string $path
+     *
      * @throws InvalidPathException
      */
     private function ensureDoesNotContainControlCharacters(string $path)

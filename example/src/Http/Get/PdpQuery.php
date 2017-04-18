@@ -1,9 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
-use Fury\ContentResult;
+use Fury\Application\ContentResult;
 use Fury\Http\Query;
-use Fury\Result;
+use Fury\Http\Result;
 
 class PdpQuery implements Query
 {
@@ -34,6 +36,4 @@ class PdpQuery implements Query
     {
         return new ContentResult($this->reader->read($this->identifier));
     }
-
-
 }

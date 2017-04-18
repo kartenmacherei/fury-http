@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
 class Directory
@@ -19,6 +21,7 @@ class Directory
 
     /**
      * @param RelativePath $path
+     *
      * @return bool
      */
     public function hasFile(RelativePath $path): bool
@@ -28,6 +31,7 @@ class Directory
 
     /**
      * @param RelativePath $path
+     *
      * @return File
      */
     public function getFile(RelativePath $path): File
@@ -37,6 +41,7 @@ class Directory
 
     /**
      * @param Path $path
+     *
      * @throws NotADirectoryException
      */
     private function ensureIsADirectory(Path $path)

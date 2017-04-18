@@ -1,14 +1,16 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
-use Fury\ContentResultRoute;
-use Fury\GetRouter;
-use Fury\NotFoundGetRoute;
-use Fury\NotFoundResultRoute;
-use Fury\PostRouter;
-use Fury\ResultRouter;
+use Fury\Application\ContentResultRoute;
+use Fury\Application\NotFoundGetRoute;
+use Fury\Application\NotFoundResultRoute;
+use Fury\Http\GetRouter;
+use Fury\Http\PostRouter;
+use Fury\Http\ResultRouter;
 
-class Application extends \Fury\Application
+class Application extends \Fury\Application\Application
 {
     /**
      * @var Factory
@@ -55,5 +57,4 @@ class Application extends \Fury\Application
 
         return $router;
     }
-
 }

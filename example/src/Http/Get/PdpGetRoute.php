@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
 use Fury\Http\GetRequest;
@@ -27,21 +29,23 @@ class PdpGetRoute extends GetRoute
 
     /**
      * @param GetRequest $request
+     *
      * @return bool
      */
     protected function canRoute(GetRequest $request): bool
     {
         $this->identifier = new Identifier(ltrim($request->getPath()->asString(), '/'));
+
         return $this->reader->has($this->identifier);
     }
 
     /**
      * @param GetRequest $request
+     *
      * @return Query
      */
     protected function getQuery(GetRequest $request): Query
     {
         return new PdpQuery($this->reader, $this->identifier);
     }
-
 }

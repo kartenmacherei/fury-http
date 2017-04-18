@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Example;
 
 class RelativePath extends Path
@@ -14,6 +16,7 @@ class RelativePath extends Path
 
     /**
      * @param string $path
+     *
      * @throws NotARelativePathException
      */
     private function ensureIsRelative(string $path)

@@ -1,10 +1,12 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 namespace Fury\Example;
-use Fury\ContentResult;
-use Fury\Http\HtmlContent;
+
+use Fury\Application\ContentResult;
+use Fury\Application\HtmlContent;
 use Fury\Http\Query;
-use Fury\Result;
+use Fury\Http\Result;
 
 class RootQuery implements Query
 {
@@ -15,5 +17,4 @@ class RootQuery implements Query
     {
         return new ContentResult(new HtmlContent('<h1>Hello World!</h1>'));
     }
-
 }
