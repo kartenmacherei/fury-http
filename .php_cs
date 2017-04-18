@@ -8,6 +8,4 @@ return $config
         Finder::create()
             ->in(__DIR__ . '/src')
             ->in(__DIR__ . '/tests')
-            ->in(__DIR__ . '/example/src')
-            ->in(__DIR__ . '/example/tests')
     );
