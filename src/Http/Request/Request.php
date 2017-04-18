@@ -36,12 +36,12 @@ abstract class Request
             case 'HEAD':
             case 'GET':
                 return new GetRequest(
-                    new UriPath($_SERVER['DOCUMENT_URI']),
+                    new UriPath($_SERVER['REQUEST_URI']),
                     $_GET
                 );
             case 'POST':
                 return new PostRequest(
-                    new UriPath($_SERVER['DOCUMENT_URI']),
+                    new UriPath($_SERVER['REQUEST_URI']),
                     $_POST
                 );
             default:
