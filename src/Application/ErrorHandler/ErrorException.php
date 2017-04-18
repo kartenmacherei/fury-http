@@ -1,5 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury\Exception;
+<?php
+
+declare(strict_types=1);
+namespace Fury\Application;
 
 use ErrorException as BaseErrorException;
 

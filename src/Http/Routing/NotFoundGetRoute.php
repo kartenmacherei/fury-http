@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\GetRequest;
-use Fury\Http\GetRoute;
-use Fury\Http\Query;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class NotFoundGetRoute extends GetRoute
 {
@@ -16,5 +14,4 @@ class NotFoundGetRoute extends GetRoute
     {
         return new NotFoundQuery();
     }
-
 }

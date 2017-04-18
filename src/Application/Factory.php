@@ -1,10 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\ErrorHandler\DevelopmentErrorHandler;
-use Fury\ErrorHandler\ErrorHandler;
-use Fury\ErrorHandler\ErrorHandlerLocator;
-use Fury\ErrorHandler\ProductionErrorHandler;
+declare(strict_types=1);
+namespace Fury\Application;
 
 class Factory
 {
@@ -14,6 +11,7 @@ class Factory
     public function createErrorHandler(): ErrorHandler
     {
         $errorHandlerLocator = $this->createErrorHandlerLocator();
+
         return $errorHandlerLocator->locate($this->createEnvironment());
     }
 

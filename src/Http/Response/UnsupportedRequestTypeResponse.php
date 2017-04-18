@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\BaseResponse;
-use Fury\Http\StatusCode\MethodNotAllowedCode;
-use Fury\Http\StatusCode\StatusCode;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class UnsupportedRequestTypeResponse extends BaseResponse
 {

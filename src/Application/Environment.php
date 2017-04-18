@@ -1,5 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
+
+declare(strict_types=1);
+namespace Fury\Application;
 
 class Environment
 {

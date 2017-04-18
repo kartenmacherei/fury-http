@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\ResultRoute;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class ResultRouter
 {
@@ -30,13 +30,11 @@ class ResultRouter
      */
     public function addRoute(ResultRoute $route)
     {
-        if($this->firstRoute === null)
-        {
+        if ($this->firstRoute === null) {
             $this->firstRoute = $route;
         }
 
-        if($this->lastRoute !== null)
-        {
+        if ($this->lastRoute !== null) {
             $this->lastRoute->setNextRoute($route);
         }
 

@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\Command;
-use Fury\Http\PostRequest;
-use Fury\Http\PostRoute;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class PostRouter
 {
@@ -24,13 +22,11 @@ class PostRouter
 
     public function addRoute(PostRoute $route)
     {
-        if($this->firstRoute === null)
-        {
+        if ($this->firstRoute === null) {
             $this->firstRoute = $route;
         }
 
-        if($this->lastRoute !== null)
-        {
+        if ($this->lastRoute !== null) {
             $this->lastRoute->setNextRoute($route);
         }
 

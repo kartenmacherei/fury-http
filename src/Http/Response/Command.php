@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury\Http;
+<?php
 
-use Fury\Result;
+declare(strict_types=1);
+namespace Fury\Http;
 
 interface Command
 {

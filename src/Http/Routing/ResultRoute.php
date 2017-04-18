@@ -1,8 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury\Http;
+<?php
 
-use Fury\Result;
-use Fury\ResultRenderer;
+declare(strict_types=1);
+namespace Fury\Http;
 
 abstract class ResultRoute
 {
@@ -26,8 +25,7 @@ abstract class ResultRoute
      */
     public function route(Result $result): ResultRenderer
     {
-        if($this->canRoute($result) === false)
-        {
+        if ($this->canRoute($result) === false) {
             return $this->tryNext($result);
         }
 
@@ -51,14 +49,13 @@ abstract class ResultRoute
     /**
      * @param Result $result
      *
-     * @return ResultRenderer
-     *
      * @throws NoNextRouteException
+     *
+     * @return ResultRenderer
      */
     private function tryNext(Result $result): ResultRenderer
     {
-        if($this->nextRoute === null)
-        {
+        if ($this->nextRoute === null) {
             throw new NoNextRouteException();
         }
 

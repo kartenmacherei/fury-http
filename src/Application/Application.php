@@ -1,10 +1,14 @@
 <?php declare(strict_types=1);
-namespace Fury;
+namespace Fury\Application;
 
 use Fury\Http\GetRequest;
+use Fury\Http\GetRouter;
 use Fury\Http\PostRequest;
+use Fury\Http\PostRouter;
 use Fury\Http\Request;
 use Fury\Http\Response;
+use Fury\Http\ResultRouter;
+use Fury\Http\UnsupportedRequestTypeResponse;
 
 abstract class Application
 {
@@ -15,15 +19,13 @@ abstract class Application
      */
     public function handle(Request $request): Response
     {
-        if($request->isGetRequest())
-        {
-            /** @var GetRequest $request */
+        if ($request->isGetRequest()) {
+            /* @var GetRequest $request */
             return $this->handleGetRequest($request);
         }
 
-        if($request->isPostRequest())
-        {
-            /** @var PostRequest $request */
+        if ($request->isPostRequest()) {
+            /* @var PostRequest $request */
             return $this->handlePostRequest($request);
         }
 

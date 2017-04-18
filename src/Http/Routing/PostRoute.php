@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http;
 
 abstract class PostRoute
@@ -23,8 +25,7 @@ abstract class PostRoute
      */
     public function route(PostRequest $request): Command
     {
-        if($this->canRoute($request) === false)
-        {
+        if ($this->canRoute($request) === false) {
             return $this->tryNext($request);
         }
 
@@ -48,14 +49,13 @@ abstract class PostRoute
     /**
      * @param PostRequest $request
      *
-     * @return Command
-     *
      * @throws NoNextRouteException
+     *
+     * @return Command
      */
     private function tryNext(PostRequest $request): Command
     {
-        if($this->nextRoute === null)
-        {
+        if ($this->nextRoute === null) {
             throw new NoNextRouteException();
         }
 

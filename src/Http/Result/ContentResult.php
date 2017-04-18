@@ -1,6 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
-use Fury\Http\Content;
+<?php
+
+declare(strict_types=1);
+namespace Fury\Http;
 
 class ContentResult implements Result
 {

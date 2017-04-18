@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Fury;
-use Fury\Http\Response;
-use Fury\NotFoundResponse;
-use Fury\ResultRenderer;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class NotFoundResultRenderer implements ResultRenderer
 {
@@ -14,5 +12,4 @@ class NotFoundResultRenderer implements ResultRenderer
     {
         return new NotFoundResponse();
     }
-
 }

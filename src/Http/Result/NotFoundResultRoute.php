@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\ResultRoute;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class NotFoundResultRoute extends ResultRoute
 {
@@ -14,5 +14,4 @@ class NotFoundResultRoute extends ResultRoute
     {
         return new NotFoundResultRenderer();
     }
-
 }

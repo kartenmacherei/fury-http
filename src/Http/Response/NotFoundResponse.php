@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\BaseResponse;
-use Fury\Http\StatusCode\NotFoundStatusCode;
-use Fury\Http\StatusCode\StatusCode;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class NotFoundResponse extends BaseResponse
 {
@@ -14,6 +12,5 @@ class NotFoundResponse extends BaseResponse
 
     protected function flush()
     {
-
     }
 }

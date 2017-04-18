@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 namespace Fury\Http;
-
-use Fury\Http\StatusCode\OkStatusCode;
-use Fury\Http\StatusCode\StatusCode;
 
 class ContentResponse extends BaseResponse
 {

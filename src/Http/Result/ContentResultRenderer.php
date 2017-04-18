@@ -1,8 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Fury;
-use Fury\Http\ContentResponse;
-use Fury\Http\Response;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class ContentResultRenderer implements ResultRenderer
 {
@@ -26,5 +25,4 @@ class ContentResultRenderer implements ResultRenderer
     {
         return new ContentResponse($this->result->getContent());
     }
-
 }

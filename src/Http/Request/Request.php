@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http;
 
 abstract class Request
@@ -26,9 +28,9 @@ abstract class Request
     }
 
     /**
-     * @return Request
-     *
      * @throws UnsupportedRequestMethodException
+     *
+     * @return Request
      */
     public static function fromSuperGlobals(): Request
     {

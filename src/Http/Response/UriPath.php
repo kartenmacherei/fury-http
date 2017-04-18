@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Fury\Http;
 
 class UriPath
@@ -20,7 +21,7 @@ class UriPath
     /**
      * @return string
      */
-    public function asString():string
+    public function asString(): string
     {
         return $this->pathUri;
     }
@@ -28,13 +29,13 @@ class UriPath
     /**
      * @param string $pathUri
      *
-     * @throws InvalidProductUriPathException
+     * @throws InvalidUriPathException
      */
-    private function ensureStartsWithSlash($pathUri)
+    private function ensureStartsWithSlash(string $pathUri)
     {
         if ($pathUri[0] !== '/') {
             $message = sprintf('Expected path to start with "/", got path "%s"', $pathUri);
-            throw new InvalidProductUriPathException($message);
+            throw new InvalidUriPathException($message);
         }
     }
 }

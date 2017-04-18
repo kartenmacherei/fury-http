@@ -1,7 +1,8 @@
-<?php declare(strict_types=1);
-namespace Fury\ErrorHandler;
+<?php
 
-use Fury\Exception\ErrorException;
+declare(strict_types=1);
+namespace Fury\Application;
+
 use Throwable;
 
 abstract class ErrorHandler
@@ -44,7 +45,9 @@ abstract class ErrorHandler
     {
         $error = error_get_last();
 
-        if ($error === null) { return; }
+        if ($error === null) {
+            return;
+        }
 
         $this->handleException(
             new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line'])

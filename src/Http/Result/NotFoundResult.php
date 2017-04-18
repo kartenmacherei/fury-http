@@ -1,9 +1,8 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Result;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class NotFoundResult implements Result
 {
-
 }

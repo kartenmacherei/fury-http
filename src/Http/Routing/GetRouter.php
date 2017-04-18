@@ -1,9 +1,7 @@
-<?php declare(strict_types=1);
-namespace Fury;
+<?php
 
-use Fury\Http\GetRequest;
-use Fury\Http\GetRoute;
-use Fury\Http\Query;
+declare(strict_types=1);
+namespace Fury\Http;
 
 class GetRouter
 {
@@ -27,13 +25,11 @@ class GetRouter
      */
     public function addRoute(GetRoute $route)
     {
-        if($this->firstRoute === null)
-        {
+        if ($this->firstRoute === null) {
             $this->firstRoute = $route;
         }
 
-        if($this->lastRoute !== null)
-        {
+        if ($this->lastRoute !== null) {
             $this->lastRoute->setNextRoute($route);
         }
 

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http;
 
 abstract class GetRoute
@@ -23,8 +25,7 @@ abstract class GetRoute
      */
     public function route(GetRequest $request): Query
     {
-        if($this->canRoute($request) === false)
-        {
+        if ($this->canRoute($request) === false) {
             return $this->tryNext($request);
         }
 
@@ -48,14 +49,13 @@ abstract class GetRoute
     /**
      * @param GetRequest $request
      *
-     * @return Query
-     *
      * @throws NoNextRouteException
+     *
+     * @return Query
      */
     private function tryNext(GetRequest $request): Query
     {
-        if($this->nextRoute === null)
-        {
+        if ($this->nextRoute === null) {
             throw new NoNextRouteException();
         }
 
