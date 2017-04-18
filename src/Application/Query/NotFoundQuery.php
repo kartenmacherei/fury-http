@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Application;
+
+use Fury\Http\Query;
+use Fury\Http\Result;
 
 class NotFoundQuery implements Query
 {

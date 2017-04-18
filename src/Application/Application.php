@@ -8,7 +8,6 @@ use Fury\Http\PostRouter;
 use Fury\Http\Request;
 use Fury\Http\Response;
 use Fury\Http\ResultRouter;
-use Fury\Http\UnsupportedRequestTypeResponse;
 
 abstract class Application
 {
