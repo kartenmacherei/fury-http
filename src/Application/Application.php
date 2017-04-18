@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
-namespace Frontend;
+namespace Fury;
 
-use Frontend\Http\GetRequest;
-use Frontend\Http\PostRequest;
-use Frontend\Http\Request;
-use Frontend\Http\Response;
+use Fury\Http\GetRequest;
+use Fury\Http\PostRequest;
+use Fury\Http\Request;
+use Fury\Http\Response;
 
 abstract class Application
 {

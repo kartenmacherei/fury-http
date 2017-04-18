@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
-namespace Frontend;
+namespace Fury;
 
-use Frontend\ErrorHandler\DevelopmentErrorHandler;
-use Frontend\ErrorHandler\ErrorHandler;
-use Frontend\ErrorHandler\ErrorHandlerLocator;
-use Frontend\ErrorHandler\ProductionErrorHandler;
+use Fury\ErrorHandler\DevelopmentErrorHandler;
+use Fury\ErrorHandler\ErrorHandler;
+use Fury\ErrorHandler\ErrorHandlerLocator;
+use Fury\ErrorHandler\ProductionErrorHandler;
 
 class Factory
 {

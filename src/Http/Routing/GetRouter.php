@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
-namespace Frontend;
+namespace Fury;
 
-use Frontend\Http\GetRequest;
-use Frontend\Http\GetRoute;
-use Frontend\Http\Query;
+use Fury\Http\GetRequest;
+use Fury\Http\GetRoute;
+use Fury\Http\Query;
 
 class GetRouter
 {

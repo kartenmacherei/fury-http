@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
-namespace Frontend;
+namespace Fury;
 
-use Frontend\Http\Command;
-use Frontend\Http\PostRequest;
-use Frontend\Http\PostRoute;
+use Fury\Http\Command;
+use Fury\Http\PostRequest;
+use Fury\Http\PostRoute;
 
 class PostRouter
 {

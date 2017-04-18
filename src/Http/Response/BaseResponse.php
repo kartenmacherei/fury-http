@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-namespace Frontend\Http;
+namespace Fury\Http;
 
-use Frontend\Http\StatusCode\StatusCode;
+use Fury\Http\StatusCode\StatusCode;
 
 abstract class BaseResponse implements Response
 {

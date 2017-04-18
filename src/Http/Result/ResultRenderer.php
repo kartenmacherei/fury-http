@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-namespace Frontend;
+namespace Fury;
 
-use Frontend\Http\Response;
+use Fury\Http\Response;
 
 interface ResultRenderer
 {

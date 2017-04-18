@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Frontend\ErrorHandler;
+namespace Fury\ErrorHandler;
 
-use Frontend\Environment;
-use Frontend\Factory;
+use Fury\Environment;
+use Fury\Factory;
 
 class ErrorHandlerLocator
 {

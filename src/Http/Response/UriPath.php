@@ -1,5 +1,5 @@
 <?php
-namespace Frontend\Http;
+namespace Fury\Http;
 
 class UriPath
 {

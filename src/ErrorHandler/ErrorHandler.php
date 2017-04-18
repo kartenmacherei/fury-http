@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-namespace Frontend\ErrorHandler;
+namespace Fury\ErrorHandler;
 
-use Frontend\Exception\ErrorException;
+use Fury\Exception\ErrorException;
 use Throwable;
 
 abstract class ErrorHandler

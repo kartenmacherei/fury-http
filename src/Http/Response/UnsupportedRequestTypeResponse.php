@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
-namespace Frontend;
+namespace Fury;
 
-use Frontend\Http\BaseResponse;
-use Frontend\Http\StatusCode\MethodNotAllowedCode;
-use Frontend\Http\StatusCode\StatusCode;
+use Fury\Http\BaseResponse;
+use Fury\Http\StatusCode\MethodNotAllowedCode;
+use Fury\Http\StatusCode\StatusCode;
 
 class UnsupportedRequestTypeResponse extends BaseResponse
 {

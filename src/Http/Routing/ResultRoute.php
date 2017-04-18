@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
-namespace Frontend\Http;
+namespace Fury\Http;
 
-use Frontend\Result;
-use Frontend\ResultRenderer;
+use Fury\Result;
+use Fury\ResultRenderer;
 
 abstract class ResultRoute
 {

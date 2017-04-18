@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace Frontend\Http\StatusCode;
+namespace Fury\Http\StatusCode;
 
 class OkStatusCode implements StatusCode
 {

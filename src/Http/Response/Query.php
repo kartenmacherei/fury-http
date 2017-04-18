@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
-namespace Frontend\Http;
+namespace Fury\Http;
 
-use Frontend\Result;
+use Fury\Result;
 
-interface Command
+interface Query
 {
     /**
      * @return Result

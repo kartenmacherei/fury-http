@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace Frontend\ErrorHandler;
+namespace Fury\ErrorHandler;
 
 use Throwable;
 

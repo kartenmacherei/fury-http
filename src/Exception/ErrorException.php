@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace Frontend\Exception;
+namespace Fury\Exception;
 
 use ErrorException as BaseErrorException;
 
