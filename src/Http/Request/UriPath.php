@@ -27,6 +27,15 @@ class UriPath
     }
 
     /**
+     * @param string $string
+     * @return bool
+     */
+    public function startsWith(string $string): bool
+    {
+        return strpos($this->pathUri, $string) === 0;
+    }
+
+    /**
      * @param string $pathUri
      *
      * @throws InvalidUriPathException
