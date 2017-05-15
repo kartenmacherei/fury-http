@@ -17,6 +17,9 @@ class PostRouter
 
     public function route(PostRequest $request): Command
     {
+        if ($this->firstRoute === null) {
+            throw new NoRoutesException();
+        }
         return $this->firstRoute->route($request);
     }
 
