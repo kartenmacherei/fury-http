@@ -13,6 +13,6 @@ class NotFoundQuery implements Query
      */
     public function execute(): Result
     {
-        return new NotFoundResult();
+        return new NotFoundResult(new HtmlContent('<h1>404 Not Found</h1>'));
     }
 }

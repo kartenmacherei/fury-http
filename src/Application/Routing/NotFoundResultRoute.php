@@ -16,6 +16,7 @@ class NotFoundResultRoute extends ResultRoute
 
     protected function getResultRenderer(Result $result): ResultRenderer
     {
-        return new NotFoundResultRenderer();
+        /** @var NotFoundResult $result */
+        return new NotFoundResultRenderer($result);
     }
 }
