@@ -38,12 +38,12 @@ abstract class Request
             case 'HEAD':
             case 'GET':
                 return new GetRequest(
-                    new UriPath($_SERVER['REQUEST_URI']),
+                    new UriPath($_SERVER['DOCUMENT_URI']),
                     $_GET
                 );
             case 'POST':
                 return new PostRequest(
-                    new UriPath($_SERVER['REQUEST_URI']),
+                    new UriPath($_SERVER['DOCUMENT_URI']),
                     $_POST
                 );
             default:
@@ -84,6 +84,14 @@ abstract class Request
     public function hasParameter(string $key): bool
     {
         return isset($this->parameters[$key]);
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasParameters(): bool
+    {
+        return count($this->parameters) > 0;
     }
 
     /**
