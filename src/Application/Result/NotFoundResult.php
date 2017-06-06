@@ -3,6 +3,28 @@
 declare(strict_types=1);
 namespace Fury\Application;
 
-class NotFoundResult extends ContentResult
+use Fury\Http\Result;
+
+class NotFoundResult implements Result
 {
+    /**
+     * @var Content
+     */
+    private $content;
+
+    /**
+     * @param Content $content
+     */
+    public function __construct(Content $content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return Content
+     */
+    public function getContent(): Content
+    {
+        return $this->content;
+    }
 }
