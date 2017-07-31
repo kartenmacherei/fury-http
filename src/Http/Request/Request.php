@@ -11,40 +11,36 @@ abstract class Request
     private $path;
 
     /**
-     * @var array
-     */
-    private $parameters;
-
-    /**
      * @param UriPath $path
-     * @param array $parameters
      */
-    public function __construct(
-        UriPath $path,
-        array $parameters
-    ) {
+    public function __construct(UriPath $path)
+    {
         $this->path = $path;
-        $this->parameters = $parameters;
     }
 
     /**
      * @throws UnsupportedRequestMethodException
      *
-     * @return Request
+     * @return GetRequest|PostRequest|Request
      */
     public static function fromSuperGlobals(): Request
     {
-        switch ($_SERVER['REQUEST_METHOD']) {
+        $method = strtoupper($_SERVER['REQUEST_METHOD']);
+        $uriPath = new UriPath($_SERVER['DOCUMENT_URI']);
+
+        $body = Body::fromSuperGlobals();
+
+        switch ($method) {
             case 'HEAD':
             case 'GET':
                 return new GetRequest(
-                    new UriPath($_SERVER['DOCUMENT_URI']),
+                    $uriPath,
                     $_GET
                 );
             case 'POST':
                 return new PostRequest(
-                    new UriPath($_SERVER['DOCUMENT_URI']),
-                    $_POST
+                    $uriPath,
+                    $body
                 );
             default:
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
@@ -74,40 +70,5 @@ abstract class Request
     public function getPath(): UriPath
     {
         return $this->path;
-    }
-
-    /**
-     * @param string $key
-     *
-     * @return bool
-     */
-    public function hasParameter(string $key): bool
-    {
-        return isset($this->parameters[$key]);
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasParameters(): bool
-    {
-        return count($this->parameters) > 0;
-    }
-
-    /**
-     * @param string $key
-     *
-     * @throws RequestParameterNotFoundException
-     *
-     * @return string
-     */
-    public function getParameter(string $key): string
-    {
-        if (!$this->hasParameter($key)) {
-            $message = sprintf('Request does not contain parameter "%s".', $key);
-            throw new RequestParameterNotFoundException($message);
-        }
-
-        return $this->parameters[$key];
     }
 }

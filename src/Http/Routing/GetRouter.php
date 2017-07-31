@@ -20,6 +20,7 @@ class GetRouter
         if ($this->firstRoute === null) {
             throw new NoRoutesException();
         }
+
         return $this->firstRoute->route($request);
     }
 

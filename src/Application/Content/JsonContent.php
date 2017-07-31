@@ -1,38 +1,44 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 namespace Fury\Application;
+
 class JsonContent implements Content
 {
     /**
      * @var string
      */
-    private $content;
+    private $jsonString;
 
     /**
      * @param mixed $data
-     * @throws ContentException
+     *
+     * @throws EncodeException
      */
     public function __construct($data)
     {
         $encodedData = json_encode($data);
         if (false === $encodedData) {
-            throw new ContentException(
+            throw new EncodeException(
                 sprintf('Data could not be encoded into JSON: %s', json_last_error_msg())
             );
         }
-        $this->content = $encodedData;
+        $this->jsonString = $encodedData;
     }
 
-
-
+    /**
+     * @return string
+     */
     public function asString(): string
     {
-        return $this->content;
+        return $this->jsonString;
     }
 
+    /**
+     * @return ContentType
+     */
     public function getContentType(): ContentType
     {
         return new JsonContentType();
     }
-
 }

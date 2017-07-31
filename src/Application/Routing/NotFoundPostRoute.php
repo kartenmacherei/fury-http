@@ -18,6 +18,4 @@ class NotFoundPostRoute extends PostRoute
     {
         return new NotFoundCommand();
     }
-
-
 }

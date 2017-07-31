@@ -19,6 +19,7 @@ class ResultRouter
      * @param Result $result
      *
      * @throws NoRoutesException
+     *
      * @return ResultRenderer
      */
     public function route(Result $result): ResultRenderer
@@ -26,6 +27,7 @@ class ResultRouter
         if ($this->firstRoute === null) {
             throw new NoRoutesException();
         }
+
         return $this->firstRoute->route($result);
     }
 
