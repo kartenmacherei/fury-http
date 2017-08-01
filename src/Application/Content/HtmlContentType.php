@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Application;
 
-class HtmlContentType implements ContentType
+class HtmlContentType extends ContentType
 {
     /**
      * @return string

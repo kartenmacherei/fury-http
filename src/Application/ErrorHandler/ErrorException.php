@@ -7,5 +7,4 @@ use ErrorException as BaseErrorException;
 
 class ErrorException extends BaseErrorException
 {
-
 }

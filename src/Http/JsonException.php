@@ -3,6 +3,8 @@
 declare(strict_types=1);
 namespace Fury\Http;
 
-class NoNextRouteException extends Exception
+use Exception;
+
+class JsonException extends Exception
 {
 }

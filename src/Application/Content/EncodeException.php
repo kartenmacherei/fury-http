@@ -3,6 +3,8 @@
 declare(strict_types=1);
 namespace Fury\Application;
 
-class ContentException extends Exception
+use Exception;
+
+class EncodeException extends Exception
 {
 }
