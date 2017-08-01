@@ -22,7 +22,7 @@ abstract class Body
             return new EmptyBody();
         }
 
-        if (!isset($_SERVER['CONTENT_TYPE']) || empty($_SERVER['CONTENT_TYPE'])) {
+        if (empty($_SERVER['CONTENT_TYPE'])) {
             return new RawBody($content);
         }
 

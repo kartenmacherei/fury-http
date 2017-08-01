@@ -8,7 +8,7 @@ class JsonBody extends Body
     /**
      * @var JsonObject
      */
-    private $json = [];
+    private $json;
 
     /**
      * @var string
@@ -18,7 +18,7 @@ class JsonBody extends Body
     /**
      * @param string $jsonString
      */
-    public function __construct($jsonString)
+    public function __construct(string $jsonString)
     {
         $this->json = $this->decode($jsonString);
         $this->jsonString = $jsonString;
@@ -35,9 +35,9 @@ class JsonBody extends Body
     /**
      * @param string $selector
      *
-     * @return JsonArray|JsonObject|string
+     * @return JsonArray|JsonObject|string|mixed
      */
-    public function query(string $selector)
+    public function query(string $selector): mixed
     {
         return $this->json->query($selector);
     }
