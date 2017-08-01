@@ -35,9 +35,9 @@ class JsonBody extends Body
     /**
      * @param string $selector
      *
-     * @return JsonArray|JsonObject|string|mixed
+     * @return JsonArray|JsonObject|string
      */
-    public function query(string $selector): mixed
+    public function query(string $selector)
     {
         return $this->json->query($selector);
     }

@@ -21,9 +21,9 @@ class JsonArray implements Iterator
     }
 
     /**
-     * @return JsonArray|JsonObject|mixed
+     * @return JsonArray|JsonObject
      */
-    public function current(): mixed
+    public function current()
     {
         $current = current($this->data);
         if (is_array($current)) {
@@ -44,7 +44,7 @@ class JsonArray implements Iterator
     /**
      * @return mixed
      */
-    public function key(): mixed
+    public function key()
     {
         return key($this->data);
     }

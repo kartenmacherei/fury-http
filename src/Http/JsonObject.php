@@ -37,7 +37,7 @@ class JsonObject
      *
      * @return JsonArray|JsonObject|string|mixed
      */
-    public function query(string $selector): mixed
+    public function query(string $selector)
     {
         if (!$this->has($selector)) {
             throw new JsonException(sprintf('element %s not found', $selector));
