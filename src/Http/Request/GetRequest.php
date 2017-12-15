@@ -3,6 +3,8 @@
 declare(strict_types=1);
 namespace Fury\Http;
 
+use Shared\Object\Cookie;
+
 class GetRequest extends Request
 {
     /**
@@ -10,13 +12,9 @@ class GetRequest extends Request
      */
     private $parameters;
 
-    /**
-     * @param UriPath $path
-     * @param array $parameters
-     */
-    public function __construct(UriPath $path, array $parameters)
+    public function __construct(UriPath $path, RequestCookieJar $cookies, array $parameters)
     {
-        parent::__construct($path);
+        parent::__construct($path, $cookies);
         $this->parameters = $parameters;
     }
 

@@ -10,9 +10,9 @@ class PostRequest extends Request
      */
     private $body;
 
-    public function __construct(UriPath $path, Body $body)
+    public function __construct(UriPath $path, RequestCookieJar $cookies, Body $body)
     {
-        parent::__construct($path);
+        parent::__construct($path, $cookies);
         $this->body = $body;
     }
 
