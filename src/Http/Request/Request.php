@@ -11,11 +11,18 @@ abstract class Request
     private $path;
 
     /**
-     * @param UriPath $path
+     * @var RequestCookieJar
      */
-    public function __construct(UriPath $path)
+    private $cookies;
+
+    /**
+     * @param UriPath $path
+     * @param RequestCookieJar $cookies
+     */
+    public function __construct(UriPath $path, RequestCookieJar $cookies)
     {
         $this->path = $path;
+        $this->cookies = $cookies;
     }
 
     /**
@@ -35,11 +42,13 @@ abstract class Request
             case 'GET':
                 return new GetRequest(
                     $uriPath,
+                    RequestCookieJar::fromSuperGlobals(),
                     $_GET
                 );
             case 'POST':
                 return new PostRequest(
                     $uriPath,
+                    RequestCookieJar::fromSuperGlobals(),
                     $body
                 );
             default:
@@ -70,5 +79,15 @@ abstract class Request
     public function getPath(): UriPath
     {
         return $this->path;
+    }
+
+    public function hasCookie($name): bool
+    {
+        return $this->cookies->hasCookie($name);
+    }
+
+    public function getCookieValue($name): string
+    {
+        return $this->cookies->getCookie($name)->getValue();
     }
 }

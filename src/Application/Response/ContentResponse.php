@@ -18,7 +18,7 @@ class ContentResponse extends BaseResponse
     /**
      * @var ResponseCookie[]
      */
-    private $cookies;
+    private $cookies = [];
 
     /**
      * @param Content $content
