@@ -10,6 +10,6 @@ class NotFoundCommand implements Command
 {
     public function execute(): Result
     {
-        return new NotFoundResult();
+        return new NotFoundResult(new HtmlContent(''));
     }
 }

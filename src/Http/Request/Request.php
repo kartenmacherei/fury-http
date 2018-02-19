@@ -3,6 +3,9 @@
 declare(strict_types=1);
 namespace Fury\Http;
 
+use Fury\Application\ContentType;
+use Fury\Application\UnsupportedContentTypeException;
+
 abstract class Request
 {
     /**
@@ -35,8 +38,6 @@ abstract class Request
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
         $uriPath = new UriPath($_SERVER['DOCUMENT_URI']);
 
-        $body = Body::fromSuperGlobals();
-
         switch ($method) {
             case 'HEAD':
             case 'GET':
@@ -46,15 +47,35 @@ abstract class Request
                     $_GET
                 );
             case 'POST':
-                return new PostRequest(
-                    $uriPath,
-                    RequestCookieJar::fromSuperGlobals(),
-                    $body
-                );
+                return self::createPostRequest($uriPath);
             default:
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
                 throw new UnsupportedRequestMethodException($message);
         }
+    }
+
+    private static function createPostRequest(UriPath $path): PostRequest
+    {
+        $content = file_get_contents('php://input');
+
+        if (empty($content) && empty($_POST)) {
+            throw new EmptyPostRequestException();
+        }
+
+        $cookieJar = RequestCookieJar::fromSuperGlobals();
+
+        switch ($_SERVER['CONTENT_TYPE']) {
+            case '':
+                return new RawPostRequest($path, $cookieJar, new RawBody($content));
+            case ContentType::JSON:
+            case ContentType::JSON_UTF8:
+                return new JsonPostRequest($path, $cookieJar, new JsonBody($content));
+            case ContentType::WWW_FORM:
+            case ContentType::WWW_FORM_UTF8:
+                return new FormPostRequest($path, $cookieJar, $_POST);
+        }
+
+        throw new UnsupportedContentTypeException($_SERVER['CONTENT_TYPE']);
     }
 
     /**

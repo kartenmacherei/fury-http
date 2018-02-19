@@ -25,14 +25,6 @@ class JsonBody extends Body
     }
 
     /**
-     * @return bool
-     */
-    public function isJson(): bool
-    {
-        return true;
-    }
-
-    /**
      * @param string $selector
      *
      * @return JsonArray|JsonObject|string

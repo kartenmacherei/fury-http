@@ -3,25 +3,16 @@
 declare(strict_types=1);
 namespace Fury\Http;
 
-class PostRequest extends Request
+abstract class PostRequest extends Request
 {
-    /**
-     * @var Body
-     */
-    private $body;
-
-    public function __construct(UriPath $path, RequestCookieJar $cookies, Body $body)
+    public function hasParameters(): bool
     {
-        parent::__construct($path, $cookies);
-        $this->body = $body;
+        return false;
     }
 
-    /**
-     * @return Body
-     */
-    public function getBody(): Body
+    public function hasBody(): bool
     {
-        return $this->body;
+        return false;
     }
 
     /**

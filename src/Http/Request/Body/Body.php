@@ -34,8 +34,4 @@ abstract class Body
         throw new UnsupportedRequestBodyException();
     }
 
-    /**
-     * @return bool
-     */
-    abstract public function isJson(): bool;
 }

@@ -1,14 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types=1);
 namespace Fury\Http;
 
-class GetRequest extends Request
+class FormPostRequest extends PostRequest
 {
-    /**
-     * @var array
-     */
-    private $parameters;
+    private $parameters = [];
 
     public function __construct(UriPath $path, RequestCookieJar $cookies, array $parameters)
     {
@@ -16,31 +12,16 @@ class GetRequest extends Request
         $this->parameters = $parameters;
     }
 
-    /**
-     * @param string $key
-     *
-     * @return bool
-     */
     public function hasParameter(string $key): bool
     {
         return isset($this->parameters[$key]);
     }
 
-    /**
-     * @return bool
-     */
     public function hasParameters(): bool
     {
-        return count($this->parameters) > 0;
+        return true;
     }
 
-    /**
-     * @param string $key
-     *
-     * @throws RequestParameterNotFoundException
-     *
-     * @return string
-     */
     public function getParameter(string $key): string
     {
         if (!$this->hasParameter($key)) {
@@ -49,13 +30,5 @@ class GetRequest extends Request
         }
 
         return $this->parameters[$key];
-    }
-
-    /**
-     * @return bool
-     */
-    public function isGetRequest(): bool
-    {
-        return true;
     }
 }

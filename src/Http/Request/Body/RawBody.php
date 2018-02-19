@@ -25,12 +25,4 @@ class RawBody extends Body
     {
         return $this->content;
     }
-
-    /**
-     * @return bool
-     */
-    public function isJson(): bool
-    {
-        return false;
-    }
 }
