@@ -75,7 +75,7 @@ abstract class Request
                 return new FormPostRequest($path, $cookieJar, $_POST);
         }
 
-        throw new UnsupportedContentTypeException($_SERVER['CONTENT_TYPE']);
+        return new RawPostRequest($path, $cookieJar, new RawBody($content));
     }
 
     /**
