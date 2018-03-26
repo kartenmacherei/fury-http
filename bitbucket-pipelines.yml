@@ -6,7 +6,9 @@ pipelines:
         caches:
           - composer
         script:
-          - apk add --update git unzip openssh-client
+          - apk add --update git unzip openssh-client autoconf make g++
+          - pecl install xdebug
+          - docker-php-ext-enable xdebug
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer install
           - vendor/bin/phpunit
