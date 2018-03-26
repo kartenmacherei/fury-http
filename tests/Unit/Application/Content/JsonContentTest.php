@@ -6,6 +6,11 @@ use Fury\Application\JsonContent;
 use Fury\Application\JsonContentType;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Fury\Application\JsonContent
+ * @uses \Fury\Application\EncodeException
+ * @uses \Fury\Application\JsonContentType
+ */
 class JsonContentTest extends TestCase
 {
     /**

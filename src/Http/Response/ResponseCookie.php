@@ -34,7 +34,7 @@ class ResponseCookie
         $this->value = $value;
     }
 
-    final public function send()
+    public function send()
     {
         $cookieDirectives = [
             sprintf('%s=%s', $this->name, rawurlencode($this->value)),

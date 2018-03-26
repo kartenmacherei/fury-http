@@ -9,10 +9,7 @@ use Fury\Http\StatusCode;
 
 class UnsupportedRequestTypeResponse extends BaseResponse
 {
-    /**
-     * @return StatusCode
-     */
-    public function getStatusCode(): StatusCode
+    protected function getStatusCode(): StatusCode
     {
         return new MethodNotAllowedCode();
     }
