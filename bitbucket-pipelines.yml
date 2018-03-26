@@ -11,4 +11,4 @@ pipelines:
           - docker-php-ext-enable xdebug
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer install
-          - vendor/bin/phpunit
+          - vendor/bin/phpunit --log-junit ./test-reports/junit.xml

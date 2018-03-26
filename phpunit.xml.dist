@@ -22,7 +22,6 @@
 
     <logging>
         <log type="coverage-html" target="./build/coverage/"/>
-        <log type="junit" target="./build/test-reports/junit.xml"/>
     </logging>
 
 </phpunit>
