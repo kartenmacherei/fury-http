@@ -1,0 +1,12 @@
+image: php:7.1-cli-alpine
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - composer
+        script:
+          - apk add --update git unzip openssh-client
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - composer install
+          - vendor/bin/phpunit

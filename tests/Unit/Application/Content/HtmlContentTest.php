@@ -21,7 +21,7 @@ class HtmlContentTest extends TestCase
     public function testGetContentTypeReturnsExpectedContentType()
     {
         $content = new HtmlContent('');
-        
+
         $this->assertEquals(new HtmlContentType(), $content->getContentType());
     }
 }
