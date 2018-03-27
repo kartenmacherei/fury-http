@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Fury\Http;
 
 use Fury\Application\ContentType;
-use Fury\Application\UnsupportedContentTypeException;
 
 abstract class Request
 {
@@ -29,11 +28,11 @@ abstract class Request
     }
 
     /**
+     * @param string $inputStream
      * @throws UnsupportedRequestMethodException
-     *
      * @return GetRequest|PostRequest|Request
      */
-    public static function fromSuperGlobals(): Request
+    public static function fromSuperGlobals(string $inputStream = 'php://input'): Request
     {
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
         $uriPath = new UriPath($_SERVER['DOCUMENT_URI']);
@@ -41,28 +40,18 @@ abstract class Request
         switch ($method) {
             case 'HEAD':
             case 'GET':
-                return new GetRequest(
-                    $uriPath,
-                    RequestCookieJar::fromSuperGlobals(),
-                    $_GET
-                );
+                return new GetRequest($uriPath, RequestCookieJar::fromSuperGlobals(), $_GET);
             case 'POST':
-                return self::createPostRequest($uriPath);
+                return self::createPostRequest($uriPath, $inputStream);
             default:
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
                 throw new UnsupportedRequestMethodException($message);
         }
     }
 
-    private static function createPostRequest(UriPath $path): PostRequest
+    private static function createPostRequest(UriPath $path, string $inputStream): PostRequest
     {
-        $content = file_get_contents('php://input');
-
-        if (empty($content) && empty($_POST)) {
-            // FIXME workaround for SHOP-378
-            //throw new EmptyPostRequestException();
-        }
-
+        $content = file_get_contents($inputStream);
         $cookieJar = RequestCookieJar::fromSuperGlobals();
 
         switch ($_SERVER['CONTENT_TYPE']) {

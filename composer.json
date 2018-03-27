@@ -8,7 +8,8 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^7.0",
-		"kartenmacherei/kam-php-coding-standard": "dev-master"
+		"kartenmacherei/kam-php-coding-standard": "dev-master",
+		"mikey179/vfsStream": "^1.6.5"
 	},
 	"repositories": {
 		"kartenmacherei/kam-php-coding-standard": {

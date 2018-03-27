@@ -27,7 +27,7 @@ class RequestCookieJar
     public function getCookie($name): RequestCookie
     {
         if (!$this->hasCookie($name)) {
-            throw new CookieNotFoundException(sprintf('Cookie %s not found'));
+            throw new CookieNotFoundException(sprintf('Cookie %s not found', $name));
         }
         return $this->cookies[$name];
     }
