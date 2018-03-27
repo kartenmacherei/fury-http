@@ -15,7 +15,7 @@ class ResponseCookieTest extends TestCase
             $this->markTestSkipped('Test requires Xdebug extension');
         }
     }
-    
+
     /**
      * @runInSeparateProcess
      */
