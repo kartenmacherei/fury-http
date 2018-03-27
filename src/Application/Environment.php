@@ -5,12 +5,22 @@ namespace Fury\Application;
 
 class Environment
 {
-    /**
-     * @return bool
-     */
+    private const FURY_ENV = 'FURY_ENV';
+
+    private $environmentVariables = [];
+
+    public function __construct(array $environmentVariables)
+    {
+        $this->environmentVariables = $environmentVariables;
+    }
+
+    public static function fromSuperGlobals(): Environment
+    {
+        return new self($_SERVER);
+    }
+
     public function isDevelopment(): bool
     {
-        // TODO super-fury isset($_SERVER['FURY_ENV']) && $_SERVER['FURY_ENV'] === 'development'
-        return true;
+        return array_key_exists(self::FURY_ENV, $this->environmentVariables) && $this->environmentVariables[self::FURY_ENV] === 'development';
     }
 }

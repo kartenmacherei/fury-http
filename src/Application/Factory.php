@@ -44,6 +44,6 @@ class Factory
      */
     private function createEnvironment(): Environment
     {
-        return new Environment();
+        return Environment::fromSuperGlobals();
     }
 }

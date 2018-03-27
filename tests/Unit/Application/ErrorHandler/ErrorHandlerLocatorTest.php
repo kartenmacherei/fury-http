@@ -1,0 +1,59 @@
+<?php declare(strict_types=1);
+namespace Fury\Application\UnitTests;
+
+use Fury\Application\Environment;
+use Fury\Application\ErrorHandlerLocator;
+use Fury\Application\Factory;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \Fury\Application\ErrorHandlerLocator
+ */
+class ErrorHandlerLocatorTest extends TestCase
+{
+
+    /**
+     * @dataProvider locatorTestDataProvider
+     *
+     * @param bool $isDevelopment
+     * @param string $expectedFactoryMethod
+     */
+    public function testReturnsExpectedInstance(bool $isDevelopment, string $expectedFactoryMethod)
+    {
+        $environment = $this->getEnvironmentMock();
+        $environment->method('isDevelopment')->willReturn($isDevelopment);
+
+        $factory = $this->getFactoryMock();
+        $factory->expects($this->once())
+            ->method($expectedFactoryMethod);
+
+        $locator = new ErrorHandlerLocator($factory);
+        $locator->locate($environment);
+    }
+
+
+    /**
+     * @return MockObject|Environment
+     */
+    private function getEnvironmentMock()
+    {
+        return $this->createMock(Environment::class);
+    }
+
+    /**
+     * @return MockObject|Factory
+     */
+    private function getFactoryMock()
+    {
+        return $this->createMock(Factory::class);
+    }
+
+    public function locatorTestDataProvider(): array
+    {
+        return [
+            [true, 'createDevelopmentErrorHandler'],
+            [false, 'createProductionErrorHandler'],
+        ];
+    }
+}
