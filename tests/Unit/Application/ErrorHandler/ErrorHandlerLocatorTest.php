@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\Environment;
@@ -12,7 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ErrorHandlerLocatorTest extends TestCase
 {
-
     /**
      * @dataProvider locatorTestDataProvider
      *
@@ -32,6 +33,13 @@ class ErrorHandlerLocatorTest extends TestCase
         $locator->locate($environment);
     }
 
+    public function locatorTestDataProvider(): array
+    {
+        return [
+            [true, 'createDevelopmentErrorHandler'],
+            [false, 'createProductionErrorHandler'],
+        ];
+    }
 
     /**
      * @return MockObject|Environment
@@ -47,13 +55,5 @@ class ErrorHandlerLocatorTest extends TestCase
     private function getFactoryMock()
     {
         return $this->createMock(Factory::class);
-    }
-
-    public function locatorTestDataProvider(): array
-    {
-        return [
-            [true, 'createDevelopmentErrorHandler'],
-            [false, 'createProductionErrorHandler'],
-        ];
     }
 }

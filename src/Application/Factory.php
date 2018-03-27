@@ -16,14 +16,6 @@ class Factory
     }
 
     /**
-     * @return ErrorHandlerLocator
-     */
-    private function createErrorHandlerLocator(): ErrorHandlerLocator
-    {
-        return new ErrorHandlerLocator($this);
-    }
-
-    /**
      * @return DevelopmentErrorHandler
      */
     public function createDevelopmentErrorHandler(): DevelopmentErrorHandler
@@ -37,6 +29,14 @@ class Factory
     public function createProductionErrorHandler(): ProductionErrorHandler
     {
         return new ProductionErrorHandler();
+    }
+
+    /**
+     * @return ErrorHandlerLocator
+     */
+    private function createErrorHandlerLocator(): ErrorHandlerLocator
+    {
+        return new ErrorHandlerLocator($this);
     }
 
     /**

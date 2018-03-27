@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\EnsureException;
@@ -8,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Http\JsonBody
+ *
  * @uses \Fury\Http\JsonObject
  */
 class JsonBodyTest extends TestCase
@@ -26,7 +29,6 @@ class JsonBodyTest extends TestCase
 
         $this->assertEquals($expected, $body->getJson());
     }
-
 
     public function testGetEncodedStringReturnsExpectedString()
     {

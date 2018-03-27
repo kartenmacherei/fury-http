@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 namespace Fury\Http;
 
 use DateTime;
@@ -39,7 +39,7 @@ class ResponseCookie
         $cookieDirectives = [
             sprintf('%s=%s', $this->name, rawurlencode($this->value)),
             'Path=/',
-            'Secure'
+            'Secure',
         ];
         if ($this->isHttpOnly) {
             $cookieDirectives[] = 'HttpOnly';

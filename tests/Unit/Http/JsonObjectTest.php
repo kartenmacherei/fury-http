@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\JsonArray;
@@ -8,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Http\JsonObject
+ *
  * @uses \Fury\Http\JsonArray
  */
 class JsonObjectTest extends TestCase

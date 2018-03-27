@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\GetRequest;
@@ -10,6 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Http\GetRequest
+ *
  * @uses \Fury\Http\Request
  */
 class GetRequestTest extends TestCase
@@ -18,7 +21,7 @@ class GetRequestTest extends TestCase
      * @var GetRequest
      */
     private $request;
-    
+
     protected function setUp()
     {
         $this->request = new GetRequest(

@@ -1,10 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
+use Fury\Http\Command;
+use Fury\Http\NoNextRouteException;
 use Fury\Http\PostRequest;
 use Fury\Http\PostRoute;
-use Fury\Http\NoNextRouteException;
-use Fury\Http\Command;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -22,7 +24,6 @@ class PostRouteTest extends TestCase
     {
         $this->route = $this->getPostRoute();
     }
-
 
     public function testRouteThrowsExceptionOfNoNextRouteIsAvailable()
     {

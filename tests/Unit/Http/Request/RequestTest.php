@@ -1,11 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Application\ContentType;
 use Fury\Http\FormPostRequest;
 use Fury\Http\GetRequest;
 use Fury\Http\JsonPostRequest;
-use Fury\Http\PostRequest;
 use Fury\Http\RawPostRequest;
 use Fury\Http\Request;
 use Fury\Http\RequestCookie;
@@ -61,7 +62,7 @@ class RequestTest extends TestCase
     {
         $this->assertFalse($this->request->isPostRequest());
     }
-    
+
     public function testGetPathReturnsExpectedObject()
     {
         $this->assertSame($this->path, $this->request->getPath());

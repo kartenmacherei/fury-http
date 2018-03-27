@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\EncodeException;
@@ -8,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Application\JsonContent
+ *
  * @uses \Fury\Application\EncodeException
  * @uses \Fury\Application\JsonContentType
  */
@@ -39,7 +42,7 @@ class JsonContentTest extends TestCase
     public function unencodableTestDataProvider()
     {
         return [
-            [fopen('php://memory', 'r')]
+            [fopen('php://memory', 'r')],
         ];
     }
 }

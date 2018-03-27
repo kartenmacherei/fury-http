@@ -33,5 +33,4 @@ abstract class Body
         }
         throw new UnsupportedRequestBodyException();
     }
-
 }

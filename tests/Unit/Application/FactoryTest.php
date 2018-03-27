@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\DevelopmentErrorHandler;
@@ -9,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Application\Factory
+ *
  * @uses \Fury\Application\ErrorHandler
  * @uses \Fury\Application\Environment
  * @uses \Fury\Application\ErrorHandlerLocator
@@ -39,5 +42,4 @@ class FactoryTest extends TestCase
     {
         $this->assertInstanceOf(ProductionErrorHandler::class, $this->factory->createProductionErrorHandler());
     }
-
 }

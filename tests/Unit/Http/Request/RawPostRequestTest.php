@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\RawBody;
@@ -10,6 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Http\RawPostRequest
+ *
  * @uses \Fury\Http\Request
  */
 class RawPostRequestTest extends TestCase

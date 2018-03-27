@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 namespace Fury\Http;
 
 class RequestCookieJar
@@ -12,10 +13,10 @@ class RequestCookieJar
     public static function fromSuperGlobals(): RequestCookieJar
     {
         $jar = new RequestCookieJar();
-        foreach ($_COOKIE as $name => $value)
-        {
+        foreach ($_COOKIE as $name => $value) {
             $jar->addCookie(new RequestCookie($name, $value));
         }
+
         return $jar;
     }
 
@@ -29,6 +30,7 @@ class RequestCookieJar
         if (!$this->hasCookie($name)) {
             throw new CookieNotFoundException(sprintf('Cookie %s not found', $name));
         }
+
         return $this->cookies[$name];
     }
 

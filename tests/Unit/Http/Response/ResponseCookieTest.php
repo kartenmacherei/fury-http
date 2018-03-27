@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\ResponseCookie;
@@ -25,7 +27,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; HttpOnly'
+            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -41,7 +43,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; HttpOnly; Expires=Tuesday, 27-Mar-2018 13:57:00 UTC'
+            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; HttpOnly; Expires=Tuesday, 27-Mar-2018 13:57:00 UTC',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -57,7 +59,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure'
+            'Set-Cookie: some_cookie=some%20value; Path=/; Secure',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());

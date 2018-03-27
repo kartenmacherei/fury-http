@@ -1,12 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
+use Fury\Http\NoNextRouteException;
 use Fury\Http\Result;
 use Fury\Http\ResultRenderer;
-use Fury\Http\ResultRequest;
 use Fury\Http\ResultRoute;
-use Fury\Http\NoNextRouteException;
-use Fury\Http\Command;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

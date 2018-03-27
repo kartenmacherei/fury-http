@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\BaseResponse;
@@ -54,5 +56,4 @@ class BaseResponseTest extends TestCase
     {
         return $this->getMockForAbstractClass(BaseResponse::class);
     }
-
 }

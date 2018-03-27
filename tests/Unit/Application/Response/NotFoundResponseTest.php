@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\Content;
@@ -36,5 +38,4 @@ class NotFoundResponseTest extends TestCase
     {
         return $this->createMock(Content::class);
     }
-
 }

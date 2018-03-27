@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\PostRequest;
@@ -9,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Http\PostRequest
+ *
  * @uses \Fury\Http\Request
  */
 class PostRequestTest extends TestCase

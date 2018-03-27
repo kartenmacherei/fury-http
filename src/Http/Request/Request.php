@@ -29,7 +29,9 @@ abstract class Request
 
     /**
      * @param string $inputStream
+     *
      * @throws UnsupportedRequestMethodException
+     *
      * @return GetRequest|PostRequest|Request
      */
     public static function fromSuperGlobals(string $inputStream = 'php://input'): Request
@@ -47,25 +49,6 @@ abstract class Request
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
                 throw new UnsupportedRequestMethodException($message);
         }
-    }
-
-    private static function createPostRequest(UriPath $path, string $inputStream): PostRequest
-    {
-        $content = file_get_contents($inputStream);
-        $cookieJar = RequestCookieJar::fromSuperGlobals();
-
-        switch ($_SERVER['CONTENT_TYPE']) {
-            case '':
-                return new RawPostRequest($path, $cookieJar, new RawBody($content));
-            case ContentType::JSON:
-            case ContentType::JSON_UTF8:
-                return new JsonPostRequest($path, $cookieJar, new JsonBody($content));
-            case ContentType::WWW_FORM:
-            case ContentType::WWW_FORM_UTF8:
-                return new FormPostRequest($path, $cookieJar, $_POST);
-        }
-
-        return new RawPostRequest($path, $cookieJar, new RawBody($content));
     }
 
     /**
@@ -100,5 +83,24 @@ abstract class Request
     public function getCookieValue($name): string
     {
         return $this->cookies->getCookie($name)->getValue();
+    }
+
+    private static function createPostRequest(UriPath $path, string $inputStream): PostRequest
+    {
+        $content = file_get_contents($inputStream);
+        $cookieJar = RequestCookieJar::fromSuperGlobals();
+
+        switch ($_SERVER['CONTENT_TYPE']) {
+            case '':
+                return new RawPostRequest($path, $cookieJar, new RawBody($content));
+            case ContentType::JSON:
+            case ContentType::JSON_UTF8:
+                return new JsonPostRequest($path, $cookieJar, new JsonBody($content));
+            case ContentType::WWW_FORM:
+            case ContentType::WWW_FORM_UTF8:
+                return new FormPostRequest($path, $cookieJar, $_POST);
+        }
+
+        return new RawPostRequest($path, $cookieJar, new RawBody($content));
     }
 }

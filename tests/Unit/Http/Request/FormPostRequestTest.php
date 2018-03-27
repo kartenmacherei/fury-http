@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\FormPostRequest;
@@ -10,6 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Http\FormPostRequest
+ *
  * @uses \Fury\Http\Request
  */
 class FormPostRequestTest extends TestCase
@@ -18,7 +21,7 @@ class FormPostRequestTest extends TestCase
      * @var FormPostRequest
      */
     private $request;
-    
+
     protected function setUp()
     {
         $this->request = new FormPostRequest(

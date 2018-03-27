@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "892e53b50d3f9562d80c7c46a64a4566",
+    "content-hash": "383363c6db83fcd0048920ccb2cce238",
     "packages": [],
     "packages-dev": [
         {
@@ -341,7 +341,7 @@
         },
         {
             "name": "kartenmacherei/kam-php-coding-standard",
-            "version": "dev-master",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:kartenmacherei/kam-php-coding-standard.git",
@@ -2477,9 +2477,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kartenmacherei/kam-php-coding-standard": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

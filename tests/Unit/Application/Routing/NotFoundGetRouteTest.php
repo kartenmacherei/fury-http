@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\NotFoundGetRoute;
@@ -10,6 +12,7 @@ use PHPUnit_Framework_MockObject_MockObject;
 /**
  * @covers \Fury\Application\NotFoundGetRoute
  * @covers \Fury\Http\GetRoute
+ *
  * @uses \Fury\Application\NotFoundQuery
  */
 class NotFoundGetRouteTest extends TestCase

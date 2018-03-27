@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\NotFoundResult;
@@ -10,6 +12,7 @@ use PHPUnit_Framework_MockObject_MockObject;
 /**
  * @covers \Fury\Application\NotFoundResultRoute
  * @covers \Fury\Http\ResultRoute
+ *
  * @uses \Fury\Application\NotFoundResultRenderer
  */
 class NotFoundResultRouteTest extends TestCase
