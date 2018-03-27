@@ -19,7 +19,7 @@ abstract class Body
         $content = file_get_contents($inputStream);
 
         if (empty($content) && empty($_POST)) {
-            return new EmptyBody();
+            return new RawBody('');
         }
 
         if (empty($_SERVER['CONTENT_TYPE'])) {
