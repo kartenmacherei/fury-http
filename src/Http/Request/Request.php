@@ -59,7 +59,8 @@ abstract class Request
         $content = file_get_contents('php://input');
 
         if (empty($content) && empty($_POST)) {
-            throw new EmptyPostRequestException();
+            // FIXME workaround for SHOP-378
+            //throw new EmptyPostRequestException();
         }
 
         $cookieJar = RequestCookieJar::fromSuperGlobals();
