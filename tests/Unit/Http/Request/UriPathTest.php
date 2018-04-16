@@ -41,6 +41,18 @@ class UriPathTest extends TestCase
     }
 
     /**
+     * @dataProvider asStringWithoutTrailingSlashDataProvider
+     *
+     * @param string $path
+     * @param string $expectedString
+     */
+    public function testAsStringWithoutTrailingSlash(string $path, string $expectedString)
+    {
+        $path = new UriPath($path);
+        $this->assertSame($expectedString, $path->asStringWithoutTrailingSlash());
+    }
+
+    /**
      * @dataProvider equalsTestDataProvider
      *
      * @param string $path1Value
@@ -93,6 +105,14 @@ class UriPathTest extends TestCase
            ['/foo', '/fo', true],
            ['/foo', 'fo', false],
            ['/foo', '/bar', false],
+        ];
+    }
+
+    public function asStringWithoutTrailingSlashDataProvider(): array
+    {
+        return [
+            ['/foo/', '/foo'],
+            ['/foo', '/foo'],
         ];
     }
 }
