@@ -10,38 +10,27 @@ class UriPath
      */
     private $pathUri;
 
-    /**
-     * @param string $path
-     */
     public function __construct(string $path)
     {
         $this->ensureStartsWithSlash($path);
         $this->pathUri = $path;
     }
 
-    /**
-     * @return string
-     */
     public function asString(): string
     {
         return $this->pathUri;
     }
 
-    /**
-     * @param string $string
-     *
-     * @return bool
-     */
+    public function asStringWithoutTrailingSlash(): string
+    {
+        return rtrim($this->pathUri, '/');
+    }
+
     public function startsWith(string $string): bool
     {
         return strpos($this->pathUri, $string) === 0;
     }
 
-    /**
-     * @param UriPath $uri
-     *
-     * @return bool
-     */
     public function equals(UriPath $uri): bool
     {
         $path = parse_url($this->asString(), PHP_URL_PATH);
@@ -50,11 +39,6 @@ class UriPath
         return $path === $otherPath;
     }
 
-    /**
-     * @param Pattern $pattern
-     *
-     * @return bool
-     */
     public function matches(Pattern $pattern): bool
     {
         return preg_match($pattern->asString(), $this->pathUri) === 1;
