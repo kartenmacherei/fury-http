@@ -20,33 +20,21 @@ class ContentResponse extends BaseResponse
      */
     private $cookies = [];
 
-    /**
-     * @param Content $content
-     */
     public function __construct(Content $content)
     {
         $this->content = $content;
     }
 
-    /**
-     * @param ResponseCookie $cookie
-     */
     public function addCookie(ResponseCookie $cookie): void
     {
         $this->cookies[] = $cookie;
     }
 
-    /**
-     * @return StatusCode
-     */
     protected function getStatusCode(): StatusCode
     {
         return new OkStatusCode();
     }
 
-    /**
-     * @return Content
-     */
     protected function getContent(): Content
     {
         return $this->content;
