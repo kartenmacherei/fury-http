@@ -20,40 +20,37 @@ class ContentResponse extends BaseResponse
      */
     private $cookies = [];
 
-    /**
-     * @param Content $content
-     */
     public function __construct(Content $content)
     {
         $this->content = $content;
     }
 
-    /**
-     * @param ResponseCookie $cookie
-     */
-    public function addCookie(ResponseCookie $cookie)
+    public function addCookie(ResponseCookie $cookie): void
     {
         $this->cookies[] = $cookie;
     }
 
-    /**
-     * @return StatusCode
-     */
     protected function getStatusCode(): StatusCode
     {
         return new OkStatusCode();
     }
 
-    protected function flush()
+    protected function getContent(): Content
+    {
+        return $this->content;
+    }
+
+    protected function flush(): void
     {
         foreach ($this->cookies as $cookie) {
             $cookie->send();
         }
 
+        $content = $this->getContent();
         header(sprintf(
             'Content-Type: %s; charset=UTF-8',
-            $this->content->getContentType()->asString()
+            $content->getContentType()->asString()
         ));
-        echo $this->content->asString();
+        echo $content->asString();
     }
 }
