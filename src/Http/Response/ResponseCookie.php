@@ -28,6 +28,11 @@ class ResponseCookie
      */
     private $expiresAt;
 
+    /**
+     * @var string|null
+     */
+    private $domain;
+
     public function __construct(string $name, string $value)
     {
         $this->name = $name;
@@ -41,6 +46,9 @@ class ResponseCookie
             'Path=/',
             'Secure',
         ];
+        if ($this->domain !== null) {
+            $cookieDirectives[] = sprintf('Domain=%s', $this->domain);
+        }
         if ($this->isHttpOnly) {
             $cookieDirectives[] = 'HttpOnly';
         }
@@ -58,5 +66,10 @@ class ResponseCookie
     public function expiresAt(DateTimeImmutable $dateTime)
     {
         $this->expiresAt = $dateTime;
+    }
+
+    public function forDomain(string $domain): void
+    {
+        $this->domain = $domain;
     }
 }
