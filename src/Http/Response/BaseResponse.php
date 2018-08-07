@@ -5,9 +5,23 @@ namespace Fury\Http;
 
 abstract class BaseResponse implements Response
 {
-    public function send()
+    /**
+     * @var ResponseCookie[]
+     */
+    private $cookies = [];
+
+    public function addCookie(ResponseCookie $cookie): void
+    {
+        $this->cookies[] = $cookie;
+    }
+
+    public function send(): void
     {
         http_response_code($this->getStatusCode()->asInt());
+
+        foreach ($this->cookies as $cookie) {
+            $cookie->send();
+        }
 
         $this->flush();
     }
@@ -17,5 +31,5 @@ abstract class BaseResponse implements Response
      */
     abstract protected function getStatusCode(): StatusCode;
 
-    abstract protected function flush();
+    abstract protected function flush(): void;
 }

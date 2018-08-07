@@ -5,5 +5,7 @@ namespace Fury\Http;
 
 interface Response
 {
-    public function send();
+    public function send(): void;
+
+    public function addCookie(ResponseCookie $cookie): void;
 }
