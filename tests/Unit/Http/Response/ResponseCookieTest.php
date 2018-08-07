@@ -52,6 +52,22 @@ class ResponseCookieTest extends TestCase
     /**
      * @runInSeparateProcess
      */
+    public function testSetsExpectedCookieHeaderWithDomain()
+    {
+        $cookie = new ResponseCookie('some_cookie', 'some value');
+        $cookie->forDomain('myDomain');
+        $cookie->send();
+
+        $expected = [
+            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; Domain=myDomain; HttpOnly',
+        ];
+
+        $this->assertSame($expected, xdebug_get_headers());
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
     public function testSetsExpectedCookieHeaderWithoutHttpOnly()
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');
