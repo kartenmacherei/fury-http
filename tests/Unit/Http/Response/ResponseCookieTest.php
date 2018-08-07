@@ -3,6 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
+use Fury\Http\EnsureException;
 use Fury\Http\ResponseCookie;
 use PHPUnit\Framework\TestCase;
 
@@ -63,6 +64,13 @@ class ResponseCookieTest extends TestCase
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
+    }
+    public function testSetInvalidDomainThrowsException()
+    {
+        $this->expectException(EnsureException::class);
+        $this->expectExceptionMessage('empty domain');
+        $cookie = new ResponseCookie('some_cookie', 'some value');
+        $cookie->forDomain('');
     }
 
     /**

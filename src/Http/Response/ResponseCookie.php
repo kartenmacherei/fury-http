@@ -39,7 +39,7 @@ class ResponseCookie
         $this->value = $value;
     }
 
-    public function send()
+    public function send(): void
     {
         $cookieDirectives = [
             sprintf('%s=%s', $this->name, rawurlencode($this->value)),
@@ -58,18 +58,26 @@ class ResponseCookie
         header(sprintf('Set-Cookie: %s', implode('; ', $cookieDirectives)), false);
     }
 
-    public function allowClientAccess()
+    public function allowClientAccess(): void
     {
         $this->isHttpOnly = false;
     }
 
-    public function expiresAt(DateTimeImmutable $dateTime)
+    public function expiresAt(DateTimeImmutable $dateTime): void
     {
         $this->expiresAt = $dateTime;
     }
 
     public function forDomain(string $domain): void
     {
+        $this->ensureNotEmptyString($domain);
         $this->domain = $domain;
+    }
+
+    private function ensureNotEmptyString(string $domain): void
+    {
+        if ($domain === '') {
+            throw new EnsureException('empty domain');
+        }
     }
 }
