@@ -2,3 +2,4 @@
 phpunit.xml
 build/
 vendor/
+.idea/
