@@ -15,19 +15,9 @@ class ContentResponse extends BaseResponse
      */
     private $content;
 
-    /**
-     * @var ResponseCookie[]
-     */
-    private $cookies = [];
-
     public function __construct(Content $content)
     {
         $this->content = $content;
-    }
-
-    public function addCookie(ResponseCookie $cookie): void
-    {
-        $this->cookies[] = $cookie;
     }
 
     protected function getStatusCode(): StatusCode
@@ -42,10 +32,6 @@ class ContentResponse extends BaseResponse
 
     protected function flush(): void
     {
-        foreach ($this->cookies as $cookie) {
-            $cookie->send();
-        }
-
         $content = $this->getContent();
         header(sprintf(
             'Content-Type: %s; charset=UTF-8',

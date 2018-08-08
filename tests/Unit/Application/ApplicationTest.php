@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\Application;
-use Fury\Application\UnsupportedRequestTypeResponse;
+use Fury\Application\MethodNotAllowedResponse;
 use Fury\Http\Command;
 use Fury\Http\GetRequest;
 use Fury\Http\GetRouter;
@@ -16,6 +16,7 @@ use Fury\Http\Response;
 use Fury\Http\Result;
 use Fury\Http\ResultRenderer;
 use Fury\Http\ResultRouter;
+use Fury\Http\SupportedRequestMethods;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -101,14 +102,19 @@ class ApplicationTest extends TestCase
         $this->assertSame($response, $application->handle($request));
     }
 
+    /**
+     * @uses \Fury\Application\MethodNotAllowedResponse
+     */
     public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost()
     {
         $request = $this->getRequestMock();
+        $supportedRequestMethodsMock = $this->createMock(SupportedRequestMethods::class);
         $request->method('isGetRequest')->willReturn(false);
         $request->method('isPostRequest')->willReturn(false);
+        $request->method('getSupportedRequestMethods')->willReturn($supportedRequestMethodsMock);
 
         $application = $this->getApplication();
-        $this->assertInstanceOf(UnsupportedRequestTypeResponse::class, $application->handle($request));
+        $this->assertInstanceOf(MethodNotAllowedResponse::class, $application->handle($request));
     }
 
     /**

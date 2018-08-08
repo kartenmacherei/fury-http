@@ -30,7 +30,7 @@ abstract class Application
             return $this->handlePostRequest($request);
         }
 
-        return new UnsupportedRequestTypeResponse();
+        return new MethodNotAllowedResponse($request->getSupportedRequestMethods());
     }
 
     /**

@@ -11,6 +11,7 @@ use Fury\Http\RawPostRequest;
 use Fury\Http\Request;
 use Fury\Http\RequestCookie;
 use Fury\Http\RequestCookieJar;
+use Fury\Http\SupportedRequestMethods;
 use Fury\Http\UnsupportedRequestMethodException;
 use Fury\Http\UriPath;
 use org\bovigo\vfs\vfsStream;
@@ -150,6 +151,18 @@ class RequestTest extends TestCase
         $this->expectException(UnsupportedRequestMethodException::class);
 
         Request::fromSuperGlobals();
+    }
+
+    /**
+     * @uses \Fury\Http\SupportedRequestMethods
+     */
+    public function testGetAllowedRequestMethods():void {
+        $pathMock = $this->createMock(UriPath::class);
+        $cookiesMock = $this->createMock(RequestCookieJar::class);
+
+        $request = $this->getMockForAbstractClass(Request::class, [$pathMock, $cookiesMock]);
+        $expected = new SupportedRequestMethods('HEAD', 'GET', 'POST');
+        $this->assertEquals($expected, $request->getSupportedRequestMethods());
     }
 
     /**
