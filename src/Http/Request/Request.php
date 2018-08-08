@@ -7,6 +7,10 @@ use Fury\Application\ContentType;
 
 abstract class Request
 {
+    private const METHOD_HEAD = 'HEAD';
+    private const METHOD_GET = 'GET';
+    private const METHOD_POST = 'POST';
+
     /**
      * @var UriPath
      */
@@ -40,10 +44,10 @@ abstract class Request
         $uriPath = new UriPath($_SERVER['DOCUMENT_URI']);
 
         switch ($method) {
-            case 'HEAD':
-            case 'GET':
+            case self::METHOD_HEAD:
+            case self::METHOD_GET:
                 return new GetRequest($uriPath, RequestCookieJar::fromSuperGlobals(), $_GET);
-            case 'POST':
+            case self::METHOD_POST:
                 return self::createPostRequest($uriPath, $inputStream);
             default:
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
@@ -83,6 +87,15 @@ abstract class Request
     public function getCookieValue($name): string
     {
         return $this->cookies->getCookie($name)->getValue();
+    }
+
+    public function getSupportedRequestMethods(): SupportedRequestMethods
+    {
+        return new SupportedRequestMethods(
+            self::METHOD_HEAD,
+            self::METHOD_GET,
+            self::METHOD_POST
+        );
     }
 
     private static function createPostRequest(UriPath $path, string $inputStream): PostRequest

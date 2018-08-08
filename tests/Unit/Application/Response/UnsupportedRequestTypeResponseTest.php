@@ -5,6 +5,7 @@ namespace Fury\Application\UnitTests;
 
 use Fury\Application\UnsupportedRequestTypeResponse;
 use Fury\Http\ResponseCookie;
+use Fury\Http\SupportedRequestMethods;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -17,16 +18,29 @@ class UnsupportedRequestTypeResponseTest extends TestCase
      */
     public function testSetsExpectedHttpResponseCode()
     {
-        $response = new UnsupportedRequestTypeResponse();
+        if (!function_exists('xdebug_get_headers')) {
+            $this->markTestSkipped('This test requires xdebug_get_headers() from the XDEBUG-Extension.');
+        }
+
+        $supportedRequestMethodsMock = $this->createMock(SupportedRequestMethods::class);
+        $supportedRequestMethodsMock->expects($this->once())
+            ->method('asString')
+            ->willReturn('HEAD, GET, POST');
+
+        $response = new UnsupportedRequestTypeResponse($supportedRequestMethodsMock);
         $responseCookie = $this->createMock(ResponseCookie::class);
-        $responseCookie->expects($this->never())
+        $responseCookie->expects($this->once())
             ->method('send');
 
-        ob_start();
         $response->addCookie($responseCookie);
         $response->send();
-        ob_end_clean();
 
         $this->assertSame(405, http_response_code());
+
+        $headers = xdebug_get_headers();
+        $this->assertContains(
+            sprintf('Allow: HEAD, GET, POST'),
+            $headers[0]
+        );
     }
 }
