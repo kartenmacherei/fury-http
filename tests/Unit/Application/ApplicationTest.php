@@ -102,6 +102,9 @@ class ApplicationTest extends TestCase
         $this->assertSame($response, $application->handle($request));
     }
 
+    /**
+     * @uses \Fury\Application\MethodNotAllowedResponse
+     */
     public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost()
     {
         $request = $this->getRequestMock();

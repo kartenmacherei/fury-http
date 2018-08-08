@@ -153,6 +153,9 @@ class RequestTest extends TestCase
         Request::fromSuperGlobals();
     }
 
+    /**
+     * @uses \Fury\Http\SupportedRequestMethods
+     */
     public function testGetAllowedRequestMethods():void {
         $pathMock = $this->createMock(UriPath::class);
         $cookiesMock = $this->createMock(RequestCookieJar::class);
