@@ -5,7 +5,7 @@ namespace Fury\Application\UnitTests;
 
 use Fury\Application\Content;
 use Fury\Application\ContentResponse;
-use Fury\Application\JsonContentType;
+use Fury\Application\ContentType;
 use Fury\Http\ResponseCookie;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
@@ -15,6 +15,9 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class ContentResponseTest extends TestCase
 {
+    private const CONTENT_VALUE = 'foo';
+    private const CONTENT_TYPE_VALUE = 'application/json';
+
     protected function setUp()
     {
         if (!extension_loaded('xdebug')) {
@@ -27,10 +30,9 @@ class ContentResponseTest extends TestCase
      */
     public function testSetsExpectedHttpResponseCode()
     {
+        $this->expectOutputString(self::CONTENT_VALUE);
         $response = new ContentResponse($this->getContentMock());
-        ob_start();
         $response->send();
-        ob_end_clean();
         $this->assertSame(200, http_response_code());
     }
 
@@ -39,12 +41,10 @@ class ContentResponseTest extends TestCase
      */
     public function testSetsExpectedContentTypeHeader()
     {
+        $this->expectOutputString(self::CONTENT_VALUE);
         $content = $this->getContentMock();
-        $content->method('getContentType')->willReturn(new JsonContentType());
         $response = new ContentResponse($content);
-        ob_start();
         $response->send();
-        ob_end_clean();
 
         $this->assertSame(
             ['Content-Type: application/json; charset=UTF-8'], xdebug_get_headers()
@@ -56,6 +56,7 @@ class ContentResponseTest extends TestCase
      */
     public function testSendsCookies()
     {
+        $this->expectOutputString(self::CONTENT_VALUE);
         $response = new ContentResponse($this->getContentMock());
 
         $cookie1 = $this->getResponseCookieMock();
@@ -67,9 +68,7 @@ class ContentResponseTest extends TestCase
         $response->addCookie($cookie1);
         $response->addCookie($cookie2);
 
-        ob_start();
         $response->send();
-        ob_end_clean();
     }
 
     /**
@@ -85,6 +84,21 @@ class ContentResponseTest extends TestCase
      */
     private function getContentMock()
     {
-        return $this->createMock(Content::class);
+        $contentMock = $this->createMock(Content::class);
+        $contentTypeMock = $this->createMock(ContentType::class);
+
+        $contentMock->expects($this->once())
+            ->method('asString')
+            ->willReturn(self::CONTENT_VALUE);
+
+        $contentMock->expects($this->once())
+            ->method('getContentType')
+            ->willReturn($contentTypeMock);
+
+        $contentTypeMock->expects($this->once())
+            ->method('asString')
+            ->willReturn(self::CONTENT_TYPE_VALUE);
+
+        return $contentMock;
     }
 }

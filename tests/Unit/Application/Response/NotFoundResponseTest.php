@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\Content;
-use Fury\Application\HtmlContentType;
+use Fury\Application\ContentType;
 use Fury\Application\NotFoundResponse;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
@@ -14,17 +14,19 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class NotFoundResponseTest extends TestCase
 {
+    private const CONTENT_VALUE = 'foo';
+    private const CONTENT_TYPE_VALUE = 'text/html';
+
     /**
      * @runInSeparateProcess
      */
     public function testSetsExpectedContentTypeHeader()
     {
+        $this->expectOutputString(self::CONTENT_VALUE);
         $content = $this->getContentMock();
-        $content->method('getContentType')->willReturn(new HtmlContentType());
+
         $response = new NotFoundResponse($content);
-        ob_start();
         $response->send();
-        ob_end_clean();
 
         $this->assertSame(
             ['Content-Type: text/html; charset=UTF-8'], xdebug_get_headers()
@@ -36,6 +38,20 @@ class NotFoundResponseTest extends TestCase
      */
     private function getContentMock()
     {
-        return $this->createMock(Content::class);
-    }
-}
+        $contentMock = $this->createMock(Content::class);
+        $contentTypeMock = $this->createMock(ContentType::class);
+
+        $contentMock->expects($this->once())
+            ->method('asString')
+            ->willReturn(self::CONTENT_VALUE);
+
+        $contentMock->expects($this->once())
+            ->method('getContentType')
+            ->willReturn($contentTypeMock);
+
+        $contentTypeMock->expects($this->once())
+            ->method('asString')
+            ->willReturn(self::CONTENT_TYPE_VALUE);
+
+        return $contentMock;
+    }}

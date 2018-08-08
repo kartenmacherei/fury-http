@@ -61,9 +61,7 @@ class BaseResponseTest extends TestCase
         $response->addCookie($cookie1);
         $response->addCookie($cookie2);
 
-        ob_start();
         $response->send();
-        ob_end_clean();
     }
 
     /**
