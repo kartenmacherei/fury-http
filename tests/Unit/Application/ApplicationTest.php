@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\Application;
-use Fury\Application\UnsupportedRequestTypeResponse;
+use Fury\Application\MethodNotAllowedResponse;
 use Fury\Http\Command;
 use Fury\Http\GetRequest;
 use Fury\Http\GetRouter;
@@ -111,7 +111,7 @@ class ApplicationTest extends TestCase
         $request->method('getSupportedRequestMethods')->willReturn($supportedRequestMethodsMock);
 
         $application = $this->getApplication();
-        $this->assertInstanceOf(UnsupportedRequestTypeResponse::class, $application->handle($request));
+        $this->assertInstanceOf(MethodNotAllowedResponse::class, $application->handle($request));
     }
 
     /**

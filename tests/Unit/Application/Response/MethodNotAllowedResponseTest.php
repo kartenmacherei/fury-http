@@ -3,15 +3,15 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\UnsupportedRequestTypeResponse;
+use Fury\Application\MethodNotAllowedResponse;
 use Fury\Http\ResponseCookie;
 use Fury\Http\SupportedRequestMethods;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\UnsupportedRequestTypeResponse
+ * @covers \Fury\Application\MethodNotAllowedResponse
  */
-class UnsupportedRequestTypeResponseTest extends TestCase
+class MethodNotAllowedResponseTest extends TestCase
 {
     /**
      * @runInSeparateProcess
@@ -27,7 +27,7 @@ class UnsupportedRequestTypeResponseTest extends TestCase
             ->method('asString')
             ->willReturn('HEAD, GET, POST');
 
-        $response = new UnsupportedRequestTypeResponse($supportedRequestMethodsMock);
+        $response = new MethodNotAllowedResponse($supportedRequestMethodsMock);
         $responseCookie = $this->createMock(ResponseCookie::class);
         $responseCookie->expects($this->once())
             ->method('send');

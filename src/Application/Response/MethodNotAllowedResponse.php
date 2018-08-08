@@ -8,7 +8,7 @@ use Fury\Http\BaseResponse;
 use Fury\Http\MethodNotAllowedCode;
 use Fury\Http\StatusCode;
 
-class UnsupportedRequestTypeResponse extends BaseResponse
+class MethodNotAllowedResponse extends BaseResponse
 {
     /**
      * @var SupportedRequestMethods
