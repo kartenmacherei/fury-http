@@ -4,16 +4,20 @@ declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\BaseResponse;
+use Fury\Http\ResponseCookie;
 use Fury\Http\StatusCode;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Fury\Http\BaseResponse
+ */
 class BaseResponseTest extends TestCase
 {
     /**
      * @runInSeparateProcess
      */
-    public function testSendSetsExpectedHttpResponseCode()
+    public function testSendSetsExpectedHttpResponseCode(): void
     {
         $statusCode = $this->getStatusCodeMock();
         $statusCode->method('asInt')->willReturn(301);
@@ -29,7 +33,7 @@ class BaseResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSendCallsFlushMethod()
+    public function testSendCallsFlushMethod(): void
     {
         $statusCode = $this->getStatusCodeMock();
         $statusCode->method('asInt')->willReturn(301);
@@ -39,6 +43,35 @@ class BaseResponseTest extends TestCase
 
         $response->expects($this->once())->method('flush');
         $response->send();
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testSendsCookies(): void
+    {
+        $response = $this->getBaseResponse();
+
+        $cookie1 = $this->getResponseCookieMock();
+        $cookie1->expects($this->once())->method('send');
+
+        $cookie2 = $this->getResponseCookieMock();
+        $cookie2->expects($this->once())->method('send');
+
+        $response->addCookie($cookie1);
+        $response->addCookie($cookie2);
+
+        ob_start();
+        $response->send();
+        ob_end_clean();
+    }
+
+    /**
+     * @return MockObject|ResponseCookie
+     */
+    private function getResponseCookieMock()
+    {
+        return $this->createMock(ResponseCookie::class);
     }
 
     /**
