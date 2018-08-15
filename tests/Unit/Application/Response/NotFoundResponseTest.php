@@ -54,4 +54,5 @@ class NotFoundResponseTest extends TestCase
             ->willReturn(self::CONTENT_TYPE_VALUE);
 
         return $contentMock;
-    }}
+    }
+}

@@ -65,6 +65,7 @@ class ResponseCookieTest extends TestCase
 
         $this->assertSame($expected, xdebug_get_headers());
     }
+
     public function testSetInvalidDomainThrowsException()
     {
         $this->expectException(EnsureException::class);

@@ -156,7 +156,8 @@ class RequestTest extends TestCase
     /**
      * @uses \Fury\Http\SupportedRequestMethods
      */
-    public function testGetAllowedRequestMethods():void {
+    public function testGetAllowedRequestMethods(): void
+    {
         $pathMock = $this->createMock(UriPath::class);
         $cookiesMock = $this->createMock(RequestCookieJar::class);
 

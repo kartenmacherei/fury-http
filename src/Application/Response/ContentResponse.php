@@ -5,7 +5,6 @@ namespace Fury\Application;
 
 use Fury\Http\BaseResponse;
 use Fury\Http\OkStatusCode;
-use Fury\Http\ResponseCookie;
 use Fury\Http\StatusCode;
 
 class ContentResponse extends BaseResponse
