@@ -6,6 +6,7 @@ namespace Fury\Application\UnitTests;
 use Fury\Application\MethodNotAllowedResponse;
 use Fury\Http\ResponseCookie;
 use Fury\Http\SupportedRequestMethods;
+use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,14 +14,14 @@ use PHPUnit\Framework\TestCase;
  */
 class MethodNotAllowedResponseTest extends TestCase
 {
+    use CheckXdebugAvailableTrait;
+
     /**
      * @runInSeparateProcess
      */
     public function testSetsExpectedHttpResponseCode()
     {
-        if (!function_exists('xdebug_get_headers')) {
-            $this->markTestSkipped('This test requires xdebug_get_headers() from the XDEBUG-Extension.');
-        }
+        $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
 
         $supportedRequestMethodsMock = $this->createMock(SupportedRequestMethods::class);
         $supportedRequestMethodsMock->expects($this->once())

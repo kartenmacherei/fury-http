@@ -7,6 +7,7 @@ use Fury\Application\Content;
 use Fury\Application\ContentResponse;
 use Fury\Application\ContentType;
 use Fury\Http\ResponseCookie;
+use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -15,14 +16,14 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class ContentResponseTest extends TestCase
 {
+    use CheckXdebugAvailableTrait;
+
     private const CONTENT_VALUE = 'foo';
     private const CONTENT_TYPE_VALUE = 'application/json';
 
     protected function setUp()
     {
-        if (!extension_loaded('xdebug')) {
-            $this->markTestSkipped('Test requires Xdebug extension');
-        }
+        $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }
 
     /**
