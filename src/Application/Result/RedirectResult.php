@@ -4,27 +4,22 @@ declare(strict_types=1);
 namespace Fury\Application;
 
 use Fury\Http\Result;
+use Fury\Http\UriPath;
 
 class RedirectResult implements Result
 {
     /**
-     * @var Content
+     * @var UriPath
      */
-    private $content;
+    private $uriPath;
 
-    /**
-     * @param Content $content
-     */
-    public function __construct(Content $content)
+    public function __construct(UriPath $uriPath)
     {
-        $this->content = $content;
+        $this->uriPath = $uriPath;
     }
 
-    /**
-     * @return Content
-     */
-    public function getContent(): Content
+    public function getUriPath(): UriPath
     {
-        return $this->content;
+        return $this->uriPath;
     }
 }

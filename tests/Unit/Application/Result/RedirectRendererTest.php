@@ -3,24 +3,24 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\Content;
 use Fury\Application\RedirectRenderer;
 use Fury\Application\RedirectResponse;
 use Fury\Application\RedirectResult;
+use Fury\Http\UriPath;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 
 /**
  * @covers \Fury\Application\RedirectRenderer
  *
- * @uses \Fury\Application\ContentResponse
+ * @uses \Fury\Application\RedirectResponse
  */
 class RedirectRendererTest extends TestCase
 {
     /**
-     * @var Content|PHPUnit_Framework_MockObject_MockObject
+     * @var UriPath|PHPUnit_Framework_MockObject_MockObject
      */
-    private $contentMock;
+    private $uriPathMock;
 
     /**
      * @var RedirectResult|PHPUnit_Framework_MockObject_MockObject
@@ -36,7 +36,7 @@ class RedirectRendererTest extends TestCase
     {
         parent::setUp();
 
-        $this->contentMock = $this->createMock(Content::class);
+        $this->uriPathMock = $this->createMock(UriPath::class);
         $this->redirectResultMock = $this->createMock(RedirectResult::class);
 
         $this->renderer = new RedirectRenderer($this->redirectResultMock);
@@ -45,10 +45,10 @@ class RedirectRendererTest extends TestCase
     public function testIfRenderReturnsExpectedResponse()
     {
         $this->redirectResultMock->expects($this->once())
-            ->method('getContent')
-            ->willReturn($this->contentMock);
+            ->method('getUriPath')
+            ->willReturn($this->uriPathMock);
 
-        $expectedResponse = new RedirectResponse($this->contentMock);
+        $expectedResponse = new RedirectResponse($this->uriPathMock);
         $this->assertEquals($expectedResponse, $this->renderer->render());
     }
 }

@@ -3,28 +3,31 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\Content;
 use Fury\Application\RedirectResponse;
-use Fury\Http\RedirectStatusCode;
+use Fury\Http\UriPath;
+use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
  * @covers \Fury\Application\RedirectResponse
- *
- * @uses \Fury\Application\Content
- * @uses \Fury\Application\ContentResponse
  */
 class RedirectResponseTest extends TestCase
 {
-    public function testIfGetStatusCodeReturnsExpectedObject()
+    use CheckXdebugAvailableTrait;
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testIfConstructorSetsCookie()
     {
-        $expectedStatusCode = new RedirectStatusCode();
+        $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
 
-        /** @var Content|PHPUnit_Framework_MockObject_MockObject $contentMock */
-        $contentMock = $this->createMock(Content::class);
+        $uriPathString = '/foo/bar';
+        $uriPath = new UriPath($uriPathString);
 
-        $response = new RedirectResponse($contentMock);
-        $this->assertEquals($expectedStatusCode, $response->getStatusCode());
+        $response = new RedirectResponse($uriPath);
+        $response->send();
+
+        $this->assertTrue(in_array(sprintf('Location: %s', $uriPathString), xdebug_get_headers(), true));
     }
 }

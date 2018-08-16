@@ -20,6 +20,6 @@ class RedirectRenderer implements ResultRenderer
 
     public function render(): Response
     {
-        return new RedirectResponse($this->result->getContent());
+        return new RedirectResponse($this->result->getUriPath());
     }
 }
