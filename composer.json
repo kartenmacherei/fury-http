@@ -3,6 +3,11 @@
 	"autoload": {
 		"classmap": ["src/"]
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"Fury\\UnitTests\\": "tests/Unit"
+		}
+	},
 	"require": {
 		"php": "^7.1"
 	},
