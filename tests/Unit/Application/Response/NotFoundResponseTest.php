@@ -6,6 +6,7 @@ namespace Fury\Application\UnitTests;
 use Fury\Application\Content;
 use Fury\Application\ContentType;
 use Fury\Application\NotFoundResponse;
+use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -14,6 +15,8 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class NotFoundResponseTest extends TestCase
 {
+    use CheckXdebugAvailableTrait;
+
     private const CONTENT_VALUE = 'foo';
     private const CONTENT_TYPE_VALUE = 'text/html';
 
@@ -22,6 +25,8 @@ class NotFoundResponseTest extends TestCase
      */
     public function testSetsExpectedContentTypeHeader()
     {
+        $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
+
         $this->expectOutputString(self::CONTENT_VALUE);
         $content = $this->getContentMock();
 
@@ -54,4 +59,5 @@ class NotFoundResponseTest extends TestCase
             ->willReturn(self::CONTENT_TYPE_VALUE);
 
         return $contentMock;
-    }}
+    }
+}

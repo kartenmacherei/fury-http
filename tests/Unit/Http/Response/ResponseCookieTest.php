@@ -5,6 +5,7 @@ namespace Fury\Http\UnitTests;
 
 use Fury\Http\EnsureException;
 use Fury\Http\ResponseCookie;
+use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,11 +13,11 @@ use PHPUnit\Framework\TestCase;
  */
 class ResponseCookieTest extends TestCase
 {
+    use CheckXdebugAvailableTrait;
+
     protected function setUp()
     {
-        if (!extension_loaded('xdebug')) {
-            $this->markTestSkipped('Test requires Xdebug extension');
-        }
+        $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }
 
     /**
@@ -65,6 +66,7 @@ class ResponseCookieTest extends TestCase
 
         $this->assertSame($expected, xdebug_get_headers());
     }
+
     public function testSetInvalidDomainThrowsException()
     {
         $this->expectException(EnsureException::class);

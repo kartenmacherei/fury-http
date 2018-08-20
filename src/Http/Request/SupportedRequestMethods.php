@@ -1,19 +1,18 @@
 <?php
 
 declare(strict_types=1);
-
 namespace Fury\Http;
 
 class SupportedRequestMethods
 {
+    private const HTTP_METHODS = [
+        'GET', 'POST', 'HEAD', 'PUT', 'PATCH', 'DELETE', 'TRACE', 'OPTIONS', 'CONNECT',
+    ];
+
     /**
      * @var array
      */
     private $methods;
-
-    private const HTTP_METHODS = [
-        'GET', 'POST', 'HEAD', 'PUT', 'PATCH', 'DELETE', 'TRACE', 'OPTIONS', 'CONNECT',
-    ];
 
     public function __construct(string ...$methods)
     {
