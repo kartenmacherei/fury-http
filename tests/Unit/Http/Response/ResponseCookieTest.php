@@ -35,20 +35,35 @@ class ResponseCookieTest extends TestCase
         $this->assertSame($expected, xdebug_get_headers());
     }
 
+    public function expiryDateProvider(): array
+    {
+        return [
+            'expiry in the past' => ['2018-03-27 13:57:00', '-', 'Tuesday, 27-Mar-2018 13:57:00 UTC'],
+            'expiry in the future' => ['2999-03-27 13:57:00', '', 'Wednesday, 27-Mar-2999 13:57:00 UTC'],
+        ];
+    }
+
     /**
+     * @dataProvider expiryDateProvider
      * @runInSeparateProcess
      */
-    public function testSetsExpectedCookieHeaderWithExpiresAt()
-    {
-        $cookie = new ResponseCookie('some_cookie', 'some value');
-        $cookie->expiresAt(new \DateTimeImmutable('2018-03-27 13:57:00'));
+    public function testSetsExpectedCookieHeaderWithExpiresAt(
+        string $dateTimeValue, string $expectedAlgebraicSign, string $expectedExpiredString
+    ) {
+        $cookie = new ResponseCookie('some_cookie', 'somevalue');
+        $cookie->expiresAt(new \DateTimeImmutable($dateTimeValue));
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; HttpOnly; Expires=Tuesday, 27-Mar-2018 13:57:00 UTC',
+            sprintf(
+                'Set-Cookie: some_cookie=somevalue; Path=/; Secure; HttpOnly; Expires=%s; Max-Age=%s',
+                $expectedExpiredString,
+                $expectedAlgebraicSign
+            ),
         ];
 
-        $this->assertSame($expected, xdebug_get_headers());
+        $xdebugHeaders = xdebug_get_headers();
+        $this->assertContains($expected[0], $xdebugHeaders[0]);
     }
 
     /**

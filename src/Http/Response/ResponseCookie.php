@@ -54,6 +54,7 @@ class ResponseCookie
         }
         if ($this->expiresAt !== null) {
             $cookieDirectives[] = 'Expires=' . $this->expiresAt->format(DateTime::COOKIE);
+            $cookieDirectives[] = 'Max-Age=' . $this->calculateMaxAge($this->expiresAt);
         }
         header(sprintf('Set-Cookie: %s', implode('; ', $cookieDirectives)), false);
     }
@@ -79,5 +80,12 @@ class ResponseCookie
         if ($domain === '') {
             throw new EnsureException('empty domain');
         }
+    }
+
+    private function calculateMaxAge(DateTimeImmutable $expiresAt): string
+    {
+        $now = new DateTimeImmutable('now', $expiresAt->getTimezone());
+
+        return (string) ($expiresAt->getTimestamp() - $now->getTimestamp());
     }
 }
