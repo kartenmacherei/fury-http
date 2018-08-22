@@ -16,6 +16,8 @@ class ResponseCookieTest extends TestCase
 {
     use CheckXdebugAvailableTrait;
 
+    private const EXPIRE_IMMEDIATALY = '0';
+
     protected function setUp()
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
@@ -24,7 +26,7 @@ class ResponseCookieTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedCookieHeader()
+    public function testSetsExpectedCookieHeader(): void
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');
         $cookie->send();
@@ -39,38 +41,44 @@ class ResponseCookieTest extends TestCase
     public function expiryDateProvider(): array
     {
         return [
-            'expiry in the past' => ['2018-03-27 13:57:00', '0', 'Tue, 27-Mar-2018 13:57:00 GMT'],
-            'expiry in the future' => ['2999-03-27 13:57:00', '30944621387', 'Wed, 27-Mar-2999 13:57:00 GMT'],
+            'expiry in the past' => ['2018-03-27 13:57:00', self::EXPIRE_IMMEDIATALY, 'Tue, 27-Mar-2018 13:57:00 GMT'],
+            'expiry in the future' => ['2999-03-27 13:57:00', '', 'Wed, 27-Mar-2999 13:57:00 GMT'],
         ];
     }
 
     /**
      * @dataProvider expiryDateProvider
      * @runInSeparateProcess
+     *
+     * @param string $dateTimeValue
+     * @param string $expectedMaxAgeValue
+     * @param string $expectedExpiredValue
      */
     public function testSetsExpectedCookieHeaderWithExpiresAt(
         string $dateTimeValue, string $expectedMaxAgeValue, string $expectedExpiredValue
-    ) {
+    ): void {
+        $expectedFirstPartOfCookieHeader = sprintf(
+            'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=',
+            $expectedExpiredValue
+        );
+        $expectedSecondPartOfCookieHeader = '; path=/; secure; HttpOnly';
+
         $cookie = new ResponseCookie('some_cookie', 'somevalue');
         $cookie->expiresAt(new CookieExpiryTime($dateTimeValue));
         $cookie->send();
 
-        $expected = [
-            sprintf(
-                'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=%s; path=/; secure; HttpOnly',
-                $expectedExpiredValue,
-                $expectedMaxAgeValue
-            ),
-        ];
-
         $xdebugHeaders = xdebug_get_headers();
-        $this->assertContains($expected[0], $xdebugHeaders[0]);
+        $this->assertContains(
+            $expectedFirstPartOfCookieHeader,
+            $xdebugHeaders[0]
+        );
+        $this->assertContains($expectedSecondPartOfCookieHeader, $xdebugHeaders[0]);
     }
 
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedCookieHeaderWithDomain()
+    public function testSetsExpectedCookieHeaderWithDomain(): void
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');
         $cookie->forDomain('myDomain');
@@ -83,7 +91,7 @@ class ResponseCookieTest extends TestCase
         $this->assertSame($expected, xdebug_get_headers());
     }
 
-    public function testSetInvalidDomainThrowsException()
+    public function testSetInvalidDomainThrowsException(): void
     {
         $this->expectException(EnsureException::class);
         $this->expectExceptionMessage('empty domain');
@@ -94,7 +102,7 @@ class ResponseCookieTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedCookieHeaderWithoutHttpOnly()
+    public function testSetsExpectedCookieHeaderWithoutHttpOnly(): void
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');
         $cookie->allowClientAccess();
