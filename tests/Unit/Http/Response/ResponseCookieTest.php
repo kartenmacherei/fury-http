@@ -3,6 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
+use Fury\Http\CookieExpiryTime;
 use Fury\Http\EnsureException;
 use Fury\Http\ResponseCookie;
 use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
@@ -29,7 +30,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; HttpOnly',
+            'Set-Cookie: some_cookie=some+value; path=/; secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -38,8 +39,8 @@ class ResponseCookieTest extends TestCase
     public function expiryDateProvider(): array
     {
         return [
-            'expiry in the past' => ['2018-03-27 13:57:00', '-', 'Tuesday, 27-Mar-2018 13:57:00 UTC'],
-            'expiry in the future' => ['2999-03-27 13:57:00', '', 'Wednesday, 27-Mar-2999 13:57:00 UTC'],
+            'expiry in the past' => ['2018-03-27 13:57:00', '0', 'Tue, 27-Mar-2018 13:57:00 GMT'],
+            'expiry in the future' => ['2999-03-27 13:57:00', '30944621387', 'Wed, 27-Mar-2999 13:57:00 GMT'],
         ];
     }
 
@@ -48,17 +49,17 @@ class ResponseCookieTest extends TestCase
      * @runInSeparateProcess
      */
     public function testSetsExpectedCookieHeaderWithExpiresAt(
-        string $dateTimeValue, string $expectedAlgebraicSign, string $expectedExpiredString
+        string $dateTimeValue, string $expectedMaxAgeValue, string $expectedExpiredValue
     ) {
         $cookie = new ResponseCookie('some_cookie', 'somevalue');
-        $cookie->expiresAt(new \DateTimeImmutable($dateTimeValue));
+        $cookie->expiresAt(new CookieExpiryTime($dateTimeValue));
         $cookie->send();
 
         $expected = [
             sprintf(
-                'Set-Cookie: some_cookie=somevalue; Path=/; Secure; HttpOnly; Expires=%s; Max-Age=%s',
-                $expectedExpiredString,
-                $expectedAlgebraicSign
+                'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=%s; path=/; secure; HttpOnly',
+                $expectedExpiredValue,
+                $expectedMaxAgeValue
             ),
         ];
 
@@ -76,7 +77,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure; Domain=myDomain; HttpOnly',
+            'Set-Cookie: some_cookie=some+value; path=/; domain=myDomain; secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -100,7 +101,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some%20value; Path=/; Secure',
+            'Set-Cookie: some_cookie=some+value; path=/; secure',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
