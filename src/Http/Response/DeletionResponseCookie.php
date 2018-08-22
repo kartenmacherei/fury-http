@@ -10,6 +10,11 @@ class DeletionResponseCookie extends ResponseCookie
     public function __construct(string $name)
     {
         parent::__construct($name, self::VALUE_TO_REMOVE);
-        $this->expiresAt(new CookieExpiryTime(self::TIME_IN_THE_PAST));
+        $this->setExpiryDate(new CookieExpiryTime(self::TIME_IN_THE_PAST));
+    }
+
+    public function expiresAt(CookieExpiryTime $dateTime): void
+    {
+        throw new Exception('not allowed');
     }
 }

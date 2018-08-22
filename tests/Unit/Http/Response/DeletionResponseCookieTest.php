@@ -6,19 +6,17 @@ namespace Fury\Http\UnitTests;
 use Fury\Http\CookieExpiryTime;
 use Fury\Http\DeletionResponseCookie;
 use Fury\Http\EnsureException;
+use Fury\Http\Exception;
 use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @covers \Fury\Http\ResponseCookie
  * @covers \Fury\Http\DeletionResponseCookie
  */
 class DeletionResponseCookieTest extends TestCase
 {
     use CheckXdebugAvailableTrait;
-
-    private const EXPIRE_IMMEDIATALY = '0';
-
-    private const PREG_MATCH_SUCCESS = 1;
 
     protected function setUp()
     {
@@ -30,11 +28,11 @@ class DeletionResponseCookieTest extends TestCase
      */
     public function testSetsExpectedCookieHeader(): void
     {
-        $cookie = new DeletionResponseCookie('some_cookie', 'some value');
+        $cookie = new DeletionResponseCookie('some_cookie');
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some+value; path=/; secure; HttpOnly',
+            'Set-Cookie: some_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -43,53 +41,12 @@ class DeletionResponseCookieTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedCookieHeaderWithExpiryTimeInTheFuture(): void
+    public function testSettingExpiryDateThrowsAnException(): void
     {
-        $dateTimeValue = '2999-03-27 13:57:00';
-        $expectedExpiredValue = 'Wed, 27-Mar-2999 13:57:00 GMT';
-
-        $expectedFirstPartOfCookieHeader = sprintf(
-            'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=',
-            $expectedExpiredValue
-        );
-        $expectedSecondPartOfCookieHeader = '; path=/; secure; HttpOnly';
-
-        $cookie = new DeletionResponseCookie('some_cookie', 'somevalue');
-        $cookie->expiresAt(new CookieExpiryTime($dateTimeValue));
-        $cookie->send();
-
-        $xdebugHeaders = xdebug_get_headers();
-        $this->assertContains(
-            $expectedFirstPartOfCookieHeader,
-            $xdebugHeaders[0]
-        );
-        $this->assertContains($expectedSecondPartOfCookieHeader, $xdebugHeaders[0]);
-
-        $matches = [];
-        $result = preg_match('/Max-Age=(\d*);/', $xdebugHeaders[0], $matches);
-        $this->assertEquals(self::PREG_MATCH_SUCCESS, $result);
-        $this->assertGreaterThan((int) self::EXPIRE_IMMEDIATALY, (int) $matches[1]);
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testSetsExpectedCookieHeaderWithExpiryTimeInThePast(): void {
-        $dateTimeValue = '2018-03-27 13:57:00';
-        $expectedExpiredValue = 'Tue, 27-Mar-2018 13:57:00 GMT';
-
-        $cookie = new DeletionResponseCookie('some_cookie', 'somevalue');
-        $cookie->expiresAt(new CookieExpiryTime($dateTimeValue));
-        $cookie->send();
-
-        $xdebugHeaders = xdebug_get_headers();
-        $this->assertEquals(
-            sprintf(
-                'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=%s; path=/; secure; HttpOnly',
-                $expectedExpiredValue, self::EXPIRE_IMMEDIATALY
-            ),
-            $xdebugHeaders[0]
-        );
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('not allowed');
+        $cookie = new DeletionResponseCookie('some_cookie');
+        $cookie->expiresAt(new CookieExpiryTime('2999-03-27 13:57:00'));
     }
 
     /**
@@ -97,22 +54,25 @@ class DeletionResponseCookieTest extends TestCase
      */
     public function testSetsExpectedCookieHeaderWithDomain(): void
     {
-        $cookie = new DeletionResponseCookie('some_cookie', 'some value');
+        $cookie = new DeletionResponseCookie('some_cookie');
         $cookie->forDomain('myDomain');
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some+value; path=/; domain=myDomain; secure; HttpOnly',
+            'Set-Cookie: some_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=myDomain; secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
     }
 
+    /**
+     * @uses \Fury\Http\CookieExpiryTime
+     */
     public function testSetInvalidDomainThrowsException(): void
     {
         $this->expectException(EnsureException::class);
         $this->expectExceptionMessage('empty domain');
-        $cookie = new DeletionResponseCookie('some_cookie', 'some value');
+        $cookie = new DeletionResponseCookie('some_cookie');
         $cookie->forDomain('');
     }
 
@@ -121,12 +81,12 @@ class DeletionResponseCookieTest extends TestCase
      */
     public function testSetsExpectedCookieHeaderWithoutHttpOnly(): void
     {
-        $cookie = new DeletionResponseCookie('some_cookie', 'some value');
+        $cookie = new DeletionResponseCookie('some_cookie');
         $cookie->allowClientAccess();
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some+value; path=/; secure',
+            'Set-Cookie: some_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; secure',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());

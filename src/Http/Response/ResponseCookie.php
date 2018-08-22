@@ -77,13 +77,18 @@ class ResponseCookie
 
     public function expiresAt(CookieExpiryTime $dateTime): void
     {
-        $this->expiresAt = $dateTime;
+        $this->setExpiryDate($dateTime);
     }
 
     public function forDomain(string $domain): void
     {
         $this->ensureNotEmptyString($domain);
         $this->domain = $domain;
+    }
+
+    protected function setExpiryDate(CookieExpiryTime $dateTime): void
+    {
+        $this->expiresAt = $dateTime;
     }
 
     private function ensureNotEmptyString(string $domain): void
