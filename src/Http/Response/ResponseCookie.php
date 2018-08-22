@@ -55,6 +55,7 @@ class ResponseCookie
             self::HTTPS_ONLY,
             $this->isHttpOnly
         );
+        //@codeCoverageIgnoreStart
         if ($result === false) {
             $msg = sprintf(
                 'Sending cookie failed. [name=%s;value=%s;expire=%s;path=%s;domain=%s;secure=%s;httponly=%s;]',
@@ -69,6 +70,7 @@ class ResponseCookie
 
             throw new Exception($msg);
         }
+        //@codeCoverageIgnoreEnd
     }
 
     public function allowClientAccess(): void

@@ -18,6 +18,8 @@ class ResponseCookieTest extends TestCase
 
     private const EXPIRE_IMMEDIATALY = '0';
 
+    private const PREG_MATCH_SUCCESS = 1;
+
     protected function setUp()
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
@@ -38,25 +40,14 @@ class ResponseCookieTest extends TestCase
         $this->assertSame($expected, xdebug_get_headers());
     }
 
-    public function expiryDateProvider(): array
-    {
-        return [
-            'expiry in the past' => ['2018-03-27 13:57:00', self::EXPIRE_IMMEDIATALY, 'Tue, 27-Mar-2018 13:57:00 GMT'],
-            'expiry in the future' => ['2999-03-27 13:57:00', '', 'Wed, 27-Mar-2999 13:57:00 GMT'],
-        ];
-    }
-
     /**
-     * @dataProvider expiryDateProvider
      * @runInSeparateProcess
-     *
-     * @param string $dateTimeValue
-     * @param string $expectedMaxAgeValue
-     * @param string $expectedExpiredValue
      */
-    public function testSetsExpectedCookieHeaderWithExpiresAt(
-        string $dateTimeValue, string $expectedMaxAgeValue, string $expectedExpiredValue
-    ): void {
+    public function testSetsExpectedCookieHeaderWithExpiryTimeInTheFuture(): void
+    {
+        $dateTimeValue = '2999-03-27 13:57:00';
+        $expectedExpiredValue = 'Wed, 27-Mar-2999 13:57:00 GMT';
+
         $expectedFirstPartOfCookieHeader = sprintf(
             'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=',
             $expectedExpiredValue
@@ -73,6 +64,32 @@ class ResponseCookieTest extends TestCase
             $xdebugHeaders[0]
         );
         $this->assertContains($expectedSecondPartOfCookieHeader, $xdebugHeaders[0]);
+
+        $matches = [];
+        $result = preg_match('/Max-Age=(\d*);/', $xdebugHeaders[0], $matches);
+        $this->assertEquals(self::PREG_MATCH_SUCCESS, $result);
+        $this->assertGreaterThan((int) self::EXPIRE_IMMEDIATALY, (int) $matches[1]);
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testSetsExpectedCookieHeaderWithExpiryTimeInThePast(): void {
+        $dateTimeValue = '2018-03-27 13:57:00';
+        $expectedExpiredValue = 'Tue, 27-Mar-2018 13:57:00 GMT';
+
+        $cookie = new ResponseCookie('some_cookie', 'somevalue');
+        $cookie->expiresAt(new CookieExpiryTime($dateTimeValue));
+        $cookie->send();
+
+        $xdebugHeaders = xdebug_get_headers();
+        $this->assertEquals(
+            sprintf(
+                'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=%s; path=/; secure; HttpOnly',
+                $expectedExpiredValue, self::EXPIRE_IMMEDIATALY
+            ),
+            $xdebugHeaders[0]
+        );
     }
 
     /**
