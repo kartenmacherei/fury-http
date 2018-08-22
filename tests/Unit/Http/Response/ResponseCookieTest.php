@@ -74,7 +74,8 @@ class ResponseCookieTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedCookieHeaderWithExpiryTimeInThePast(): void {
+    public function testSetsExpectedCookieHeaderWithExpiryTimeInThePast(): void
+    {
         $dateTimeValue = '2018-03-27 13:57:00';
         $expectedExpiredValue = 'Tue, 27-Mar-2018 13:57:00 GMT';
 

@@ -5,6 +5,11 @@ namespace Fury\Http;
 
 class ResponseCookie
 {
+    private const EXPIRE_END_OF_SESSION = 0;
+    private const ROOT_WITH_ALL_SUBDIRECTORIES = '/';
+    private const NO_DOMAIN = '';
+    private const HTTPS_ONLY = true;
+
     /**
      * @var string
      */
@@ -29,11 +34,6 @@ class ResponseCookie
      * @var string|null
      */
     private $domain;
-
-    private const EXPIRE_END_OF_SESSION = 0;
-    private const ROOT_WITH_ALL_SUBDIRECTORIES = '/';
-    private const NO_DOMAIN = '';
-    private const HTTPS_ONLY = true;
 
     public function __construct(string $name, string $value)
     {
