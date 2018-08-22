@@ -3,9 +3,6 @@
 declare(strict_types=1);
 namespace Fury\Http;
 
-use DateTime;
-use DateTimeImmutable;
-
 class ResponseCookie
 {
     /**
