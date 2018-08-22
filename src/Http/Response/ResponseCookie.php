@@ -3,11 +3,13 @@
 declare(strict_types=1);
 namespace Fury\Http;
 
-use DateTime;
-use DateTimeImmutable;
-
 class ResponseCookie
 {
+    private const EXPIRE_END_OF_SESSION = 0;
+    private const ROOT_WITH_ALL_SUBDIRECTORIES = '/';
+    private const NO_DOMAIN = '';
+    private const HTTPS_ONLY = true;
+
     /**
      * @var string
      */
@@ -24,7 +26,7 @@ class ResponseCookie
     private $isHttpOnly = true;
 
     /**
-     * @var DateTimeImmutable|null
+     * @var CookieExpiryTime|null
      */
     private $expiresAt;
 
@@ -41,21 +43,31 @@ class ResponseCookie
 
     public function send(): void
     {
-        $cookieDirectives = [
-            sprintf('%s=%s', $this->name, rawurlencode($this->value)),
-            'Path=/',
-            'Secure',
-        ];
-        if ($this->domain !== null) {
-            $cookieDirectives[] = sprintf('Domain=%s', $this->domain);
+        $result = setcookie(
+            $this->name,
+            $this->value,
+            $this->hasExpiryDate() ? $this->expiresAt->getTimestamp() : self::EXPIRE_END_OF_SESSION,
+            self::ROOT_WITH_ALL_SUBDIRECTORIES,
+            $this->hasDomain() ? $this->domain : self::NO_DOMAIN,
+            self::HTTPS_ONLY,
+            $this->isHttpOnly
+        );
+        //@codeCoverageIgnoreStart
+        if ($result === false) {
+            $msg = sprintf(
+                'Sending cookie failed. [name=%s;value=%s;expire=%s;path=%s;domain=%s;secure=%s;httponly=%s;]',
+                $this->name,
+                $this->value,
+                $this->hasExpiryDate() ? $this->expiresAt->getTimestamp() : self::EXPIRE_END_OF_SESSION,
+                self::ROOT_WITH_ALL_SUBDIRECTORIES,
+                $this->hasDomain() ? $this->domain : 'no domain',
+                self::HTTPS_ONLY,
+                $this->isHttpOnly
+            );
+
+            throw new Exception($msg);
         }
-        if ($this->isHttpOnly) {
-            $cookieDirectives[] = 'HttpOnly';
-        }
-        if ($this->expiresAt !== null) {
-            $cookieDirectives[] = 'Expires=' . $this->expiresAt->format(DateTime::COOKIE);
-        }
-        header(sprintf('Set-Cookie: %s', implode('; ', $cookieDirectives)), false);
+        //@codeCoverageIgnoreEnd
     }
 
     public function allowClientAccess(): void
@@ -63,9 +75,9 @@ class ResponseCookie
         $this->isHttpOnly = false;
     }
 
-    public function expiresAt(DateTimeImmutable $dateTime): void
+    public function expiresAt(CookieExpiryTime $dateTime): void
     {
-        $this->expiresAt = $dateTime;
+        $this->setExpiryDate($dateTime);
     }
 
     public function forDomain(string $domain): void
@@ -74,10 +86,25 @@ class ResponseCookie
         $this->domain = $domain;
     }
 
+    protected function setExpiryDate(CookieExpiryTime $dateTime): void
+    {
+        $this->expiresAt = $dateTime;
+    }
+
     private function ensureNotEmptyString(string $domain): void
     {
         if ($domain === '') {
             throw new EnsureException('empty domain');
         }
+    }
+
+    private function hasExpiryDate(): bool
+    {
+        return $this->expiresAt !== null;
+    }
+
+    private function hasDomain(): bool
+    {
+        return $this->domain !== null;
     }
 }
