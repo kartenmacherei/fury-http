@@ -72,7 +72,7 @@ class ResponseCookie
 
     public function allowClientAccess(): void
     {
-        $this->isHttpOnly = false;
+        $this->setClientAccess();
     }
 
     public function expiresAt(CookieExpiryTime $dateTime): void
@@ -82,13 +82,23 @@ class ResponseCookie
 
     public function forDomain(string $domain): void
     {
-        $this->ensureNotEmptyString($domain);
-        $this->domain = $domain;
+        $this->setDomain($domain);
     }
 
     protected function setExpiryDate(CookieExpiryTime $dateTime): void
     {
         $this->expiresAt = $dateTime;
+    }
+
+    protected function setClientAccess(): void
+    {
+        $this->isHttpOnly = false;
+    }
+
+    protected function setDomain(string $domain): void
+    {
+        $this->ensureNotEmptyString($domain);
+        $this->domain = $domain;
     }
 
     private function ensureNotEmptyString(string $domain): void

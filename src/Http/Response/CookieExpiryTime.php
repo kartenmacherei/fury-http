@@ -10,7 +10,6 @@ class CookieExpiryTime extends DateTimeImmutable
 {
     public function __construct(string $time = 'now')
     {
-        $greenwichMeanTime = new DateTimeZone('UTC');
-        parent::__construct($time, $greenwichMeanTime);
+        parent::__construct($time, new DateTimeZone('UTC'));
     }
 }
