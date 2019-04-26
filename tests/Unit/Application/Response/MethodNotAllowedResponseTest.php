@@ -19,7 +19,7 @@ class MethodNotAllowedResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedHttpResponseCode()
+    public function testSetsExpectedHttpResponseCode(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
 

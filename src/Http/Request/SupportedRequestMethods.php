@@ -18,7 +18,7 @@ class SupportedRequestMethods
     {
         array_walk(
             $methods,
-            function (&$item, $key) {
+            function (&$item, $key): void {
                 $item = strtoupper($item);
             }
         );

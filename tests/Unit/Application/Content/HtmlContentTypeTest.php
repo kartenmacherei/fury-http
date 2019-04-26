@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class HtmlContentTypeTest extends TestCase
 {
-    public function testReturnsExpectedString()
+    public function testReturnsExpectedString(): void
     {
         $type = new HtmlContentType();
         $this->assertSame('text/html', $type->asString());

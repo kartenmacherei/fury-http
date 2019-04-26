@@ -5,7 +5,7 @@ namespace Fury\Http;
 
 class Pattern
 {
-    const REGEX_DELIMITER = '/';
+    private const REGEX_DELIMITER = '/';
 
     /**
      * @var string

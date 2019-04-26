@@ -36,7 +36,7 @@ class JsonArray implements Iterator
         return $current;
     }
 
-    public function next()
+    public function next(): void
     {
         next($this->data);
     }
@@ -57,7 +57,7 @@ class JsonArray implements Iterator
         return array_key_exists($this->key(), $this->data);
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         reset($this->data);
     }

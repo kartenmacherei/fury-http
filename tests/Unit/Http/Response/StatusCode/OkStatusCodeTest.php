@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class OkStatusCodeTest extends TestCase
 {
-    public function testReturnsExpectedInt()
+    public function testReturnsExpectedInt(): void
     {
         $this->assertSame(200, (new OkStatusCode())->asInt());
     }

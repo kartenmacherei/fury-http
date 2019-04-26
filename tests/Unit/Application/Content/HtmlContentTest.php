@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 class HtmlContentTest extends TestCase
 {
-    public function testAsStringReturnsExpectedString()
+    public function testAsStringReturnsExpectedString(): void
     {
         $value = '<html><body>foo</body></html>';
         $content = new HtmlContent($value);
@@ -20,7 +20,7 @@ class HtmlContentTest extends TestCase
         $this->assertSame($value, $content->asString());
     }
 
-    public function testGetContentTypeReturnsExpectedContentType()
+    public function testGetContentTypeReturnsExpectedContentType(): void
     {
         $content = new HtmlContent('');
 

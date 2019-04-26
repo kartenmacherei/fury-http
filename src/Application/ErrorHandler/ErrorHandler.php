@@ -10,7 +10,7 @@ abstract class ErrorHandler
     /**
      * @codeCoverageIgnore
      */
-    public function register()
+    public function register(): void
     {
         error_reporting(-1);
         ini_set('display_errors', 'false');
@@ -28,7 +28,7 @@ abstract class ErrorHandler
      *
      * @throws ErrorException
      */
-    public function handleError(int $errorNumber, string $errorMessage, string $errorFile, int $errorLine)
+    public function handleError(int $errorNumber, string $errorMessage, string $errorFile, int $errorLine): void
     {
         throw new ErrorException($errorMessage, $errorNumber, 0, $errorFile, $errorLine);
     }
@@ -36,12 +36,12 @@ abstract class ErrorHandler
     /**
      * @param Throwable $throwable
      */
-    abstract public function handleException(Throwable $throwable);
+    abstract public function handleException(Throwable $throwable): void;
 
     /**
      * @codeCoverageIgnore
      */
-    public function handleShutdown()
+    public function handleShutdown(): void
     {
         $error = error_get_last();
 
@@ -59,7 +59,7 @@ abstract class ErrorHandler
      *
      * @param string $output
      */
-    protected function terminate(string $output)
+    protected function terminate(string $output): void
     {
         http_response_code(500);
         die($output);

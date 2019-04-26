@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class UriPathTest extends TestCase
 {
-    public function testThrowsExceptionIfPathDoesNotStartWithASlash()
+    public function testThrowsExceptionIfPathDoesNotStartWithASlash(): void
     {
         $this->expectException(InvalidUriPathException::class);
         new UriPath('foo');
@@ -28,13 +28,13 @@ class UriPathTest extends TestCase
      * @param string $string
      * @param bool $expectedResult
      */
-    public function testStartsWithReturnsExpectedValue(string $pathValue, string $string, bool $expectedResult)
+    public function testStartsWithReturnsExpectedValue(string $pathValue, string $string, bool $expectedResult): void
     {
         $path = new UriPath($pathValue);
         $this->assertSame($expectedResult, $path->startsWith($string));
     }
 
-    public function testAsStringReturnsExpectedString()
+    public function testAsStringReturnsExpectedString(): void
     {
         $path = new UriPath('/foo/bar');
         $this->assertSame('/foo/bar', $path->asString());
@@ -46,7 +46,7 @@ class UriPathTest extends TestCase
      * @param string $path
      * @param string $expectedString
      */
-    public function testAsStringWithoutTrailingSlash(string $path, string $expectedString)
+    public function testAsStringWithoutTrailingSlash(string $path, string $expectedString): void
     {
         $path = new UriPath($path);
         $this->assertSame($expectedString, $path->asStringWithoutTrailingSlash());
@@ -59,7 +59,7 @@ class UriPathTest extends TestCase
      * @param string $path2Value
      * @param bool $expectedResult
      */
-    public function testEqualsReturnsExpectedValue(string $path1Value, string $path2Value, bool $expectedResult)
+    public function testEqualsReturnsExpectedValue(string $path1Value, string $path2Value, bool $expectedResult): void
     {
         $path1 = new UriPath($path1Value);
         $path2 = new UriPath($path2Value);
@@ -74,7 +74,7 @@ class UriPathTest extends TestCase
      * @param Pattern $pattern
      * @param bool $expectedResult
      */
-    public function testMatchesReturnsExpectedValue(string $pathValue, Pattern $pattern, bool $expectedResult)
+    public function testMatchesReturnsExpectedValue(string $pathValue, Pattern $pattern, bool $expectedResult): void
     {
         $path = new UriPath($pathValue);
         $this->assertSame($expectedResult, $path->matches($pattern));

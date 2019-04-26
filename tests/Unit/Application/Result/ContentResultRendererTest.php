@@ -17,7 +17,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class ContentResultRendererTest extends TestCase
 {
-    public function testReturnsExpectedResponse()
+    public function testReturnsExpectedResponse(): void
     {
         $content = $this->getContentMock();
         $result = $this->getContentResultMock();

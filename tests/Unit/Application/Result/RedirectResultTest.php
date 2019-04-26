@@ -13,7 +13,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class RedirectResultTest extends TestCase
 {
-    public function testGetContentReturnsExpectedContent()
+    public function testGetContentReturnsExpectedContent(): void
     {
         /** @var UriPath|PHPUnit_Framework_MockObject_MockObject $contentMock */
         $uriPathMock = $this->createMock(UriPath::class);

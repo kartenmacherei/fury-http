@@ -18,7 +18,7 @@ class RedirectResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testIfConstructorSetsCookie()
+    public function testIfConstructorSetsCookie(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
 

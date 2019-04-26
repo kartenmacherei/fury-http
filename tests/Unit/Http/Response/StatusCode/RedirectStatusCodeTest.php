@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RedirectStatusCodeTest extends TestCase
 {
-    public function testAsIntReturnExpectedValue()
+    public function testAsIntReturnExpectedValue(): void
     {
         $expectedStatusCode = 302;
 

@@ -18,7 +18,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class NotFoundResultRendererTest extends TestCase
 {
-    public function testReturnsExpectedResponse()
+    public function testReturnsExpectedResponse(): void
     {
         $content = $this->getContentMock();
         $result = $this->getNotFoundResultMock();

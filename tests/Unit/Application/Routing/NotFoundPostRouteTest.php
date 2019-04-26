@@ -17,7 +17,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class NotFoundPostRouteTest extends TestCase
 {
-    public function testReturnsExpectedCommand()
+    public function testReturnsExpectedCommand(): void
     {
         $request = $this->getPostRequestMock();
 

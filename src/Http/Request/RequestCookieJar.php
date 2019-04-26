@@ -34,7 +34,7 @@ class RequestCookieJar
         return $this->cookies[$name];
     }
 
-    private function addCookie(RequestCookie $cookie)
+    private function addCookie(RequestCookie $cookie): void
     {
         $this->cookies[$cookie->getName()] = $cookie;
     }

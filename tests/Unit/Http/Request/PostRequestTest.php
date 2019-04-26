@@ -21,27 +21,27 @@ class PostRequestTest extends TestCase
      */
     private $request;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->request = $this->getPostRequest();
     }
 
-    public function testHasParametersReturnsFalse()
+    public function testHasParametersReturnsFalse(): void
     {
         $this->assertFalse($this->request->hasParameters());
     }
 
-    public function testHasBodyReturnsFalse()
+    public function testHasBodyReturnsFalse(): void
     {
         $this->assertFalse($this->request->hasBody());
     }
 
-    public function testIsPostRequestReturnsTrue()
+    public function testIsPostRequestReturnsTrue(): void
     {
         $this->assertTrue($this->request->isPostRequest());
     }
 
-    public function testIsGetRequestReturnsFalse()
+    public function testIsGetRequestReturnsFalse(): void
     {
         $this->assertFalse($this->request->isGetRequest());
     }

@@ -27,7 +27,7 @@ class JsonPostRequestTest extends TestCase
      */
     private $body;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->body = $this->getJsonBodyMock();
 
@@ -38,12 +38,12 @@ class JsonPostRequestTest extends TestCase
         );
     }
 
-    public function testHasBodyReturnsTrue()
+    public function testHasBodyReturnsTrue(): void
     {
         $this->assertTrue($this->request->hasBody());
     }
 
-    public function testGetBodyReturnsExpectedBody()
+    public function testGetBodyReturnsExpectedBody(): void
     {
         $this->assertSame($this->body, $this->request->getBody());
     }

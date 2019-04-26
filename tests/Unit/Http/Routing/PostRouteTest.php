@@ -20,19 +20,19 @@ class PostRouteTest extends TestCase
      */
     private $route;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->route = $this->getPostRoute();
     }
 
-    public function testRouteThrowsExceptionOfNoNextRouteIsAvailable()
+    public function testRouteThrowsExceptionOfNoNextRouteIsAvailable(): void
     {
         $request = $this->getPostRequestMock();
         $this->expectException(NoNextRouteException::class);
         $this->route->route($request);
     }
 
-    public function testReturnsCommandIfCanRouteReturnsTrue()
+    public function testReturnsCommandIfCanRouteReturnsTrue(): void
     {
         $command = $this->getCommandMock();
         $this->route->method('canRoute')->willReturn(true);
@@ -41,7 +41,7 @@ class PostRouteTest extends TestCase
         $this->assertSame($command, $this->route->route($this->getPostRequestMock()));
     }
 
-    public function testInvokesNextRouteIfCanRouteReturnsFalse()
+    public function testInvokesNextRouteIfCanRouteReturnsFalse(): void
     {
         $request = $this->getPostRequestMock();
 

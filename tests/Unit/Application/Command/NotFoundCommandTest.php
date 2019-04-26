@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class NotFoundCommandTest extends TestCase
 {
-    public function testReturnsNotFoundResult()
+    public function testReturnsNotFoundResult(): void
     {
         $command = new NotFoundCommand();
         $this->assertInstanceOf(NotFoundResult::class, $command->execute());

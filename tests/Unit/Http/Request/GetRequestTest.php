@@ -22,7 +22,7 @@ class GetRequestTest extends TestCase
      */
     private $request;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->request = new GetRequest(
             $this->getUriPathMock(),
@@ -31,7 +31,7 @@ class GetRequestTest extends TestCase
         );
     }
 
-    public function testHasParametersReturnsFalseIfParametersAreEmpty()
+    public function testHasParametersReturnsFalseIfParametersAreEmpty(): void
     {
         $request = new GetRequest(
             $this->getUriPathMock(),
@@ -42,34 +42,34 @@ class GetRequestTest extends TestCase
         $this->assertFalse($request->hasParameters());
     }
 
-    public function testHasParametersReturnsTrueIfParametersAreNotEmpty()
+    public function testHasParametersReturnsTrueIfParametersAreNotEmpty(): void
     {
         $this->assertTrue($this->request->hasParameters());
     }
 
-    public function testHasParameterReturnsExpectedValue()
+    public function testHasParameterReturnsExpectedValue(): void
     {
         $this->assertTrue($this->request->hasParameter('foo'));
         $this->assertFalse($this->request->hasParameter('baz'));
     }
 
-    public function testGetParameterThrowsExceptionIfParameterIsNotPresent()
+    public function testGetParameterThrowsExceptionIfParameterIsNotPresent(): void
     {
         $this->expectException(RequestParameterNotFoundException::class);
         $this->request->getParameter('baz');
     }
 
-    public function testGetParameterReturnsExpectedValue()
+    public function testGetParameterReturnsExpectedValue(): void
     {
         $this->assertSame('bar', $this->request->getParameter('foo'));
     }
 
-    public function testIsGetRequestReturnsTrue()
+    public function testIsGetRequestReturnsTrue(): void
     {
         $this->assertTrue($this->request->isGetRequest());
     }
 
-    public function testIsPostRequestReturnsTrue()
+    public function testIsPostRequestReturnsTrue(): void
     {
         $this->assertFalse($this->request->isPostRequest());
     }

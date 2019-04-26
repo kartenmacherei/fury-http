@@ -27,7 +27,7 @@ class GetRouter
     /**
      * @param GetRoute $route
      */
-    public function addRoute(GetRoute $route)
+    public function addRoute(GetRoute $route): void
     {
         if ($this->firstRoute === null) {
             $this->firstRoute = $route;

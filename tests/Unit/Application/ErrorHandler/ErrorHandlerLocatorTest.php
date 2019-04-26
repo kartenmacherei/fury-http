@@ -20,7 +20,7 @@ class ErrorHandlerLocatorTest extends TestCase
      * @param bool $isDevelopment
      * @param string $expectedFactoryMethod
      */
-    public function testReturnsExpectedInstance(bool $isDevelopment, string $expectedFactoryMethod)
+    public function testReturnsExpectedInstance(bool $isDevelopment, string $expectedFactoryMethod): void
     {
         $environment = $this->getEnvironmentMock();
         $environment->method('isDevelopment')->willReturn($isDevelopment);

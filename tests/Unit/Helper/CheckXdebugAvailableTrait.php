@@ -5,7 +5,7 @@ namespace Fury\UnitTests\Helper;
 
 trait CheckXdebugAvailableTrait
 {
-    public function checkXdebugGetHeadersIsAvailableOrSkipTest()
+    public function checkXdebugGetHeadersIsAvailableOrSkipTest(): void
     {
         if (!function_exists('xdebug_get_headers')) {
             $this->markTestSkipped('This test requires xdebug_get_headers() from the XDEBUG-Extension.');

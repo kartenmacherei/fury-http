@@ -11,13 +11,13 @@ use PHPUnit\Framework\TestCase;
  */
 class RequestCookieTest extends TestCase
 {
-    public function testGetNameReturnsExpectedString()
+    public function testGetNameReturnsExpectedString(): void
     {
         $cookie = new RequestCookie('some_cookie', 'some value');
         $this->assertSame('some_cookie', $cookie->getName());
     }
 
-    public function testGetValueReturnsExpectedString()
+    public function testGetValueReturnsExpectedString(): void
     {
         $cookie = new RequestCookie('some_cookie', 'some value');
         $this->assertSame('some value', $cookie->getValue());

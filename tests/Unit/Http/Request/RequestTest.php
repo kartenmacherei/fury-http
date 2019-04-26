@@ -44,7 +44,7 @@ class RequestTest extends TestCase
      */
     private $vfs;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->path = $this->getUriPathMock();
         $this->cookieJar = $this->getRequestCookieJarMock();
@@ -54,22 +54,22 @@ class RequestTest extends TestCase
         $this->vfs = vfsStream::setup();
     }
 
-    public function testIsGetRequestReturnsFalse()
+    public function testIsGetRequestReturnsFalse(): void
     {
         $this->assertFalse($this->request->isGetRequest());
     }
 
-    public function testIsPostRequestReturnsFalse()
+    public function testIsPostRequestReturnsFalse(): void
     {
         $this->assertFalse($this->request->isPostRequest());
     }
 
-    public function testGetPathReturnsExpectedObject()
+    public function testGetPathReturnsExpectedObject(): void
     {
         $this->assertSame($this->path, $this->request->getPath());
     }
 
-    public function testHasCookieReturnsExpectedValue()
+    public function testHasCookieReturnsExpectedValue(): void
     {
         $this->cookieJar->method('hasCookie')->willReturnMap(
             [
@@ -82,7 +82,7 @@ class RequestTest extends TestCase
         $this->assertFalse($this->request->hasCookie('bar'));
     }
 
-    public function testGetCookieValueReturnsExpectedString()
+    public function testGetCookieValueReturnsExpectedString(): void
     {
         $cookie = $this->getRequestCookieMock();
         $cookie->method('getValue')->willReturn('some value');
@@ -105,7 +105,7 @@ class RequestTest extends TestCase
      *
      * @throws \Fury\Http\UnsupportedRequestMethodException
      */
-    public function testCreatesExpectedFormPostRequest(string $contentType, string $inputStream, string $expectedClass)
+    public function testCreatesExpectedFormPostRequest(string $contentType, string $inputStream, string $expectedClass): void
     {
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['DOCUMENT_URI'] = '/foo';
@@ -131,7 +131,7 @@ class RequestTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testCreatesExpectedGetRequest()
+    public function testCreatesExpectedGetRequest(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['DOCUMENT_URI'] = '/foo';
@@ -144,7 +144,7 @@ class RequestTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testThrowsExceptionIfRequestMethodIsNotSupported()
+    public function testThrowsExceptionIfRequestMethodIsNotSupported(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'DELETE';
         $_SERVER['DOCUMENT_URI'] = '/foo';

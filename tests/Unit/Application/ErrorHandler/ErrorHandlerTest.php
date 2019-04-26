@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ErrorHandlerTest extends TestCase
 {
-    public function testHandleErrorThrowsExpectedException()
+    public function testHandleErrorThrowsExpectedException(): void
     {
         $errorHandler = $this->getErrorHandler();
 

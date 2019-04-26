@@ -22,7 +22,7 @@ class FormPostRequestTest extends TestCase
      */
     private $request;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->request = new FormPostRequest(
             $this->getUriPathMock(),
@@ -31,24 +31,24 @@ class FormPostRequestTest extends TestCase
         );
     }
 
-    public function testHasParametersReturnsTrue()
+    public function testHasParametersReturnsTrue(): void
     {
         $this->assertTrue($this->request->hasParameters());
     }
 
-    public function testHasParameterReturnsExpectedValue()
+    public function testHasParameterReturnsExpectedValue(): void
     {
         $this->assertTrue($this->request->hasParameter('foo'));
         $this->assertFalse($this->request->hasParameter('baz'));
     }
 
-    public function testGetParameterThrowsExceptionIfParameterIsNotPresent()
+    public function testGetParameterThrowsExceptionIfParameterIsNotPresent(): void
     {
         $this->expectException(RequestParameterNotFoundException::class);
         $this->request->getParameter('baz');
     }
 
-    public function testGetParameterReturnsExpectedValue()
+    public function testGetParameterReturnsExpectedValue(): void
     {
         $this->assertSame('bar', $this->request->getParameter('foo'));
     }

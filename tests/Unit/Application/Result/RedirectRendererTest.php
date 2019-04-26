@@ -32,7 +32,7 @@ class RedirectRendererTest extends TestCase
      */
     private $renderer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -42,7 +42,7 @@ class RedirectRendererTest extends TestCase
         $this->renderer = new RedirectRenderer($this->redirectResultMock);
     }
 
-    public function testIfRenderReturnsExpectedResponse()
+    public function testIfRenderReturnsExpectedResponse(): void
     {
         $this->redirectResultMock->expects($this->once())
             ->method('getUriPath')

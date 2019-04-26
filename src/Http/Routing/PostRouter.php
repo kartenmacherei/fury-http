@@ -24,7 +24,7 @@ class PostRouter
         return $this->firstRoute->route($request);
     }
 
-    public function addRoute(PostRoute $route)
+    public function addRoute(PostRoute $route): void
     {
         if ($this->firstRoute === null) {
             $this->firstRoute = $route;

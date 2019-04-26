@@ -34,7 +34,7 @@ class ResultRouter
     /**
      * @param ResultRoute $route
      */
-    public function addRoute(ResultRoute $route)
+    public function addRoute(ResultRoute $route): void
     {
         if ($this->firstRoute === null) {
             $this->firstRoute = $route;

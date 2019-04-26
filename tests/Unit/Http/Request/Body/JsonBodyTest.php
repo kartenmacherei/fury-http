@@ -15,13 +15,13 @@ use PHPUnit\Framework\TestCase;
  */
 class JsonBodyTest extends TestCase
 {
-    public function testThrowsExceptionIfValueCannotBeDecoded()
+    public function testThrowsExceptionIfValueCannotBeDecoded(): void
     {
         $this->expectException(EnsureException::class);
         new JsonBody('foo');
     }
 
-    public function testGetJsonReturnsExpectedJsonObject()
+    public function testGetJsonReturnsExpectedJsonObject(): void
     {
         $jsonString = '{"foo":"bar"}';
         $body = new JsonBody($jsonString);
@@ -30,7 +30,7 @@ class JsonBodyTest extends TestCase
         $this->assertEquals($expected, $body->getJson());
     }
 
-    public function testGetEncodedStringReturnsExpectedString()
+    public function testGetEncodedStringReturnsExpectedString(): void
     {
         $jsonString = '{"foo":"bar"}';
         $body = new JsonBody($jsonString);
@@ -38,7 +38,7 @@ class JsonBodyTest extends TestCase
         $this->assertSame($jsonString, $body->getEncodedString());
     }
 
-    public function testQueryReturnsExpectedValue()
+    public function testQueryReturnsExpectedValue(): void
     {
         $jsonString = '{"foo":"bar"}';
         $body = new JsonBody($jsonString);

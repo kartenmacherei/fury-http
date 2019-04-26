@@ -21,7 +21,7 @@ class ContentResponseTest extends TestCase
     private const CONTENT_VALUE = 'foo';
     private const CONTENT_TYPE_VALUE = 'application/json';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }
@@ -29,7 +29,7 @@ class ContentResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedHttpResponseCode()
+    public function testSetsExpectedHttpResponseCode(): void
     {
         $this->expectOutputString(self::CONTENT_VALUE);
         $response = new ContentResponse($this->getContentMock());
@@ -40,7 +40,7 @@ class ContentResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedContentTypeHeader()
+    public function testSetsExpectedContentTypeHeader(): void
     {
         $this->expectOutputString(self::CONTENT_VALUE);
         $content = $this->getContentMock();
@@ -55,7 +55,7 @@ class ContentResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSendsCookies()
+    public function testSendsCookies(): void
     {
         $this->expectOutputString(self::CONTENT_VALUE);
         $response = new ContentResponse($this->getContentMock());

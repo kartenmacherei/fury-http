@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ProductionErrorHandlerTest extends TestCase
 {
-    public function testHandleException()
+    public function testHandleException(): void
     {
         $exception = new Exception('Some Exception');
 

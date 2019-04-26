@@ -21,19 +21,19 @@ class JsonContentTest extends TestCase
      *
      * @param mixed $value
      */
-    public function testThrowsExceptionIfValueCannotBeEncodedToJson($value)
+    public function testThrowsExceptionIfValueCannotBeEncodedToJson($value): void
     {
         $this->expectException(EncodeException::class);
         new JsonContent($value);
     }
 
-    public function testGetContentTypeReturnsExpectedContentType()
+    public function testGetContentTypeReturnsExpectedContentType(): void
     {
         $content = new JsonContent('foo');
         $this->assertEquals(new JsonContentType(), $content->getContentType());
     }
 
-    public function testAsStringReturnsExpectedEncodedJsonString()
+    public function testAsStringReturnsExpectedEncodedJsonString(): void
     {
         $content = new JsonContent(['foo' => 'bar']);
         $this->assertSame('{"foo":"bar"}', $content->asString());

@@ -17,7 +17,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class RedirectResultRouteTest extends TestCase
 {
-    public function testReturnsExpectedResultRenderer()
+    public function testReturnsExpectedResultRenderer(): void
     {
         /** @var RedirectResult|PHPUnit_Framework_MockObject_MockObject $resultMock */
         $resultMock = $this->createMock(RedirectResult::class);

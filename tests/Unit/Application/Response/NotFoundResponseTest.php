@@ -23,7 +23,7 @@ class NotFoundResponseTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testSetsExpectedContentTypeHeader()
+    public function testSetsExpectedContentTypeHeader(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
 

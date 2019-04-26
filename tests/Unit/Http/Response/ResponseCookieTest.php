@@ -20,7 +20,7 @@ class ResponseCookieTest extends TestCase
 
     private const PREG_MATCH_SUCCESS = 1;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }

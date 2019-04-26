@@ -20,19 +20,19 @@ class GetRouteTest extends TestCase
      */
     private $route;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->route = $this->getGetRoute();
     }
 
-    public function testRouteThrowsExceptionOfNoNextRouteIsAvailable()
+    public function testRouteThrowsExceptionOfNoNextRouteIsAvailable(): void
     {
         $request = $this->getGetRequestMock();
         $this->expectException(NoNextRouteException::class);
         $this->route->route($request);
     }
 
-    public function testReturnsQueryIfCanRouteReturnsTrue()
+    public function testReturnsQueryIfCanRouteReturnsTrue(): void
     {
         $query = $this->getQueryMock();
         $this->route->method('canRoute')->willReturn(true);
@@ -41,7 +41,7 @@ class GetRouteTest extends TestCase
         $this->assertSame($query, $this->route->route($this->getGetRequestMock()));
     }
 
-    public function testInvokesNextRouteIfCanRouteReturnsFalse()
+    public function testInvokesNextRouteIfCanRouteReturnsFalse(): void
     {
         $request = $this->getGetRequestMock();
 
