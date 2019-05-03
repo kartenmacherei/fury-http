@@ -10,7 +10,7 @@ class DevelopmentErrorHandler extends ErrorHandler
     /**
      * @param Throwable $throwable
      */
-    public function handleException(Throwable $throwable)
+    public function handleException(Throwable $throwable): void
     {
         $this->terminate('<pre>' . $throwable . "\n\n" . $throwable->getTraceAsString() . '</pre>');
     }

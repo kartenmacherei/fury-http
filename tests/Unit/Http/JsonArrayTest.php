@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  */
 class JsonArrayTest extends TestCase
 {
-    public function testIsIterable()
+    public function testIsIterable(): void
     {
         $object = new \stdClass();
         $object->foobar = 'baz';

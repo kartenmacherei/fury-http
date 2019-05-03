@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class InternalServerErrorCodeTest extends TestCase
 {
-    public function testReturnsExpectedInt()
+    public function testReturnsExpectedInt(): void
     {
         $this->assertSame(500, (new InternalServerErrorCode())->asInt());
     }

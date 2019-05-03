@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class JsonObjectTest extends TestCase
 {
-    public function testHasReturnsExpectedValue()
+    public function testHasReturnsExpectedValue(): void
     {
         $object = new \stdClass();
         $object->foo = true;
@@ -26,7 +26,7 @@ class JsonObjectTest extends TestCase
         $this->assertTrue($jsonObject->has('foo'));
     }
 
-    public function testQueryThrowsExceptionIfPropertyIsNotSet()
+    public function testQueryThrowsExceptionIfPropertyIsNotSet(): void
     {
         $jsonObject = new JsonObject(new \stdClass());
         $this->expectException(JsonException::class);
@@ -40,7 +40,7 @@ class JsonObjectTest extends TestCase
      * @param mixed $value
      * @param mixed $expectedValue
      */
-    public function testQueryReturnsExpectedValue($value, $expectedValue)
+    public function testQueryReturnsExpectedValue($value, $expectedValue): void
     {
         $object = new \stdClass();
         $object->foo = $value;

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PatternTest extends TestCase
 {
-    public function testAsStringReturnsExpectedValue()
+    public function testAsStringReturnsExpectedValue(): void
     {
         $pattern = new Pattern('[a-zA-Z]{3}');
         $this->assertSame('/[a-zA-Z]{3}/', $pattern->asString());

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class MethodNotAllowedCodeTest extends TestCase
 {
-    public function testReturnsExpectedInt()
+    public function testReturnsExpectedInt(): void
     {
         $this->assertSame(405, (new MethodNotAllowedCode())->asInt());
     }

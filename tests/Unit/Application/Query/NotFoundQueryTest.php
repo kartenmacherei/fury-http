@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class NotFoundQueryTest extends TestCase
 {
-    public function testReturnsExpectedResult()
+    public function testReturnsExpectedResult(): void
     {
         $query = new NotFoundQuery();
 

@@ -20,12 +20,12 @@ class BodyTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testCreatesRawBodyIfInputStreamAndPostArrayAreEmpty()
+    public function testCreatesRawBodyIfInputStreamAndPostArrayAreEmpty(): void
     {
         $this->assertEquals(new RawBody(''), Body::fromSuperGlobals());
     }
 
-    public function testCreatesRawBodyIfContentTypeWasNotProvided()
+    public function testCreatesRawBodyIfContentTypeWasNotProvided(): void
     {
         $this->assertEquals(
             new RawBody('some content' . "\n"),
@@ -40,7 +40,7 @@ class BodyTest extends TestCase
      *
      * @param string $jsonContentType
      */
-    public function testCreatesJsonBody(string $jsonContentType)
+    public function testCreatesJsonBody(string $jsonContentType): void
     {
         $_SERVER['CONTENT_TYPE'] = $jsonContentType;
         $this->assertEquals(
@@ -60,7 +60,7 @@ class BodyTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testThrowsExceptionIfContentTypeIsUnsupported()
+    public function testThrowsExceptionIfContentTypeIsUnsupported(): void
     {
         $_SERVER['CONTENT_TYPE'] = 'foo';
         $this->expectException(UnsupportedRequestBodyException::class);

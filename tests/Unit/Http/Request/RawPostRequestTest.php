@@ -27,7 +27,7 @@ class RawPostRequestTest extends TestCase
      */
     private $body;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->body = $this->getRawBodyMock();
 
@@ -38,12 +38,12 @@ class RawPostRequestTest extends TestCase
         );
     }
 
-    public function testHasBodyReturnsTrue()
+    public function testHasBodyReturnsTrue(): void
     {
         $this->assertTrue($this->request->hasBody());
     }
 
-    public function testGetBodyReturnsExpectedString()
+    public function testGetBodyReturnsExpectedString(): void
     {
         $this->body->method('getContent')->willReturn('some content');
         $this->assertSame('some content', $this->request->getBody());

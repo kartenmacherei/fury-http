@@ -5,11 +5,11 @@ namespace Fury\Application;
 
 abstract class ContentType
 {
-    const JSON = 'application/json';
-    const JSON_UTF8 = 'application/json; charset=UTF-8';
-    const PLAIN = 'text/plain';
-    const WWW_FORM = 'application/x-www-form-urlencoded';
-    const WWW_FORM_UTF8 = 'application/x-www-form-urlencoded; charset=UTF-8';
+    public const JSON = 'application/json';
+    public const JSON_UTF8 = 'application/json; charset=UTF-8';
+    public const PLAIN = 'text/plain';
+    public const WWW_FORM = 'application/x-www-form-urlencoded';
+    public const WWW_FORM_UTF8 = 'application/x-www-form-urlencoded; charset=UTF-8';
 
     /**
      * @return string

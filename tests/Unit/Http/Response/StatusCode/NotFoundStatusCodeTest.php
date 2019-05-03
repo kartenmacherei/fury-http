@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class NotFoundStatusCodeTest extends TestCase
 {
-    public function testReturnsExpectedInt()
+    public function testReturnsExpectedInt(): void
     {
         $this->assertSame(404, (new NotFoundStatusCode())->asInt());
     }

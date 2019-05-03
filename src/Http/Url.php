@@ -5,6 +5,9 @@ namespace Fury\Http;
 
 class Url
 {
+    /**
+     * @var string
+     */
     private $value = '';
 
     public function __construct(string $value)

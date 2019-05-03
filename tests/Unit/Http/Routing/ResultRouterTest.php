@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ResultRouterTest extends TestCase
 {
-    public function testThrowsExceptionIfFirstRouteIsNotSet()
+    public function testThrowsExceptionIfFirstRouteIsNotSet(): void
     {
         $router = new ResultRouter();
         $this->expectException(NoRoutesException::class);
@@ -23,7 +23,7 @@ class ResultRouterTest extends TestCase
         $router->route($this->getResultMock());
     }
 
-    public function testAddRouteWithFirstRoute()
+    public function testAddRouteWithFirstRoute(): void
     {
         $route = $this->getResultRouteMock();
         $route->expects($this->once())->method('route');
@@ -34,7 +34,7 @@ class ResultRouterTest extends TestCase
         $router->route($this->getResultMock());
     }
 
-    public function testAddRouteSetsAddsRouteAsNextRoute()
+    public function testAddRouteSetsAddsRouteAsNextRoute(): void
     {
         $route1 = $this->getResultRouteMock();
         $route2 = $this->getResultRouteMock();

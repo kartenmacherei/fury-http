@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class UrlTest extends TestCase
 {
-    public function testReturnsExpectedString()
+    public function testReturnsExpectedString(): void
     {
         $url = new Url('https://example.com/foo');
         $this->assertSame('https://example.com/foo', $url->asString());

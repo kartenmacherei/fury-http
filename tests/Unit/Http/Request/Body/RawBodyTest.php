@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RawBodyTest extends TestCase
 {
-    public function testReturnsExpectedString()
+    public function testReturnsExpectedString(): void
     {
         $body = new RawBody('some content');
         $this->assertSame('some content', $body->getContent());

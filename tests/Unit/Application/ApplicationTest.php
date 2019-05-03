@@ -25,7 +25,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ApplicationTest extends TestCase
 {
-    public function testHandlesGetRequest()
+    public function testHandlesGetRequest(): void
     {
         $request = $this->getGetRequestMock();
         $request->method('isGetRequest')->willReturn(true);
@@ -63,7 +63,7 @@ class ApplicationTest extends TestCase
         $this->assertSame($response, $application->handle($request));
     }
 
-    public function testHandlesPostRequest()
+    public function testHandlesPostRequest(): void
     {
         $request = $this->getPostRequestMock();
         $request->method('isGetRequest')->willReturn(false);
@@ -105,7 +105,7 @@ class ApplicationTest extends TestCase
     /**
      * @uses \Fury\Application\MethodNotAllowedResponse
      */
-    public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost()
+    public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost(): void
     {
         $request = $this->getRequestMock();
         $supportedRequestMethodsMock = $this->createMock(SupportedRequestMethods::class);

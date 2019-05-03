@@ -18,7 +18,7 @@ class DeletionResponseCookieTest extends TestCase
 {
     use CheckXdebugAvailableTrait;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }

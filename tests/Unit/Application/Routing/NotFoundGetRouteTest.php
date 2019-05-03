@@ -17,7 +17,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class NotFoundGetRouteTest extends TestCase
 {
-    public function testReturnsExpectedQuery()
+    public function testReturnsExpectedQuery(): void
     {
         $request = $this->getGetRequestMock();
 

@@ -13,7 +13,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class ContentResultTest extends TestCase
 {
-    public function testReturnsExpectedContent()
+    public function testReturnsExpectedContent(): void
     {
         $content = $this->getContentMock();
         $result = new ContentResult($content);

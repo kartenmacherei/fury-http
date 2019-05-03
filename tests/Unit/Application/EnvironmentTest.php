@@ -17,7 +17,7 @@ class EnvironmentTest extends TestCase
      * @param array $environmentVariables
      * @param bool $expectedValue
      */
-    public function testReturnsExpectedValue(array $environmentVariables, bool $expectedValue)
+    public function testReturnsExpectedValue(array $environmentVariables, bool $expectedValue): void
     {
         $environment = new Environment($environmentVariables);
         $this->assertSame($expectedValue, $environment->isDevelopment());
@@ -26,7 +26,7 @@ class EnvironmentTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testFromSuperGlobalsReturnsExpectedObject()
+    public function testFromSuperGlobalsReturnsExpectedObject(): void
     {
         $_SERVER = ['foo' => 'bar'];
         $expected = new Environment($_SERVER);

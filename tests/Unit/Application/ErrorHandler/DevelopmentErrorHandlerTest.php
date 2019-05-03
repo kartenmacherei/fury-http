@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DevelopmentErrorHandlerTest extends TestCase
 {
-    public function testHandleException()
+    public function testHandleException(): void
     {
         $exception = new Exception('Some Exception');
 

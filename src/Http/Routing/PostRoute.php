@@ -13,7 +13,7 @@ abstract class PostRoute
     /**
      * @param PostRoute $route
      */
-    public function setNextRoute(PostRoute $route)
+    public function setNextRoute(PostRoute $route): void
     {
         $this->nextRoute = $route;
     }

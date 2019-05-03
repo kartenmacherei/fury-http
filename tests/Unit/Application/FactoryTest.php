@@ -23,22 +23,22 @@ class FactoryTest extends TestCase
      */
     private $factory;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->factory = new Factory();
     }
 
-    public function testCreatesErrorHandler()
+    public function testCreatesErrorHandler(): void
     {
         $this->assertInstanceOf(ErrorHandler::class, $this->factory->createErrorHandler());
     }
 
-    public function testCreatesDevelopmentErrorHandler()
+    public function testCreatesDevelopmentErrorHandler(): void
     {
         $this->assertInstanceOf(DevelopmentErrorHandler::class, $this->factory->createDevelopmentErrorHandler());
     }
 
-    public function testCreatesProductionErrorHandler()
+    public function testCreatesProductionErrorHandler(): void
     {
         $this->assertInstanceOf(ProductionErrorHandler::class, $this->factory->createProductionErrorHandler());
     }

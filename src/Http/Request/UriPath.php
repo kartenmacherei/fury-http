@@ -49,7 +49,7 @@ class UriPath
      *
      * @throws InvalidUriPathException
      */
-    private function ensureStartsWithSlash(string $pathUri)
+    private function ensureStartsWithSlash(string $pathUri): void
     {
         if ($pathUri[0] !== '/') {
             $message = sprintf('Expected path to start with "/", got path "%s"', $pathUri);

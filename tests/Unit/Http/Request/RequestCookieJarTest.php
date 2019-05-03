@@ -18,7 +18,7 @@ class RequestCookieJarTest extends TestCase
      */
     private $jar;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $_COOKIE = ['foo' => 'bar'];
         $this->jar = RequestCookieJar::fromSuperGlobals();
@@ -27,7 +27,7 @@ class RequestCookieJarTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testHasCookieReturnsExpectedValue()
+    public function testHasCookieReturnsExpectedValue(): void
     {
         $this->assertFalse($this->jar->hasCookie('baz'));
         $this->assertTrue($this->jar->hasCookie('foo'));
@@ -36,7 +36,7 @@ class RequestCookieJarTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testGetCookieReturnsExpectedObject()
+    public function testGetCookieReturnsExpectedObject(): void
     {
         $expected = new RequestCookie('foo', 'bar');
         $this->assertEquals($expected, $this->jar->getCookie('foo'));
@@ -45,7 +45,7 @@ class RequestCookieJarTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testGetCookieThrowsExceptionIfCookieDoesNotExist()
+    public function testGetCookieThrowsExceptionIfCookieDoesNotExist(): void
     {
         $this->expectException(CookieNotFoundException::class);
         $this->jar->getCookie('baz');

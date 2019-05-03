@@ -17,7 +17,7 @@ use PHPUnit_Framework_MockObject_MockObject;
  */
 class NotFoundResultRouteTest extends TestCase
 {
-    public function testReturnsExpectedResultRenderer()
+    public function testReturnsExpectedResultRenderer(): void
     {
         $result = $this->getNotFoundResultMock();
 

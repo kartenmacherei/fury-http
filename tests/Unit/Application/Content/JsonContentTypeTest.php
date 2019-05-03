@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class JsonContentTypeTest extends TestCase
 {
-    public function testReturnsExpectedString()
+    public function testReturnsExpectedString(): void
     {
         $type = new JsonContentType();
         $this->assertSame('application/json', $type->asString());
