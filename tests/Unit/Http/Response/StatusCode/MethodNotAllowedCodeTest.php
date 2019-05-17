@@ -7,7 +7,7 @@ use Fury\Http\Response\StatusCode\MethodNotAllowedCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\MethodNotAllowedCode
+ * @covers \Fury\Http\Response\StatusCode\MethodNotAllowedCode
  */
 class MethodNotAllowedCodeTest extends TestCase
 {

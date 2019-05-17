@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  * @covers \Fury\Application\Routing\NotFoundGetRoute
  * @covers \Fury\Http\Routing\GetRoute
  *
- * @uses \Fury\Application\Routing\NotFoundQuery
+ * @uses \Fury\Application\Query\NotFoundQuery
  */
 class NotFoundGetRouteTest extends TestCase
 {

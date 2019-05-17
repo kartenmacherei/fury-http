@@ -7,7 +7,7 @@ use Fury\Http\Response\StatusCode\OkStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\OkStatusCode
+ * @covers \Fury\Http\Response\StatusCode\OkStatusCode
  */
 class OkStatusCodeTest extends TestCase
 {

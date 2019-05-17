@@ -7,7 +7,7 @@ use Fury\Http\Response\StatusCode\NotFoundStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\NotFoundStatusCode
+ * @covers \Fury\Http\Response\StatusCode\NotFoundStatusCode
  */
 class NotFoundStatusCodeTest extends TestCase
 {

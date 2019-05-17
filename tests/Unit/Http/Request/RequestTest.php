@@ -154,7 +154,7 @@ class RequestTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Http\SupportedRequestMethods
+     * @uses \Fury\Http\Request\SupportedRequestMethods
      */
     public function testGetAllowedRequestMethods(): void
     {

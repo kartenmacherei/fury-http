@@ -7,7 +7,7 @@ use Fury\Http\Response\StatusCode\RedirectStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\RedirectStatusCode
+ * @covers \Fury\Http\Response\StatusCode\RedirectStatusCode
  */
 class RedirectStatusCodeTest extends TestCase
 {
