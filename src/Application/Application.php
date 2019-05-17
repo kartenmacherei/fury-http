@@ -3,13 +3,14 @@
 declare(strict_types=1);
 namespace Fury\Application;
 
-use Fury\Http\GetRequest;
-use Fury\Http\GetRouter;
-use Fury\Http\PostRequest;
-use Fury\Http\PostRouter;
-use Fury\Http\Request;
-use Fury\Http\Response;
-use Fury\Http\ResultRouter;
+use Fury\Application\Response\MethodNotAllowedResponse;
+use Fury\Http\Request\GetRequest;
+use Fury\Http\Request\PostRequest;
+use Fury\Http\Request\Request;
+use Fury\Http\Response\Response;
+use Fury\Http\Routing\GetRouter;
+use Fury\Http\Routing\PostRouter;
+use Fury\Http\Routing\ResultRouter;
 
 abstract class Application
 {

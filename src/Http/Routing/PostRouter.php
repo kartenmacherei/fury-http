@@ -3,6 +3,9 @@
 declare(strict_types=1);
 namespace Fury\Http\Routing;
 
+use Fury\Http\Command;
+use Fury\Http\Request\PostRequest;
+
 class PostRouter
 {
     /**

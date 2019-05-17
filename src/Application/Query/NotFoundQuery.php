@@ -3,8 +3,10 @@
 declare(strict_types=1);
 namespace Fury\Application\Query;
 
+use Fury\Application\Content\HtmlContent;
+use Fury\Application\Result\NotFoundResult;
 use Fury\Http\Query;
-use Fury\Http\Result;
+use Fury\Http\Result\Result;
 
 class NotFoundQuery implements Query
 {
