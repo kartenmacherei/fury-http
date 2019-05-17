@@ -7,7 +7,7 @@ use Fury\Http\Request\Pattern;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Pattern
+ * @covers \Fury\Http\Request\Pattern
  */
 class PatternTest extends TestCase
 {

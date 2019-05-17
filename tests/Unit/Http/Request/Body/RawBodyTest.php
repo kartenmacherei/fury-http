@@ -7,7 +7,7 @@ use Fury\Http\Request\Body\RawBody;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\RawBody
+ * @covers \Fury\Http\Request\Body\RawBody
  */
 class RawBodyTest extends TestCase
 {

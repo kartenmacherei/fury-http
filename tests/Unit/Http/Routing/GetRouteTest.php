@@ -11,7 +11,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\GetRoute
+ * @covers \Fury\Http\Routing\GetRoute
  */
 class GetRouteTest extends TestCase
 {

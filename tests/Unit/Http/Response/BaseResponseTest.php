@@ -10,7 +10,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\BaseResponse
+ * @covers \Fury\Http\Response\BaseResponse
  */
 class BaseResponseTest extends TestCase
 {

@@ -20,7 +20,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request
+ * @covers \Fury\Http\Request\Request
  */
 class RequestTest extends TestCase
 {

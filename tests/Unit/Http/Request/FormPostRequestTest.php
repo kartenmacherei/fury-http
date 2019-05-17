@@ -11,9 +11,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\FormPostRequest
+ * @covers \Fury\Http\Request\FormPostRequest
  *
- * @uses \Fury\Http\Request
+ * @uses \Fury\Http\Request\Request
  */
 class FormPostRequestTest extends TestCase
 {

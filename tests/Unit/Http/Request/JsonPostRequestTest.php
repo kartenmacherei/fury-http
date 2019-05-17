@@ -11,9 +11,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\JsonPostRequest
+ * @covers \Fury\Http\Request\JsonPostRequest
  *
- * @uses \Fury\Http\Request
+ * @uses \Fury\Http\Request\Request
  */
 class JsonPostRequestTest extends TestCase
 {

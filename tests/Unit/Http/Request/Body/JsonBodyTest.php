@@ -9,7 +9,7 @@ use Fury\Http\Request\Body\JsonBody;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\JsonBody
+ * @covers \Fury\Http\Request\Body\JsonBody
  *
  * @uses \Fury\Http\JsonObject
  */

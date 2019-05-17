@@ -7,7 +7,7 @@ use Fury\Http\Response\CookieExpiryTime;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\CookieExpiryTime
+ * @covers \Fury\Http\Response\CookieExpiryTime
  */
 class CookieExpiryTimeTest extends TestCase
 {

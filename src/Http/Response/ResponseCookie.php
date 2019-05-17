@@ -3,6 +3,9 @@
 declare(strict_types=1);
 namespace Fury\Http\Response;
 
+use Fury\Http\EnsureException;
+use Fury\Http\Exception;
+
 class ResponseCookie
 {
     private const EXPIRE_END_OF_SESSION = 0;

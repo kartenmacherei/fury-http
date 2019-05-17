@@ -11,7 +11,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\NotFoundResponse
+ * @covers \Fury\Application\Response\NotFoundResponse
  */
 class NotFoundResponseTest extends TestCase
 {

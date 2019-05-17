@@ -9,7 +9,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\ProductionErrorHandler
+ * @covers \Fury\Application\ErrorHandler\ProductionErrorHandler
  */
 class ProductionErrorHandlerTest extends TestCase
 {

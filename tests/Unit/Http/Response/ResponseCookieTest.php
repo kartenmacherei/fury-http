@@ -10,7 +10,7 @@ use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\ResponseCookie
+ * @covers \Fury\Http\Response\ResponseCookie
  */
 class ResponseCookieTest extends TestCase
 {

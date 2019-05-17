@@ -11,9 +11,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\RawPostRequest
+ * @covers \Fury\Http\Request\RawPostRequest
  *
- * @uses \Fury\Http\Request
+ * @uses \Fury\Http\Request\Request
  */
 class RawPostRequestTest extends TestCase
 {

@@ -9,7 +9,7 @@ use Fury\Application\Content\JsonContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\JsonContent
+ * @covers \Fury\Application\Content\JsonContent
  *
  * @uses \Fury\Application\Content\EncodeException
  * @uses \Fury\Application\Content\JsonContentType

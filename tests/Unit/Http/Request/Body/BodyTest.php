@@ -11,9 +11,9 @@ use Fury\Http\Request\Body\UnsupportedRequestBodyException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Body
+ * @covers \Fury\Http\Request\Body\Body
  *
- * @uses \Fury\Http\RawBody
+ * @uses \Fury\Http\Request\Body\RawBody
  */
 class BodyTest extends TestCase
 {

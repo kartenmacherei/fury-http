@@ -9,9 +9,9 @@ use Fury\Http\Request\UriPath;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\UriPath
+ * @covers \Fury\Http\Request\UriPath
  *
- * @uses \Fury\Http\Pattern
+ * @uses \Fury\Http\Request\Pattern
  */
 class UriPathTest extends TestCase
 {

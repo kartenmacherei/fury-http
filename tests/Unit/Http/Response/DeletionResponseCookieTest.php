@@ -11,8 +11,8 @@ use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\ResponseCookie
- * @covers \Fury\Http\DeletionResponseCookie
+ * @covers \Fury\Http\Response\ResponseCookie
+ * @covers \Fury\Http\Response\DeletionResponseCookie
  */
 class DeletionResponseCookieTest extends TestCase
 {
@@ -66,7 +66,7 @@ class DeletionResponseCookieTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Http\CookieExpiryTime
+     * @uses \Fury\Http\Response\CookieExpiryTime
      */
     public function testSetInvalidDomainThrowsException(): void
     {

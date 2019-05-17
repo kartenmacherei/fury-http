@@ -8,7 +8,7 @@ use Fury\Http\Request\SupportedRequestMethods;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\SupportedRequestMethods
+ * @covers \Fury\Http\Request\SupportedRequestMethods
  */
 class SupportedRequestMethodsTest extends TestCase
 {

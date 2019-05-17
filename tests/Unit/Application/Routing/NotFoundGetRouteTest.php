@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Application\Routing\NotFoundGetRoute
- * @covers \Fury\Http\Request\GetRoute
+ * @covers \Fury\Http\Routing\GetRoute
  *
  * @uses \Fury\Application\Routing\NotFoundQuery
  */

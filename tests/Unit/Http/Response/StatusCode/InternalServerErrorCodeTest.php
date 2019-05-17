@@ -7,7 +7,7 @@ use Fury\Http\Response\StatusCode\InternalServerErrorCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\InternalServerErrorCode
+ * @covers \Fury\Http\Response\StatusCode\InternalServerErrorCode
  */
 class InternalServerErrorCodeTest extends TestCase
 {

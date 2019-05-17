@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Application\Result\ContentResultRoute
- * @covers \Fury\Http\ResultRoute
+ * @covers \Fury\Http\Routing\ResultRoute
  *
  * @uses \Fury\Application\Result\ContentResultRenderer
  */

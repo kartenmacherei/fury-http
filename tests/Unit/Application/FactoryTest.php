@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  * @covers \Fury\Application\Factory
  *
  * @uses \Fury\Application\ErrorHandler\ErrorHandler
- * @uses \Fury\Application\\ErrorHandler\Environment
+ * @uses \Fury\Application\ErrorHandler\Environment
  * @uses \Fury\Application\ErrorHandler\ErrorHandlerLocator
  */
 class FactoryTest extends TestCase

@@ -10,9 +10,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\PostRequest
+ * @covers \Fury\Http\Request\PostRequest
  *
- * @uses \Fury\Http\Request
+ * @uses \Fury\Http\Request\Request
  */
 class PostRequestTest extends TestCase
 {

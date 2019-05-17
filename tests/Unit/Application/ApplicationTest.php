@@ -103,7 +103,7 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Application\MethodNotAllowedResponse
+     * @uses \Fury\Application\Response\MethodNotAllowedResponse
      */
     public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost(): void
     {
