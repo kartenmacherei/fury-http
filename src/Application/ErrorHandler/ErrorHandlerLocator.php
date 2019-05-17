@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\ErrorHandler;
+
+use Fury\Application\Environment;
+use Fury\Application\Factory;
 
 class ErrorHandlerLocator
 {

@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Response;
 
-use Fury\Http\BaseResponse;
-use Fury\Http\MethodNotAllowedCode;
-use Fury\Http\StatusCode;
-use Fury\Http\SupportedRequestMethods;
+use Fury\Http\Request\SupportedRequestMethods;
+use Fury\Http\Response\BaseResponse;
+use Fury\Http\Response\StatusCode;
+use Fury\Http\Response\StatusCode\MethodNotAllowedCode;
 
 class MethodNotAllowedResponse extends BaseResponse
 {

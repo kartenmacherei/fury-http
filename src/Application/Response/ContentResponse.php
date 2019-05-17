@@ -1,11 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Response;
 
-use Fury\Http\BaseResponse;
-use Fury\Http\OkStatusCode;
-use Fury\Http\StatusCode;
+use Fury\Application\Content\Content;
+use Fury\Http\Response\BaseResponse;
+use Fury\Http\Response\StatusCode;
+use Fury\Http\Response\StatusCode\OkStatusCode;
 
 class ContentResponse extends BaseResponse
 {

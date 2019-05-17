@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Query;
 
 use Fury\Http\Query;
 use Fury\Http\Result;

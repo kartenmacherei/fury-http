@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Http\Routing;
+
+use Fury\Http\Query;
+use Fury\Http\Request\GetRequest;
 
 class GetRouter
 {

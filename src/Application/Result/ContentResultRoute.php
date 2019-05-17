@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Result;
 
-use Fury\Http\Result;
-use Fury\Http\ResultRenderer;
-use Fury\Http\ResultRoute;
+use Fury\Http\Result\Result;
+use Fury\Http\Result\ResultRenderer;
+use Fury\Http\Routing\ResultRoute;
 
 class ContentResultRoute extends ResultRoute
 {

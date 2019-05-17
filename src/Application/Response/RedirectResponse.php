@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Response;
 
-use Fury\Http\BaseResponse;
-use Fury\Http\RedirectStatusCode;
-use Fury\Http\StatusCode;
-use Fury\Http\UriPath;
+use Fury\Http\Request\UriPath;
+use Fury\Http\Response\BaseResponse;
+use Fury\Http\Response\StatusCode;
+use Fury\Http\Response\StatusCode\RedirectStatusCode;
 
 class RedirectResponse extends BaseResponse
 {

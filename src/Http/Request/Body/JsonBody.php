@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Http\Request\Body;
+
+use Fury\Http\EnsureException;
+use Fury\Http\JsonObject;
 
 class JsonBody extends Body
 {

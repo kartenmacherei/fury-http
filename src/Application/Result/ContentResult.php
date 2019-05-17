@@ -1,9 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Result;
 
-use Fury\Http\Result;
+use Fury\Application\Content\Content;
+use Fury\Http\Result\Result;
 
 class ContentResult implements Result
 {

@@ -1,11 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Routing;
 
-use Fury\Http\GetRequest;
-use Fury\Http\GetRoute;
+use Fury\Application\Query\NotFoundQuery;
 use Fury\Http\Query;
+use Fury\Http\Request\GetRequest;
+use Fury\Http\Routing\GetRoute;
 
 class NotFoundGetRoute extends GetRoute
 {

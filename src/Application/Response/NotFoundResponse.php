@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Response;
 
-use Fury\Http\NotFoundStatusCode;
-use Fury\Http\StatusCode;
+use Fury\Http\Response\StatusCode;
+use Fury\Http\Response\StatusCode\NotFoundStatusCode;
 
 class NotFoundResponse extends ContentResponse
 {

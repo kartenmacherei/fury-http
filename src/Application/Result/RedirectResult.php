@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Result;
 
-use Fury\Http\Result;
-use Fury\Http\UriPath;
+use Fury\Http\Request\UriPath;
+use Fury\Http\Result\Result;
 
 class RedirectResult implements Result
 {

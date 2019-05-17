@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Http\Response;
+
+use Fury\Http\Exception;
 
 class DeletionResponseCookie extends ResponseCookie
 {

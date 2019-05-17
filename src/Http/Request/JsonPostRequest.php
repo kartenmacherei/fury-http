@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Http\Request;
+
+use Fury\Http\Request\Body\JsonBody;
 
 class JsonPostRequest extends PostRequest
 {

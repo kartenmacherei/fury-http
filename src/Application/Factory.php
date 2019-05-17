@@ -3,6 +3,11 @@
 declare(strict_types=1);
 namespace Fury\Application;
 
+use Fury\Application\ErrorHandler\DevelopmentErrorHandler;
+use Fury\Application\ErrorHandler\ErrorHandler;
+use Fury\Application\ErrorHandler\ErrorHandlerLocator;
+use Fury\Application\ErrorHandler\ProductionErrorHandler;
+
 class Factory
 {
     /**

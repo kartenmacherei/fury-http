@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Http\Routing;
+
+use Fury\Http\Result\Result;
+use Fury\Http\Result\ResultRenderer;
 
 abstract class ResultRoute
 {

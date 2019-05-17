@@ -1,10 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Fury\Application\Result;
 
-use Fury\Http\Response;
-use Fury\Http\ResultRenderer;
+use Fury\Application\Response\NotFoundResponse;
+use Fury\Http\Response\Response;
+use Fury\Http\Result\ResultRenderer;
 
 class NotFoundResultRenderer implements ResultRenderer
 {

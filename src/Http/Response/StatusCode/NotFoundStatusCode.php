@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Fury\Http\Response\StatusCode;
+
+use Fury\Http\Response\StatusCode;
 
 class NotFoundStatusCode implements StatusCode
 {
