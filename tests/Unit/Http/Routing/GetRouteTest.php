@@ -3,10 +3,10 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\GetRequest;
-use Fury\Http\GetRoute;
-use Fury\Http\NoNextRouteException;
 use Fury\Http\Query;
+use Fury\Http\Request\GetRequest;
+use Fury\Http\Routing\GetRoute;
+use Fury\Http\Routing\NoNextRouteException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

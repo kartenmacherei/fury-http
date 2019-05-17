@@ -3,14 +3,14 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\MethodNotAllowedResponse;
-use Fury\Http\ResponseCookie;
-use Fury\Http\SupportedRequestMethods;
+use Fury\Application\Response\MethodNotAllowedResponse;
+use Fury\Http\Request\SupportedRequestMethods;
+use Fury\Http\Response\ResponseCookie;
 use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\MethodNotAllowedResponse
+ * @covers \Fury\Application\Response\MethodNotAllowedResponse
  */
 class MethodNotAllowedResponseTest extends TestCase
 {

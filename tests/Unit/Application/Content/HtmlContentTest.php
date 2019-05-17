@@ -3,12 +3,12 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\HtmlContent;
-use Fury\Application\HtmlContentType;
+use Fury\Application\Content\HtmlContent;
+use Fury\Application\Content\HtmlContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\HtmlContent
+ * @covers \Fury\Application\Content\HtmlContent
  */
 class HtmlContentTest extends TestCase
 {

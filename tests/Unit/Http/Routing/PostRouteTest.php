@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\Command;
-use Fury\Http\NoNextRouteException;
-use Fury\Http\PostRequest;
-use Fury\Http\PostRoute;
+use Fury\Http\Request\PostRequest;
+use Fury\Http\Routing\NoNextRouteException;
+use Fury\Http\Routing\PostRoute;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

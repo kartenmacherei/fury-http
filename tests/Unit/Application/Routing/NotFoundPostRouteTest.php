@@ -3,17 +3,17 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\NotFoundCommand;
-use Fury\Application\NotFoundPostRoute;
-use Fury\Http\PostRequest;
+use Fury\Application\Command\NotFoundCommand;
+use Fury\Application\Routing\NotFoundPostRoute;
+use Fury\Http\Request\PostRequest;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundPostRoute
- * @covers \Fury\Http\PostRoute
+ * @covers \Fury\Application\Routing\NotFoundPostRoute
+ * @covers \Fury\Http\Routing\PostRoute
  *
- * @uses \Fury\Application\NotFoundCommand
+ * @uses \Fury\Application\Command\NotFoundCommand
  */
 class NotFoundPostRouteTest extends TestCase
 {
@@ -28,7 +28,7 @@ class NotFoundPostRouteTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|PostRequest
+     * @return MockObject|PostRequest
      */
     private function getPostRequestMock()
     {

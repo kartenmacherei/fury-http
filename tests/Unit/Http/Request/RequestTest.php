@@ -3,17 +3,17 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Application\ContentType;
-use Fury\Http\FormPostRequest;
-use Fury\Http\GetRequest;
-use Fury\Http\JsonPostRequest;
-use Fury\Http\RawPostRequest;
-use Fury\Http\Request;
-use Fury\Http\RequestCookie;
-use Fury\Http\RequestCookieJar;
-use Fury\Http\SupportedRequestMethods;
-use Fury\Http\UnsupportedRequestMethodException;
-use Fury\Http\UriPath;
+use Fury\Application\Content\ContentType;
+use Fury\Http\Request\FormPostRequest;
+use Fury\Http\Request\GetRequest;
+use Fury\Http\Request\JsonPostRequest;
+use Fury\Http\Request\RawPostRequest;
+use Fury\Http\Request\Request;
+use Fury\Http\Request\RequestCookie;
+use Fury\Http\Request\RequestCookieJar;
+use Fury\Http\Request\SupportedRequestMethods;
+use Fury\Http\Request\UnsupportedRequestMethodException;
+use Fury\Http\Request\UriPath;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -103,7 +103,7 @@ class RequestTest extends TestCase
      * @param string $inputStream
      * @param string $expectedClass
      *
-     * @throws \Fury\Http\UnsupportedRequestMethodException
+     * @throws \Fury\Http\Request\UnsupportedRequestMethodException
      */
     public function testCreatesExpectedFormPostRequest(string $contentType, string $inputStream, string $expectedClass): void
     {

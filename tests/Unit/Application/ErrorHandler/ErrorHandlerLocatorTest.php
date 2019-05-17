@@ -4,13 +4,13 @@ declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
 use Fury\Application\Environment;
-use Fury\Application\ErrorHandlerLocator;
+use Fury\Application\ErrorHandler\ErrorHandlerLocator;
 use Fury\Application\Factory;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\ErrorHandlerLocator
+ * @covers \Fury\Application\ErrorHandler\ErrorHandlerLocator
  */
 class ErrorHandlerLocatorTest extends TestCase
 {

@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\CookieNotFoundException;
-use Fury\Http\RequestCookie;
-use Fury\Http\RequestCookieJar;
+use Fury\Http\Request\RequestCookie;
+use Fury\Http\Request\RequestCookieJar;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\RequestCookieJar
+ * @covers \Fury\Http\Request\RequestCookieJar
  */
 class RequestCookieJarTest extends TestCase
 {

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\OkStatusCode;
+use Fury\Http\Response\StatusCode\OkStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**

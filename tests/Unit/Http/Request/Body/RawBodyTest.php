@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\RawBody;
+use Fury\Http\Request\Body\RawBody;
 use PHPUnit\Framework\TestCase;
 
 /**

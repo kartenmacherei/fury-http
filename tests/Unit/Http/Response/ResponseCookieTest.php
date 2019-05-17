@@ -3,9 +3,9 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\CookieExpiryTime;
 use Fury\Http\EnsureException;
-use Fury\Http\ResponseCookie;
+use Fury\Http\Response\CookieExpiryTime;
+use Fury\Http\Response\ResponseCookie;
 use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 

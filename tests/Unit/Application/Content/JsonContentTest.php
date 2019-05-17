@@ -3,16 +3,16 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\EncodeException;
-use Fury\Application\JsonContent;
-use Fury\Application\JsonContentType;
+use Fury\Application\Content\EncodeException;
+use Fury\Application\Content\JsonContent;
+use Fury\Application\Content\JsonContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Fury\Application\JsonContent
  *
- * @uses \Fury\Application\EncodeException
- * @uses \Fury\Application\JsonContentType
+ * @uses \Fury\Application\Content\EncodeException
+ * @uses \Fury\Application\Content\JsonContentType
  */
 class JsonContentTest extends TestCase
 {

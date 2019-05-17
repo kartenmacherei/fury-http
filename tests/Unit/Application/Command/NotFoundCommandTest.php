@@ -3,15 +3,15 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\NotFoundCommand;
-use Fury\Application\NotFoundResult;
+use Fury\Application\Command\NotFoundCommand;
+use Fury\Application\Result\NotFoundResult;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\NotFoundCommand
+ * @covers \Fury\Application\Command\NotFoundCommand
  *
- * @uses \Fury\Application\NotFoundResult
- * @uses \Fury\Application\HtmlContent
+ * @uses \Fury\Application\Result\NotFoundResult
+ * @uses \Fury\Application\Content\HtmlContent
  */
 class NotFoundCommandTest extends TestCase
 {

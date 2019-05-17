@@ -3,11 +3,11 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\JsonContentType;
+use Fury\Application\Content\JsonContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\JsonContentType
+ * @covers \Fury\Application\Content\JsonContentType
  */
 class JsonContentTypeTest extends TestCase
 {

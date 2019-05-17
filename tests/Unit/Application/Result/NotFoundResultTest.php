@@ -3,13 +3,13 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\Content;
-use Fury\Application\NotFoundResult;
+use Fury\Application\Content\Content;
+use Fury\Application\Result\NotFoundResult;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundResult
+ * @covers \Fury\Application\Result\NotFoundResult
  */
 class NotFoundResultTest extends TestCase
 {
@@ -21,7 +21,7 @@ class NotFoundResultTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|Content
+     * @return MockObject|Content
      */
     private function getContentMock()
     {

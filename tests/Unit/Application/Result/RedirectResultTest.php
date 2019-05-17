@@ -3,19 +3,19 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\RedirectResult;
-use Fury\Http\UriPath;
+use Fury\Application\Result\RedirectResult;
+use Fury\Http\Request\UriPath;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\RedirectResult
+ * @covers \Fury\Application\Result\RedirectResult
  */
 class RedirectResultTest extends TestCase
 {
     public function testGetContentReturnsExpectedContent(): void
     {
-        /** @var UriPath|PHPUnit_Framework_MockObject_MockObject $contentMock */
+        /** @var UriPath|MockObject $contentMock */
         $uriPathMock = $this->createMock(UriPath::class);
 
         $result = new RedirectResult($uriPathMock);

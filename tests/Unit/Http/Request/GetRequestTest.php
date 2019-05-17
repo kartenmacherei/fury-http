@@ -3,10 +3,10 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\GetRequest;
-use Fury\Http\RequestCookieJar;
-use Fury\Http\RequestParameterNotFoundException;
-use Fury\Http\UriPath;
+use Fury\Http\Request\GetRequest;
+use Fury\Http\Request\RequestCookieJar;
+use Fury\Http\Request\RequestParameterNotFoundException;
+use Fury\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

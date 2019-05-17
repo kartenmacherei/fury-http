@@ -3,17 +3,17 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\NotFoundGetRoute;
-use Fury\Application\NotFoundQuery;
-use Fury\Http\GetRequest;
+use Fury\Application\Query\NotFoundQuery;
+use Fury\Application\Routing\NotFoundGetRoute;
+use Fury\Http\Request\GetRequest;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundGetRoute
- * @covers \Fury\Http\GetRoute
+ * @covers \Fury\Application\Routing\NotFoundGetRoute
+ * @covers \Fury\Http\Request\GetRoute
  *
- * @uses \Fury\Application\NotFoundQuery
+ * @uses \Fury\Application\Routing\NotFoundQuery
  */
 class NotFoundGetRouteTest extends TestCase
 {
@@ -28,7 +28,7 @@ class NotFoundGetRouteTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|GetRequest
+     * @return MockObject|GetRequest
      */
     private function getGetRequestMock()
     {

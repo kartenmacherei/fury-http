@@ -3,10 +3,10 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\CookieExpiryTime;
-use Fury\Http\DeletionResponseCookie;
 use Fury\Http\EnsureException;
 use Fury\Http\Exception;
+use Fury\Http\Response\CookieExpiryTime;
+use Fury\Http\Response\DeletionResponseCookie;
 use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 

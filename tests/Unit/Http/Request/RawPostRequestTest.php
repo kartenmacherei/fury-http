@@ -3,10 +3,10 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\RawBody;
-use Fury\Http\RawPostRequest;
-use Fury\Http\RequestCookieJar;
-use Fury\Http\UriPath;
+use Fury\Http\Request\Body\RawBody;
+use Fury\Http\Request\RawPostRequest;
+use Fury\Http\Request\RequestCookieJar;
+use Fury\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

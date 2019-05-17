@@ -3,13 +3,13 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\RedirectResponse;
-use Fury\Http\UriPath;
+use Fury\Application\Response\RedirectResponse;
+use Fury\Http\Request\UriPath;
 use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\RedirectResponse
+ * @covers \Fury\Application\Response\RedirectResponse
  */
 class RedirectResponseTest extends TestCase
 {

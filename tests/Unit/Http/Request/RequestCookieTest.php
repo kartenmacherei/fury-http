@@ -3,11 +3,11 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\RequestCookie;
+use Fury\Http\Request\RequestCookie;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\RequestCookie
+ * @covers \Fury\Http\Request\RequestCookie
  */
 class RequestCookieTest extends TestCase
 {

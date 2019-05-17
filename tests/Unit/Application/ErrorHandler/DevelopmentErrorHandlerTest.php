@@ -3,13 +3,13 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\DevelopmentErrorHandler;
+use Fury\Application\ErrorHandler\DevelopmentErrorHandler;
 use Fury\Application\Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\DevelopmentErrorHandler
+ * @covers \Fury\Application\ErrorHandler\DevelopmentErrorHandler
  */
 class DevelopmentErrorHandlerTest extends TestCase
 {

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\CookieExpiryTime;
+use Fury\Http\Response\CookieExpiryTime;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -3,15 +3,15 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\NoNextRouteException;
-use Fury\Http\Result;
-use Fury\Http\ResultRenderer;
-use Fury\Http\ResultRoute;
+use Fury\Http\Result\Result;
+use Fury\Http\Result\ResultRenderer;
+use Fury\Http\Routing\NoNextRouteException;
+use Fury\Http\Routing\ResultRoute;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\ResultRoute
+ * @covers \Fury\Http\Routing\ResultRoute
  */
 class ResultRouteTest extends TestCase
 {

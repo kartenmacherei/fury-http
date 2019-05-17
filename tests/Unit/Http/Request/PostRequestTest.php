@@ -3,9 +3,9 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\PostRequest;
-use Fury\Http\RequestCookieJar;
-use Fury\Http\UriPath;
+use Fury\Http\Request\PostRequest;
+use Fury\Http\Request\RequestCookieJar;
+use Fury\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

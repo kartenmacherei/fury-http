@@ -3,13 +3,13 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\Content;
-use Fury\Application\ContentResult;
+use Fury\Application\Content\Content;
+use Fury\Application\Result\ContentResult;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\ContentResult
+ * @covers \Fury\Application\Result\ContentResult
  */
 class ContentResultTest extends TestCase
 {
@@ -21,7 +21,7 @@ class ContentResultTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|Content
+     * @return MockObject|Content
      */
     private function getContentMock()
     {

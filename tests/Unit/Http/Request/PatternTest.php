@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\Pattern;
+use Fury\Http\Request\Pattern;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -3,6 +3,8 @@
 declare(strict_types=1);
 namespace Fury\Http\Request;
 
+use Fury\Http\Request\Body\RawBody;
+
 class RawPostRequest extends PostRequest
 {
     /**

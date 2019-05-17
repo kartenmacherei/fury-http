@@ -3,16 +3,16 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\HtmlContent;
-use Fury\Application\NotFoundQuery;
-use Fury\Application\NotFoundResult;
+use Fury\Application\Content\HtmlContent;
+use Fury\Application\Query\NotFoundQuery;
+use Fury\Application\Result\NotFoundResult;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\NotFoundQuery
+ * @covers \Fury\Application\Query\NotFoundQuery
  *
- * @uses \Fury\Application\NotFoundResult
- * @uses \Fury\Application\HtmlContent
+ * @uses \Fury\Application\Result\NotFoundResult
+ * @uses \Fury\Application\Content\HtmlContent
  */
 class NotFoundQueryTest extends TestCase
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\EnsureException;
-use Fury\Http\SupportedRequestMethods;
+use Fury\Http\Request\SupportedRequestMethods;
 use PHPUnit\Framework\TestCase;
 
 /**

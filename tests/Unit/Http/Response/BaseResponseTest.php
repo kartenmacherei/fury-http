@@ -3,9 +3,9 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\BaseResponse;
-use Fury\Http\ResponseCookie;
-use Fury\Http\StatusCode;
+use Fury\Http\Response\BaseResponse;
+use Fury\Http\Response\ResponseCookie;
+use Fury\Http\Response\StatusCode;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

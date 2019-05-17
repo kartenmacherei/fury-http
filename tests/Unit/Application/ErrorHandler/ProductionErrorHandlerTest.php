@@ -3,8 +3,8 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
+use Fury\Application\ErrorHandler\ProductionErrorHandler;
 use Fury\Application\Exception;
-use Fury\Application\ProductionErrorHandler;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

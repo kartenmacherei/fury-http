@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\MethodNotAllowedCode;
+use Fury\Http\Response\StatusCode\MethodNotAllowedCode;
 use PHPUnit\Framework\TestCase;
 
 /**

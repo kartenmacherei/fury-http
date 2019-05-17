@@ -3,17 +3,17 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\NotFoundResult;
-use Fury\Application\NotFoundResultRenderer;
-use Fury\Application\NotFoundResultRoute;
+use Fury\Application\Result\NotFoundResult;
+use Fury\Application\Result\NotFoundResultRenderer;
+use Fury\Application\Routing\NotFoundResultRoute;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundResultRoute
- * @covers \Fury\Http\ResultRoute
+ * @covers \Fury\Application\Routing\NotFoundResultRoute
+ * @covers \Fury\Http\Routing\ResultRoute
  *
- * @uses \Fury\Application\NotFoundResultRenderer
+ * @uses \Fury\Application\Result\NotFoundResultRenderer
  */
 class NotFoundResultRouteTest extends TestCase
 {
@@ -28,7 +28,7 @@ class NotFoundResultRouteTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|NotFoundResult
+     * @return MockObject|NotFoundResult
      */
     private function getNotFoundResultMock()
     {

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\InternalServerErrorCode;
+use Fury\Http\Response\StatusCode\InternalServerErrorCode;
 use PHPUnit\Framework\TestCase;
 
 /**

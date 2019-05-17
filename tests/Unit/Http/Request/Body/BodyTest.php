@@ -3,11 +3,11 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Application\ContentType;
-use Fury\Http\Body;
-use Fury\Http\JsonBody;
-use Fury\Http\RawBody;
-use Fury\Http\UnsupportedRequestBodyException;
+use Fury\Application\Content\ContentType;
+use Fury\Http\Request\Body\Body;
+use Fury\Http\Request\Body\JsonBody;
+use Fury\Http\Request\Body\RawBody;
+use Fury\Http\Request\Body\UnsupportedRequestBodyException;
 use PHPUnit\Framework\TestCase;
 
 /**

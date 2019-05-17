@@ -3,17 +3,17 @@
 declare(strict_types=1);
 namespace Fury\Application\UnitTests;
 
-use Fury\Application\ContentResult;
-use Fury\Application\ContentResultRenderer;
-use Fury\Application\ContentResultRoute;
+use Fury\Application\Result\ContentResult;
+use Fury\Application\Result\ContentResultRenderer;
+use Fury\Application\Result\ContentResultRoute;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\ContentResultRoute
+ * @covers \Fury\Application\Result\ContentResultRoute
  * @covers \Fury\Http\ResultRoute
  *
- * @uses \Fury\Application\ContentResultRenderer
+ * @uses \Fury\Application\Result\ContentResultRenderer
  */
 class ContentResultRouteTest extends TestCase
 {
@@ -29,7 +29,7 @@ class ContentResultRouteTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|ContentResult
+     * @return MockObject|ContentResult
      */
     private function getContentResultMock()
     {

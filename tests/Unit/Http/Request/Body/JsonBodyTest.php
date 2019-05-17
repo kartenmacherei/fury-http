@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
 use Fury\Http\EnsureException;
-use Fury\Http\JsonBody;
 use Fury\Http\JsonObject;
+use Fury\Http\Request\Body\JsonBody;
 use PHPUnit\Framework\TestCase;
 
 /**

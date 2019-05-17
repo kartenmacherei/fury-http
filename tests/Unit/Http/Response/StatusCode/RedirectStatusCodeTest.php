@@ -3,7 +3,7 @@
 declare(strict_types=1);
 namespace Fury\Http\UnitTests;
 
-use Fury\Http\RedirectStatusCode;
+use Fury\Http\Response\StatusCode\RedirectStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
