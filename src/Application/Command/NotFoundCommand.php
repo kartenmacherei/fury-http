@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Command;
+namespace Kartenmacherei\HttpFramework\Application\Command;
 
-use Fury\Application\Content\HtmlContent;
-use Fury\Application\Result\NotFoundResult;
-use Fury\Http\Command;
-use Fury\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Application\Content\HtmlContent;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use Kartenmacherei\HttpFramework\Http\Command;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class NotFoundCommand implements Command
 {

@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Routing;
+namespace Kartenmacherei\HttpFramework\Http\Routing;
 
-use Fury\Http\Result\Result;
-use Fury\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 class ResultRouter
 {

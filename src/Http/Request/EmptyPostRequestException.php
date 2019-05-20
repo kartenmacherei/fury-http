@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Request;
+namespace Kartenmacherei\HttpFramework\Http\Request;
 
-use Fury\Http\Exception;
+use Kartenmacherei\HttpFramework\Http\Exception;
 
 class EmptyPostRequestException extends Exception
 {

@@ -1,16 +1,16 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application;
 
-use Fury\Application\Response\MethodNotAllowedResponse;
-use Fury\Http\Request\GetRequest;
-use Fury\Http\Request\PostRequest;
-use Fury\Http\Request\Request;
-use Fury\Http\Response\Response;
-use Fury\Http\Routing\GetRouter;
-use Fury\Http\Routing\PostRouter;
-use Fury\Http\Routing\ResultRouter;
+use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\Request;
+use Kartenmacherei\HttpFramework\Http\Response\Response;
+use Kartenmacherei\HttpFramework\Http\Routing\GetRouter;
+use Kartenmacherei\HttpFramework\Http\Routing\PostRouter;
+use Kartenmacherei\HttpFramework\Http\Routing\ResultRouter;
 
 abstract class Application
 {

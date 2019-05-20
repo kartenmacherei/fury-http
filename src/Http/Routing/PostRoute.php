@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Routing;
+namespace Kartenmacherei\HttpFramework\Http\Routing;
 
-use Fury\Http\Command;
-use Fury\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Command;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
 
 abstract class PostRoute
 {

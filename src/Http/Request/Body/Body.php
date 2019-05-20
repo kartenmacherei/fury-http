@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Request\Body;
+namespace Kartenmacherei\HttpFramework\Http\Request\Body;
 
-use Fury\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
 
 abstract class Body
 {

@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Routing;
+namespace Kartenmacherei\HttpFramework\Application\Routing;
 
-use Fury\Application\Command\NotFoundCommand;
-use Fury\Http\Command;
-use Fury\Http\Request\PostRequest;
-use Fury\Http\Routing\PostRoute;
+use Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand;
+use Kartenmacherei\HttpFramework\Http\Command;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Routing\PostRoute;
 
 class NotFoundPostRoute extends PostRoute
 {

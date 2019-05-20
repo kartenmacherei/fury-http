@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Routing;
+namespace Kartenmacherei\HttpFramework\Http\Routing;
 
-use Fury\Http\Query;
-use Fury\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Query;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 
 abstract class GetRoute
 {

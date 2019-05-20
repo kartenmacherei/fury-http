@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Request;
+namespace Kartenmacherei\HttpFramework\Http\Request;
 
-use Fury\Http\Request\Body\RawBody;
+use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
 
 class RawPostRequest extends PostRequest
 {

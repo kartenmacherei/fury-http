@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Request;
+namespace Kartenmacherei\HttpFramework\Http\Request;
 
 class FormPostRequest extends PostRequest
 {

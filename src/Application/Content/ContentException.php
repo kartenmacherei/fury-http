@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Content;
+namespace Kartenmacherei\HttpFramework\Application\Content;
 
-use Fury\Http\Exception;
+use Kartenmacherei\HttpFramework\Http\Exception;
 
 class ContentException extends Exception
 {

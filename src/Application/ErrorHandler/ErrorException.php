@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\ErrorHandler;
+namespace Kartenmacherei\HttpFramework\Application\ErrorHandler;
 
 use ErrorException as BaseErrorException;
 

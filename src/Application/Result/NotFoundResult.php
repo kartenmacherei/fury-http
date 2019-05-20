@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Result;
+namespace Kartenmacherei\HttpFramework\Application\Result;
 
-use Fury\Application\Content\Content;
-use Fury\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class NotFoundResult implements Result
 {

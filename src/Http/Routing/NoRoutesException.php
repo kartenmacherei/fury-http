@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Routing;
+namespace Kartenmacherei\HttpFramework\Http\Routing;
 
-use Fury\Http\Exception;
+use Kartenmacherei\HttpFramework\Http\Exception;
 
 class NoRoutesException extends Exception
 {

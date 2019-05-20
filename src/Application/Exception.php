@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application;
 
-class Exception extends \Fury\Exception
+class Exception extends \Kartenmacherei\HttpFramework\Exception
 {
 }

@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Result;
+namespace Kartenmacherei\HttpFramework\Application\Result;
 
-use Fury\Http\Request\UriPath;
-use Fury\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class RedirectResult implements Result
 {

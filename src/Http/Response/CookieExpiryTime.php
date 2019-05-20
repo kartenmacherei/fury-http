@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Response;
+namespace Kartenmacherei\HttpFramework\Http\Response;
 
 use DateTimeImmutable;
 use DateTimeZone;

@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Kartenmacherei\HttpFramework\Http;
 
-use Fury\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 interface Command
 {

@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Response;
+namespace Kartenmacherei\HttpFramework\Application\Response;
 
-use Fury\Application\Content\Content;
-use Fury\Http\Response\BaseResponse;
-use Fury\Http\Response\StatusCode;
-use Fury\Http\Response\StatusCode\OkStatusCode;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Http\Response\BaseResponse;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\OkStatusCode;
 
 class ContentResponse extends BaseResponse
 {

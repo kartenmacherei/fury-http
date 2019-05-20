@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\Result;
+namespace Kartenmacherei\HttpFramework\Http\Result;
 
-use Fury\Http\Response\Response;
+use Kartenmacherei\HttpFramework\Http\Response\Response;
 
 interface ResultRenderer
 {

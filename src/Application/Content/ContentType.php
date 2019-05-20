@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Content;
+namespace Kartenmacherei\HttpFramework\Application\Content;
 
 abstract class ContentType
 {

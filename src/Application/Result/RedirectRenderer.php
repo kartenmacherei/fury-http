@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\Result;
+namespace Kartenmacherei\HttpFramework\Application\Result;
 
-use Fury\Application\Response\RedirectResponse;
-use Fury\Http\Response\Response;
-use Fury\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Response\RedirectResponse;
+use Kartenmacherei\HttpFramework\Http\Response\Response;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 class RedirectRenderer implements ResultRenderer
 {
