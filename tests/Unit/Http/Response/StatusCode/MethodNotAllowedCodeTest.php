@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Response\StatusCode\MethodNotAllowedCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\MethodNotAllowedCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Response\StatusCode\MethodNotAllowedCode
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\StatusCode\MethodNotAllowedCode
  */
 class MethodNotAllowedCodeTest extends TestCase
 {

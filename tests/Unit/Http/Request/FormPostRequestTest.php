@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Request\FormPostRequest;
-use Fury\Http\Request\RequestCookieJar;
-use Fury\Http\Request\RequestParameterNotFoundException;
-use Fury\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Http\Request\FormPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\Request\RequestParameterNotFoundException;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\FormPostRequest
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\FormPostRequest
  *
- * @uses \Fury\Http\Request\Request
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\Request
  */
 class FormPostRequestTest extends TestCase
 {

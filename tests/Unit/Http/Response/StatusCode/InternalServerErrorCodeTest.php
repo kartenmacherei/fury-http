@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Response\StatusCode\InternalServerErrorCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\InternalServerErrorCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Response\StatusCode\InternalServerErrorCode
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\StatusCode\InternalServerErrorCode
  */
 class InternalServerErrorCodeTest extends TestCase
 {

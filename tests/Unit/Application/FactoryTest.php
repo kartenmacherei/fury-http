@@ -1,20 +1,20 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\ErrorHandler\DevelopmentErrorHandler;
-use Fury\Application\ErrorHandler\ErrorHandler;
-use Fury\Application\ErrorHandler\ProductionErrorHandler;
-use Fury\Application\Factory;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\DevelopmentErrorHandler;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandler;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ProductionErrorHandler;
+use Kartenmacherei\HttpFramework\Application\Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Factory
+ * @covers \Kartenmacherei\HttpFramework\Application\Factory
  *
- * @uses \Fury\Application\ErrorHandler\ErrorHandler
- * @uses \Fury\Application\Environment
- * @uses \Fury\Application\ErrorHandler\ErrorHandlerLocator
+ * @uses \Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandler
+ * @uses \Kartenmacherei\HttpFramework\Application\Environment
+ * @uses \Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandlerLocator
  */
 class FactoryTest extends TestCase
 {

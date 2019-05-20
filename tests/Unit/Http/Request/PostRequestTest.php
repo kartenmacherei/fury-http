@@ -1,18 +1,18 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Request\PostRequest;
-use Fury\Http\Request\RequestCookieJar;
-use Fury\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\PostRequest
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\PostRequest
  *
- * @uses \Fury\Http\Request\Request
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\Request
  */
 class PostRequestTest extends TestCase
 {

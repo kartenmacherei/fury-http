@@ -1,16 +1,16 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Environment;
-use Fury\Application\ErrorHandler\ErrorHandlerLocator;
-use Fury\Application\Factory;
+use Kartenmacherei\HttpFramework\Application\Environment;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandlerLocator;
+use Kartenmacherei\HttpFramework\Application\Factory;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\ErrorHandler\ErrorHandlerLocator
+ * @covers \Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandlerLocator
  */
 class ErrorHandlerLocatorTest extends TestCase
 {

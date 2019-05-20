@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Result\ContentResult;
-use Fury\Application\Result\ContentResultRenderer;
-use Fury\Application\Result\ContentResultRoute;
+use Kartenmacherei\HttpFramework\Application\Result\ContentResult;
+use Kartenmacherei\HttpFramework\Application\Result\ContentResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Result\ContentResultRoute;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Result\ContentResultRoute
- * @covers \Fury\Http\Routing\ResultRoute
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\ContentResultRoute
+ * @covers \Kartenmacherei\HttpFramework\Http\Routing\ResultRoute
  *
- * @uses \Fury\Application\Result\ContentResultRenderer
+ * @uses \Kartenmacherei\HttpFramework\Application\Result\ContentResultRenderer
  */
 class ContentResultRouteTest extends TestCase
 {

@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Request\Body\JsonBody;
-use Fury\Http\Request\JsonPostRequest;
-use Fury\Http\Request\RequestCookieJar;
-use Fury\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
+use Kartenmacherei\HttpFramework\Http\Request\JsonPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\JsonPostRequest
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\JsonPostRequest
  *
- * @uses \Fury\Http\Request\Request
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\Request
  */
 class JsonPostRequestTest extends TestCase
 {

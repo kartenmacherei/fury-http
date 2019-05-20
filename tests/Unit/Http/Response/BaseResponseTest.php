@@ -1,16 +1,16 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Response\BaseResponse;
-use Fury\Http\Response\ResponseCookie;
-use Fury\Http\Response\StatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\BaseResponse;
+use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Response\BaseResponse
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\BaseResponse
  */
 class BaseResponseTest extends TestCase
 {

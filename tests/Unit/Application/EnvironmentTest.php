@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Environment;
+use Kartenmacherei\HttpFramework\Application\Environment;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Environment
+ * @covers \Kartenmacherei\HttpFramework\Application\Environment
  */
 class EnvironmentTest extends TestCase
 {

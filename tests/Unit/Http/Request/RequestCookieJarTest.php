@@ -1,15 +1,15 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\CookieNotFoundException;
-use Fury\Http\Request\RequestCookie;
-use Fury\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\CookieNotFoundException;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookie;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\RequestCookieJar
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar
  */
 class RequestCookieJarTest extends TestCase
 {

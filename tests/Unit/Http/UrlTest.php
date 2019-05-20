@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Url;
+use Kartenmacherei\HttpFramework\Http\Url;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Url
+ * @covers \Kartenmacherei\HttpFramework\Http\Url
  */
 class UrlTest extends TestCase
 {

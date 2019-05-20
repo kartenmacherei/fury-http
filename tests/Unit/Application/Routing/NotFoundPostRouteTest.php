@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Command\NotFoundCommand;
-use Fury\Application\Routing\NotFoundPostRoute;
-use Fury\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand;
+use Kartenmacherei\HttpFramework\Application\Routing\NotFoundPostRoute;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Routing\NotFoundPostRoute
- * @covers \Fury\Http\Routing\PostRoute
+ * @covers \Kartenmacherei\HttpFramework\Application\Routing\NotFoundPostRoute
+ * @covers \Kartenmacherei\HttpFramework\Http\Routing\PostRoute
  *
- * @uses \Fury\Application\Command\NotFoundCommand
+ * @uses \Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand
  */
 class NotFoundPostRouteTest extends TestCase
 {

@@ -1,26 +1,26 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Application\Content\ContentType;
-use Fury\Http\Request\FormPostRequest;
-use Fury\Http\Request\GetRequest;
-use Fury\Http\Request\JsonPostRequest;
-use Fury\Http\Request\RawPostRequest;
-use Fury\Http\Request\Request;
-use Fury\Http\Request\RequestCookie;
-use Fury\Http\Request\RequestCookieJar;
-use Fury\Http\Request\SupportedRequestMethods;
-use Fury\Http\Request\UnsupportedRequestMethodException;
-use Fury\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Http\Request\FormPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Request\JsonPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RawPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\Request;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookie;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\Request
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\Request
  */
 class RequestTest extends TestCase
 {
@@ -103,7 +103,7 @@ class RequestTest extends TestCase
      * @param string $inputStream
      * @param string $expectedClass
      *
-     * @throws \Fury\Http\Request\UnsupportedRequestMethodException
+     * @throws \Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException
      */
     public function testCreatesExpectedFormPostRequest(string $contentType, string $inputStream, string $expectedClass): void
     {
@@ -154,7 +154,7 @@ class RequestTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Http\Request\SupportedRequestMethods
+     * @uses \Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods
      */
     public function testGetAllowedRequestMethods(): void
     {

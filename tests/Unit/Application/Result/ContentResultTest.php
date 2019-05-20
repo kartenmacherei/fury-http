@@ -1,15 +1,15 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content\Content;
-use Fury\Application\Result\ContentResult;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Result\ContentResult;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Result\ContentResult
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\ContentResult
  */
 class ContentResultTest extends TestCase
 {

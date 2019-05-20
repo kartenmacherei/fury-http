@@ -1,14 +1,14 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\EnsureException;
-use Fury\Http\Request\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\EnsureException;
+use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\SupportedRequestMethods
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods
  */
 class SupportedRequestMethodsTest extends TestCase
 {

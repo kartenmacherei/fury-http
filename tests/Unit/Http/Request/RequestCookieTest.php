@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Request\RequestCookie;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookie;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\RequestCookie
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\RequestCookie
  */
 class RequestCookieTest extends TestCase
 {

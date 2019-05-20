@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content\Content;
-use Fury\Application\Response\ContentResponse;
-use Fury\Application\Result\ContentResult;
-use Fury\Application\Result\ContentResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Response\ContentResponse;
+use Kartenmacherei\HttpFramework\Application\Result\ContentResult;
+use Kartenmacherei\HttpFramework\Application\Result\ContentResultRenderer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Result\ContentResultRenderer
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\ContentResultRenderer
  *
- * @uses \Fury\Application\Response\ContentResponse
+ * @uses \Kartenmacherei\HttpFramework\Application\Response\ContentResponse
  */
 class ContentResultRendererTest extends TestCase
 {

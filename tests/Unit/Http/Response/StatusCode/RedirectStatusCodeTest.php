@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Response\StatusCode\RedirectStatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\RedirectStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Response\StatusCode\RedirectStatusCode
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\StatusCode\RedirectStatusCode
  */
 class RedirectStatusCodeTest extends TestCase
 {

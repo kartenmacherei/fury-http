@@ -1,20 +1,20 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content\Content;
-use Fury\Application\Response\NotFoundResponse;
-use Fury\Application\Result\NotFoundResult;
-use Fury\Application\Result\NotFoundResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Result\NotFoundResultRenderer
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer
  *
- * @uses \Fury\Application\Response\ContentResponse
- * @uses \Fury\Application\Response\NotFoundResponse
+ * @uses \Kartenmacherei\HttpFramework\Application\Response\ContentResponse
+ * @uses \Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse
  */
 class NotFoundResultRendererTest extends TestCase
 {

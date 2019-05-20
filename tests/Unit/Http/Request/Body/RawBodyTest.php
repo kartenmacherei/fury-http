@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Request\Body\RawBody;
+use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\Body\RawBody
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\Body\RawBody
  */
 class RawBodyTest extends TestCase
 {

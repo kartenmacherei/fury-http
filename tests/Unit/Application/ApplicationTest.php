@@ -1,27 +1,27 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Application;
-use Fury\Application\Response\MethodNotAllowedResponse;
-use Fury\Http\Command;
-use Fury\Http\Query;
-use Fury\Http\Request\GetRequest;
-use Fury\Http\Request\PostRequest;
-use Fury\Http\Request\Request;
-use Fury\Http\Request\SupportedRequestMethods;
-use Fury\Http\Response\Response;
-use Fury\Http\Result\Result;
-use Fury\Http\Result\ResultRenderer;
-use Fury\Http\Routing\GetRouter;
-use Fury\Http\Routing\PostRouter;
-use Fury\Http\Routing\ResultRouter;
+use Kartenmacherei\HttpFramework\Application\Application;
+use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
+use Kartenmacherei\HttpFramework\Http\Command;
+use Kartenmacherei\HttpFramework\Http\Query;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\Request;
+use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\Response\Response;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Routing\GetRouter;
+use Kartenmacherei\HttpFramework\Http\Routing\PostRouter;
+use Kartenmacherei\HttpFramework\Http\Routing\ResultRouter;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Application
+ * @covers \Kartenmacherei\HttpFramework\Application\Application
  */
 class ApplicationTest extends TestCase
 {
@@ -103,7 +103,7 @@ class ApplicationTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Application\Response\MethodNotAllowedResponse
+     * @uses \Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse
      */
     public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost(): void
     {

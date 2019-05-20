@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Application\Content\ContentType;
-use Fury\Http\Request\Body\Body;
-use Fury\Http\Request\Body\JsonBody;
-use Fury\Http\Request\Body\RawBody;
-use Fury\Http\Request\Body\UnsupportedRequestBodyException;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Http\Request\Body\Body;
+use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
+use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
+use Kartenmacherei\HttpFramework\Http\Request\Body\UnsupportedRequestBodyException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request\Body\Body
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\Body\Body
  *
- * @uses \Fury\Http\Request\Body\RawBody
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\Body\RawBody
  */
 class BodyTest extends TestCase
 {

@@ -1,18 +1,18 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content\EncodeException;
-use Fury\Application\Content\JsonContent;
-use Fury\Application\Content\JsonContentType;
+use Kartenmacherei\HttpFramework\Application\Content\EncodeException;
+use Kartenmacherei\HttpFramework\Application\Content\JsonContent;
+use Kartenmacherei\HttpFramework\Application\Content\JsonContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\Content\JsonContent
+ * @covers \Kartenmacherei\HttpFramework\Application\Content\JsonContent
  *
- * @uses \Fury\Application\Content\EncodeException
- * @uses \Fury\Application\Content\JsonContentType
+ * @uses \Kartenmacherei\HttpFramework\Application\Content\EncodeException
+ * @uses \Kartenmacherei\HttpFramework\Application\Content\JsonContentType
  */
 class JsonContentTest extends TestCase
 {

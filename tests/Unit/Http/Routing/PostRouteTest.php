@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Command;
-use Fury\Http\Request\PostRequest;
-use Fury\Http\Routing\NoNextRouteException;
-use Fury\Http\Routing\PostRoute;
+use Kartenmacherei\HttpFramework\Http\Command;
+use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Routing\NoNextRouteException;
+use Kartenmacherei\HttpFramework\Http\Routing\PostRoute;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Routing\PostRoute
+ * @covers \Kartenmacherei\HttpFramework\Http\Routing\PostRoute
  */
 class PostRouteTest extends TestCase
 {

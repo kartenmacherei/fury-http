@@ -1,15 +1,15 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\ErrorHandler\ProductionErrorHandler;
-use Fury\Application\Exception;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ProductionErrorHandler;
+use Kartenmacherei\HttpFramework\Application\Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\ErrorHandler\ProductionErrorHandler
+ * @covers \Kartenmacherei\HttpFramework\Application\ErrorHandler\ProductionErrorHandler
  */
 class ProductionErrorHandlerTest extends TestCase
 {

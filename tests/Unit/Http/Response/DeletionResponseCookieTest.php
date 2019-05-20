@@ -1,18 +1,18 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\EnsureException;
-use Fury\Http\Exception;
-use Fury\Http\Response\CookieExpiryTime;
-use Fury\Http\Response\DeletionResponseCookie;
-use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\Http\EnsureException;
+use Kartenmacherei\HttpFramework\Http\Exception;
+use Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime;
+use Kartenmacherei\HttpFramework\Http\Response\DeletionResponseCookie;
+use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Response\ResponseCookie
- * @covers \Fury\Http\Response\DeletionResponseCookie
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\ResponseCookie
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\DeletionResponseCookie
  */
 class DeletionResponseCookieTest extends TestCase
 {
@@ -66,7 +66,7 @@ class DeletionResponseCookieTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Http\Response\CookieExpiryTime
+     * @uses \Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime
      */
     public function testSetInvalidDomainThrowsException(): void
     {
