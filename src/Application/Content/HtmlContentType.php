@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Content;
 
 class HtmlContentType extends ContentType
 {

@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Response;
 
-use Fury\Http\NotFoundStatusCode;
-use Fury\Http\StatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\NotFoundStatusCode;
 
 class NotFoundResponse extends ContentResponse
 {

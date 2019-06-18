@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Result;
 
-use Fury\Http\Result;
-use Fury\Http\ResultRenderer;
-use Fury\Http\ResultRoute;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Routing\ResultRoute;
 
 class ContentResultRoute extends ResultRoute
 {

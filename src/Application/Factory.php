@@ -1,7 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application;
+
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\DevelopmentErrorHandler;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandler;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorHandlerLocator;
+use Kartenmacherei\HttpFramework\Application\ErrorHandler\ProductionErrorHandler;
 
 class Factory
 {

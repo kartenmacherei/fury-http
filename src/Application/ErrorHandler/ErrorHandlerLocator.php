@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\ErrorHandler;
+
+use Kartenmacherei\HttpFramework\Application\Environment;
+use Kartenmacherei\HttpFramework\Application\Factory;
 
 class ErrorHandlerLocator
 {

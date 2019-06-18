@@ -1,14 +1,14 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\HtmlContent;
-use Fury\Application\HtmlContentType;
+use Kartenmacherei\HttpFramework\Application\Content\HtmlContent;
+use Kartenmacherei\HttpFramework\Application\Content\HtmlContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\HtmlContent
+ * @covers \Kartenmacherei\HttpFramework\Application\Content\HtmlContent
  */
 class HtmlContentTest extends TestCase
 {

@@ -1,26 +1,26 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Application\ContentType;
-use Fury\Http\FormPostRequest;
-use Fury\Http\GetRequest;
-use Fury\Http\JsonPostRequest;
-use Fury\Http\RawPostRequest;
-use Fury\Http\Request;
-use Fury\Http\RequestCookie;
-use Fury\Http\RequestCookieJar;
-use Fury\Http\SupportedRequestMethods;
-use Fury\Http\UnsupportedRequestMethodException;
-use Fury\Http\UriPath;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Http\Request\FormPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Request\JsonPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RawPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\Request;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookie;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Request
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\Request
  */
 class RequestTest extends TestCase
 {
@@ -103,7 +103,7 @@ class RequestTest extends TestCase
      * @param string $inputStream
      * @param string $expectedClass
      *
-     * @throws \Fury\Http\UnsupportedRequestMethodException
+     * @throws \Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException
      */
     public function testCreatesExpectedFormPostRequest(string $contentType, string $inputStream, string $expectedClass): void
     {
@@ -154,7 +154,7 @@ class RequestTest extends TestCase
     }
 
     /**
-     * @uses \Fury\Http\SupportedRequestMethods
+     * @uses \Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods
      */
     public function testGetAllowedRequestMethods(): void
     {

@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Kartenmacherei\HttpFramework\Http\Response;
+
+use Kartenmacherei\HttpFramework\Http\EnsureException;
+use Kartenmacherei\HttpFramework\Http\Exception;
 
 class ResponseCookie
 {

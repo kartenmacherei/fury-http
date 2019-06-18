@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content;
-use Fury\Application\ContentType;
-use Fury\Application\NotFoundResponse;
-use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse;
+use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundResponse
+ * @covers \Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse
  */
 class NotFoundResponseTest extends TestCase
 {
@@ -39,7 +39,7 @@ class NotFoundResponseTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|Content
+     * @return MockObject|Content
      */
     private function getContentMock()
     {

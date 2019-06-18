@@ -1,11 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Routing;
 
-use Fury\Http\Result;
-use Fury\Http\ResultRenderer;
-use Fury\Http\ResultRoute;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Routing\ResultRoute;
 
 class NotFoundResultRoute extends ResultRoute
 {

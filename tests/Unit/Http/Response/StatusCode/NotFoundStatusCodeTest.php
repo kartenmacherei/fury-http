@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\NotFoundStatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\NotFoundStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\NotFoundStatusCode
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\StatusCode\NotFoundStatusCode
  */
 class NotFoundStatusCodeTest extends TestCase
 {

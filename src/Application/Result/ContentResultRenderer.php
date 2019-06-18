@@ -1,10 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Result;
 
-use Fury\Http\Response;
-use Fury\Http\ResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Response\ContentResponse;
+use Kartenmacherei\HttpFramework\Http\Response\Response;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 class ContentResultRenderer implements ResultRenderer
 {

@@ -1,29 +1,29 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\RedirectRenderer;
-use Fury\Application\RedirectResponse;
-use Fury\Application\RedirectResult;
-use Fury\Http\UriPath;
+use Kartenmacherei\HttpFramework\Application\Response\RedirectResponse;
+use Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer;
+use Kartenmacherei\HttpFramework\Application\Result\RedirectResult;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\RedirectRenderer
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer
  *
- * @uses \Fury\Application\RedirectResponse
+ * @uses \Kartenmacherei\HttpFramework\Application\Response\RedirectResponse
  */
 class RedirectRendererTest extends TestCase
 {
     /**
-     * @var UriPath|PHPUnit_Framework_MockObject_MockObject
+     * @var UriPath|MockObject
      */
     private $uriPathMock;
 
     /**
-     * @var RedirectResult|PHPUnit_Framework_MockObject_MockObject
+     * @var RedirectResult|MockObject
      */
     private $redirectResultMock;
 

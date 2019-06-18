@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\NotFoundCommand;
-use Fury\Application\NotFoundResult;
+use Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\NotFoundCommand
+ * @covers \Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand
  *
- * @uses \Fury\Application\NotFoundResult
- * @uses \Fury\Application\HtmlContent
+ * @uses \Kartenmacherei\HttpFramework\Application\Result\NotFoundResult
+ * @uses \Kartenmacherei\HttpFramework\Application\Content\HtmlContent
  */
 class NotFoundCommandTest extends TestCase
 {

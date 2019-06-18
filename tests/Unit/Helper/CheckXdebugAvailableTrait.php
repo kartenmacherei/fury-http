@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\UnitTests\Helper;
+namespace Kartenmacherei\HttpFramework\UnitTests\Helper;
 
 trait CheckXdebugAvailableTrait
 {

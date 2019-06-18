@@ -1,15 +1,15 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content;
-use Fury\Application\NotFoundResult;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundResult
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\NotFoundResult
  */
 class NotFoundResultTest extends TestCase
 {
@@ -21,7 +21,7 @@ class NotFoundResultTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|Content
+     * @return MockObject|Content
      */
     private function getContentMock()
     {

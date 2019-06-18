@@ -1,18 +1,18 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content;
-use Fury\Application\ContentResponse;
-use Fury\Application\ContentType;
-use Fury\Http\ResponseCookie;
-use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Application\Response\ContentResponse;
+use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
+use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\ContentResponse
+ * @covers \Kartenmacherei\HttpFramework\Application\Response\ContentResponse
  */
 class ContentResponseTest extends TestCase
 {
@@ -73,7 +73,7 @@ class ContentResponseTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|ResponseCookie
+     * @return MockObject|ResponseCookie
      */
     private function getResponseCookieMock()
     {
@@ -81,7 +81,7 @@ class ContentResponseTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|Content
+     * @return MockObject|Content
      */
     private function getContentMock()
     {

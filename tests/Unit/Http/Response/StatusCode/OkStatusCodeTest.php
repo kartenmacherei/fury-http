@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\OkStatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\OkStatusCode;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\OkStatusCode
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\StatusCode\OkStatusCode
  */
 class OkStatusCodeTest extends TestCase
 {

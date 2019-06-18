@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\JsonContentType;
+use Kartenmacherei\HttpFramework\Application\Content\JsonContentType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\JsonContentType
+ * @covers \Kartenmacherei\HttpFramework\Application\Content\JsonContentType
  */
 class JsonContentTypeTest extends TestCase
 {

@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\NotFoundGetRoute;
-use Fury\Application\NotFoundQuery;
-use Fury\Http\GetRequest;
+use Kartenmacherei\HttpFramework\Application\Query\NotFoundQuery;
+use Kartenmacherei\HttpFramework\Application\Routing\NotFoundGetRoute;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundGetRoute
- * @covers \Fury\Http\GetRoute
+ * @covers \Kartenmacherei\HttpFramework\Application\Routing\NotFoundGetRoute
+ * @covers \Kartenmacherei\HttpFramework\Http\Routing\GetRoute
  *
- * @uses \Fury\Application\NotFoundQuery
+ * @uses \Kartenmacherei\HttpFramework\Application\Query\NotFoundQuery
  */
 class NotFoundGetRouteTest extends TestCase
 {
@@ -28,7 +28,7 @@ class NotFoundGetRouteTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|GetRequest
+     * @return MockObject|GetRequest
      */
     private function getGetRequestMock()
     {

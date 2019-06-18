@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\NoNextRouteException;
-use Fury\Http\Result;
-use Fury\Http\ResultRenderer;
-use Fury\Http\ResultRoute;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
+use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Routing\NoNextRouteException;
+use Kartenmacherei\HttpFramework\Http\Routing\ResultRoute;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\ResultRoute
+ * @covers \Kartenmacherei\HttpFramework\Http\Routing\ResultRoute
  */
 class ResultRouteTest extends TestCase
 {

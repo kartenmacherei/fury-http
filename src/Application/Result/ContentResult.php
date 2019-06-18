@@ -1,9 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Result;
 
-use Fury\Http\Result;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class ContentResult implements Result
 {

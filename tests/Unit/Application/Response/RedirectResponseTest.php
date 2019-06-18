@@ -1,15 +1,15 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\RedirectResponse;
-use Fury\Http\UriPath;
-use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\Application\Response\RedirectResponse;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\RedirectResponse
+ * @covers \Kartenmacherei\HttpFramework\Application\Response\RedirectResponse
  */
 class RedirectResponseTest extends TestCase
 {

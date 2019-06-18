@@ -1,16 +1,16 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\MethodNotAllowedResponse;
-use Fury\Http\ResponseCookie;
-use Fury\Http\SupportedRequestMethods;
-use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
+use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
+use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Application\MethodNotAllowedResponse
+ * @covers \Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse
  */
 class MethodNotAllowedResponseTest extends TestCase
 {

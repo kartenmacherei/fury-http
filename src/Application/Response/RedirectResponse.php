@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Response;
 
-use Fury\Http\BaseResponse;
-use Fury\Http\RedirectStatusCode;
-use Fury\Http\StatusCode;
-use Fury\Http\UriPath;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Http\Response\BaseResponse;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\RedirectStatusCode;
 
 class RedirectResponse extends BaseResponse
 {

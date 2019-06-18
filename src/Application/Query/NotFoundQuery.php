@@ -1,10 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Query;
 
-use Fury\Http\Query;
-use Fury\Http\Result;
+use Kartenmacherei\HttpFramework\Application\Content\HtmlContent;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use Kartenmacherei\HttpFramework\Http\Query;
+use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class NotFoundQuery implements Query
 {

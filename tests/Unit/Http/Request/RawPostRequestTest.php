@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\RawBody;
-use Fury\Http\RawPostRequest;
-use Fury\Http\RequestCookieJar;
-use Fury\Http\UriPath;
+use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
+use Kartenmacherei\HttpFramework\Http\Request\RawPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\RawPostRequest
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\RawPostRequest
  *
- * @uses \Fury\Http\Request
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\Request
  */
 class RawPostRequestTest extends TestCase
 {

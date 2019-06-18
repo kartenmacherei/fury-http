@@ -1,9 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Kartenmacherei\HttpFramework\Http\Request;
 
-use Fury\Application\ContentType;
+use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
+use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
 
 abstract class Request
 {

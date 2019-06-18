@@ -1,11 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Routing;
 
-use Fury\Http\GetRequest;
-use Fury\Http\GetRoute;
-use Fury\Http\Query;
+use Kartenmacherei\HttpFramework\Application\Query\NotFoundQuery;
+use Kartenmacherei\HttpFramework\Http\Query;
+use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Routing\GetRoute;
 
 class NotFoundGetRoute extends GetRoute
 {

@@ -1,20 +1,20 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\Content;
-use Fury\Application\NotFoundResponse;
-use Fury\Application\NotFoundResult;
-use Fury\Application\NotFoundResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Content\Content;
+use Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundResultRenderer
+ * @covers \Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer
  *
- * @uses \Fury\Application\ContentResponse
- * @uses \Fury\Application\NotFoundResponse
+ * @uses \Kartenmacherei\HttpFramework\Application\Response\ContentResponse
+ * @uses \Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse
  */
 class NotFoundResultRendererTest extends TestCase
 {
@@ -33,7 +33,7 @@ class NotFoundResultRendererTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|Content
+     * @return MockObject|Content
      */
     private function getContentMock()
     {
@@ -41,7 +41,7 @@ class NotFoundResultRendererTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|NotFoundResult
+     * @return MockObject|NotFoundResult
      */
     private function getNotFoundResultMock()
     {

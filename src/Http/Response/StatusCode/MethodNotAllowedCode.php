@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http;
+namespace Kartenmacherei\HttpFramework\Http\Response\StatusCode;
+
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
 
 class MethodNotAllowedCode implements StatusCode
 {

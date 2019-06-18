@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\InvalidUriPathException;
-use Fury\Http\Pattern;
-use Fury\Http\UriPath;
+use Kartenmacherei\HttpFramework\Http\Request\InvalidUriPathException;
+use Kartenmacherei\HttpFramework\Http\Request\Pattern;
+use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\UriPath
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\UriPath
  *
- * @uses \Fury\Http\Pattern
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\Pattern
  */
 class UriPathTest extends TestCase
 {

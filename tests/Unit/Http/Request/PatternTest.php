@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\Pattern;
+use Kartenmacherei\HttpFramework\Http\Request\Pattern;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\Pattern
+ * @covers \Kartenmacherei\HttpFramework\Http\Request\Pattern
  */
 class PatternTest extends TestCase
 {

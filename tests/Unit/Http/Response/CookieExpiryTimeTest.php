@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\CookieExpiryTime;
+use Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\CookieExpiryTime
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime
  */
 class CookieExpiryTimeTest extends TestCase
 {

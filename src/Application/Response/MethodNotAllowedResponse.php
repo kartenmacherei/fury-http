@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application;
+namespace Kartenmacherei\HttpFramework\Application\Response;
 
-use Fury\Http\BaseResponse;
-use Fury\Http\MethodNotAllowedCode;
-use Fury\Http\StatusCode;
-use Fury\Http\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
+use Kartenmacherei\HttpFramework\Http\Response\BaseResponse;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
+use Kartenmacherei\HttpFramework\Http\Response\StatusCode\MethodNotAllowedCode;
 
 class MethodNotAllowedResponse extends BaseResponse
 {

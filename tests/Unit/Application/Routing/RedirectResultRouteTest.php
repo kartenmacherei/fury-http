@@ -1,25 +1,25 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\RedirectRenderer;
-use Fury\Application\RedirectResult;
-use Fury\Application\RedirectResultRoute;
+use Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer;
+use Kartenmacherei\HttpFramework\Application\Result\RedirectResult;
+use Kartenmacherei\HttpFramework\Application\Routing\RedirectResultRoute;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\RedirectResultRoute
+ * @covers \Kartenmacherei\HttpFramework\Application\Routing\RedirectResultRoute
  *
- * @uses \Fury\Application\RedirectRenderer
- * @uses \Fury\Http\ResultRoute
+ * @uses \Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer
+ * @uses \Kartenmacherei\HttpFramework\Http\Routing\ResultRoute
  */
 class RedirectResultRouteTest extends TestCase
 {
     public function testReturnsExpectedResultRenderer(): void
     {
-        /** @var RedirectResult|PHPUnit_Framework_MockObject_MockObject $resultMock */
+        /** @var RedirectResult|MockObject $resultMock */
         $resultMock = $this->createMock(RedirectResult::class);
 
         $route = new RedirectResultRoute();

@@ -1,17 +1,17 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\JsonArray;
-use Fury\Http\JsonException;
-use Fury\Http\JsonObject;
+use Kartenmacherei\HttpFramework\Http\JsonArray;
+use Kartenmacherei\HttpFramework\Http\JsonException;
+use Kartenmacherei\HttpFramework\Http\JsonObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\JsonObject
+ * @covers \Kartenmacherei\HttpFramework\Http\JsonObject
  *
- * @uses \Fury\Http\JsonArray
+ * @uses \Kartenmacherei\HttpFramework\Http\JsonArray
  */
 class JsonObjectTest extends TestCase
 {

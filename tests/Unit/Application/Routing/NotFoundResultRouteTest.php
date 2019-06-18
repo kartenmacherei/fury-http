@@ -1,19 +1,19 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\Application\UnitTests;
 
-use Fury\Application\NotFoundResult;
-use Fury\Application\NotFoundResultRenderer;
-use Fury\Application\NotFoundResultRoute;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
+use Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer;
+use Kartenmacherei\HttpFramework\Application\Routing\NotFoundResultRoute;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
- * @covers \Fury\Application\NotFoundResultRoute
- * @covers \Fury\Http\ResultRoute
+ * @covers \Kartenmacherei\HttpFramework\Application\Routing\NotFoundResultRoute
+ * @covers \Kartenmacherei\HttpFramework\Http\Routing\ResultRoute
  *
- * @uses \Fury\Application\NotFoundResultRenderer
+ * @uses \Kartenmacherei\HttpFramework\Application\Result\NotFoundResultRenderer
  */
 class NotFoundResultRouteTest extends TestCase
 {
@@ -28,7 +28,7 @@ class NotFoundResultRouteTest extends TestCase
     }
 
     /**
-     * @return PHPUnit_Framework_MockObject_MockObject|NotFoundResult
+     * @return MockObject|NotFoundResult
      */
     private function getNotFoundResultMock()
     {

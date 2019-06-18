@@ -1,16 +1,16 @@
 <?php
 
 declare(strict_types=1);
-namespace Fury\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\Http\UnitTests;
 
-use Fury\Http\CookieExpiryTime;
-use Fury\Http\EnsureException;
-use Fury\Http\ResponseCookie;
-use Fury\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\Http\EnsureException;
+use Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime;
+use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
+use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Fury\Http\ResponseCookie
+ * @covers \Kartenmacherei\HttpFramework\Http\Response\ResponseCookie
  */
 class ResponseCookieTest extends TestCase
 {

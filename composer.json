@@ -1,11 +1,13 @@
 {
 	"name": "kartenmacherei/fury-http",
 	"autoload": {
-		"classmap": ["src/"]
+		"psr-4": {
+			"Kartenmacherei\\HttpFramework\\": "src"
+		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Fury\\UnitTests\\": "tests/Unit"
+			"Kartenmacherei\\HttpFramework\\UnitTests\\": "tests/Unit"
 		}
 	},
 	"require": {
