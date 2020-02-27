@@ -108,7 +108,7 @@ class RequestTest extends TestCase
     public function testCreatesExpectedFormPostRequest(string $contentType, string $inputStream, string $expectedClass): void
     {
         $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_SERVER['DOCUMENT_URI'] = '/foo';
+        $_SERVER['REQUEST_URI'] = '/foo';
         $_SERVER['CONTENT_TYPE'] = $contentType;
 
         file_put_contents($this->vfs->url() . '/input', $inputStream);
@@ -128,13 +128,41 @@ class RequestTest extends TestCase
         ];
     }
 
+    public function useOnlyPathOfUriProvider(): array
+    {
+        return [
+            'GET is equal to params' => ['/foo?foo=bar', ['foo' => 'bar']],
+            'GET is not equal to params' => ['/foo?ignore=me', ['foo' => 'bar']],
+        ];
+    }
+
+    /**
+     * @runInSeparateProcess
+     *
+     * @dataProvider useOnlyPathOfUriProvider
+     *
+     * @param string $requestUri
+     * @param array $getParameter
+     *
+     * @throws UnsupportedRequestMethodException
+     */
+    public function testUseOnlyPathOfUri(string $requestUri, array $getParameter): void
+    {
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $_SERVER['REQUEST_URI'] = $requestUri;
+        $_GET = $getParameter;
+
+        $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET);
+        $this->assertEquals($expected, Request::fromSuperGlobals());
+    }
+
     /**
      * @runInSeparateProcess
      */
     public function testCreatesExpectedGetRequest(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'GET';
-        $_SERVER['DOCUMENT_URI'] = '/foo';
+        $_SERVER['REQUEST_URI'] = '/foo';
         $_GET = ['foo' => 'bar'];
 
         $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET);
@@ -147,7 +175,7 @@ class RequestTest extends TestCase
     public function testThrowsExceptionIfRequestMethodIsNotSupported(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'DELETE';
-        $_SERVER['DOCUMENT_URI'] = '/foo';
+        $_SERVER['REQUEST_URI'] = '/foo';
         $this->expectException(UnsupportedRequestMethodException::class);
 
         Request::fromSuperGlobals();

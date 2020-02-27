@@ -43,7 +43,7 @@ abstract class Request
     public static function fromSuperGlobals(string $inputStream = 'php://input'): Request
     {
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
-        $uriPath = new UriPath($_SERVER['DOCUMENT_URI']);
+        $uriPath = new UriPath($_SERVER['REQUEST_URI']);
 
         switch ($method) {
             case self::METHOD_HEAD:

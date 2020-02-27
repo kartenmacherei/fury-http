@@ -40,6 +40,26 @@ class UriPathTest extends TestCase
         $this->assertSame('/foo/bar', $path->asString());
     }
 
+    public function urlWithQueryParameterProvider(): array
+    {
+        return [
+            'with trailing slash' => ['/foo/bar/?ignore=me', '/foo/bar/'],
+            'without trailing slash' => ['/foo/bar?ignore=me', '/foo/bar'],
+        ];
+    }
+
+    /**
+     * @dataProvider urlWithQueryParameterProvider
+     *
+     * @param string $givenUriPath
+     * @param string $expected
+     */
+    public function testUrlQueryParameterAreIgnored($givenUriPath, $expected): void
+    {
+        $path = new UriPath($givenUriPath);
+        $this->assertSame($expected, $path->asString());
+    }
+
     /**
      * @dataProvider asStringWithoutTrailingSlashDataProvider
      *
@@ -96,6 +116,7 @@ class UriPathTest extends TestCase
             ['/foo/bar', '/foo', false],
             ['/foo/bar', '/foo/bar', true],
             ['/foo', '/foo', true],
+            ['/foo?ignore=me', '/foo', true],
         ];
     }
 
