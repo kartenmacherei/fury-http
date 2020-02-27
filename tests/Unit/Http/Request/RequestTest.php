@@ -128,14 +128,29 @@ class RequestTest extends TestCase
         ];
     }
 
+    public function useOnlyPathOfUriProvider(): array
+    {
+        return [
+            'GET is equal to params' => ['/foo?foo=bar', ['foo' => 'bar']],
+            'GET is not equal to params' => ['/foo?ignore=me', ['foo' => 'bar']],
+        ];
+    }
+
     /**
      * @runInSeparateProcess
+     *
+     * @dataProvider useOnlyPathOfUriProvider
+     *
+     * @param string $requestUri
+     * @param array $getParameter
+     *
+     * @throws UnsupportedRequestMethodException
      */
-    public function testUseOnlyPathOfUri(): void
+    public function testUseOnlyPathOfUri(string $requestUri, array $getParameter): void
     {
         $_SERVER['REQUEST_METHOD'] = 'GET';
-        $_SERVER['REQUEST_URI'] = '/foo?ignore=me';
-        $_GET = ['foo' => 'bar'];
+        $_SERVER['REQUEST_URI'] = $requestUri;
+        $_GET = $getParameter;
 
         $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET);
         $this->assertEquals($expected, Request::fromSuperGlobals());
