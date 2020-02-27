@@ -13,7 +13,7 @@ class UriPath
     public function __construct(string $path)
     {
         $this->ensureStartsWithSlash($path);
-        $this->pathUri = $path;
+        $this->pathUri = parse_url($path, PHP_URL_PATH);
     }
 
     public function asString(): string
@@ -33,8 +33,8 @@ class UriPath
 
     public function equals(UriPath $uri): bool
     {
-        $path = parse_url($this->asString(), PHP_URL_PATH);
-        $otherPath = parse_url($uri->asString(), PHP_URL_PATH);
+        $path = $this->asString();
+        $otherPath = $uri->asString();
 
         return $path === $otherPath;
     }
