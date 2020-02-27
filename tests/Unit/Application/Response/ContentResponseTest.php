@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\UnitTests\Application;
+namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\Content;
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
 use Kartenmacherei\HttpFramework\Application\Response\ContentResponse;
 use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
-use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\UnitTest\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\UnitTests\Application;
+namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
 use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
 use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
-use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\UnitTest\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**

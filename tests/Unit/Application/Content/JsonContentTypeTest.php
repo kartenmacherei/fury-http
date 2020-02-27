@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\UnitTests\Application;
+namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\JsonContentType;
 use PHPUnit\Framework\TestCase;

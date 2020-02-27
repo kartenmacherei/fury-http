@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\UnitTests\Http;
+namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
 use Kartenmacherei\HttpFramework\Http\Routing\NoRoutesException;

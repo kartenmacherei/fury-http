@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\UnitTests\Http;
+namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
 use Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime;
 use Kartenmacherei\HttpFramework\Http\Response\ResponseCookie;
-use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\UnitTest\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
