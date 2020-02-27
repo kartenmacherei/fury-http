@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\UnitTests\Application;
 
 use Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand;
 use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;

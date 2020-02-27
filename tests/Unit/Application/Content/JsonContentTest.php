@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\UnitTests\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\EncodeException;
 use Kartenmacherei\HttpFramework\Application\Content\JsonContent;

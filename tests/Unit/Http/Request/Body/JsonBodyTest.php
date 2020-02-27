@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\Http\UnitTests;
+namespace Kartenmacherei\HttpFramework\UnitTests\Http;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
 use Kartenmacherei\HttpFramework\Http\JsonObject;
