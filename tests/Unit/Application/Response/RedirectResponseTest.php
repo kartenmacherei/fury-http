@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\Application\UnitTests;
+namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Response\RedirectResponse;
 use Kartenmacherei\HttpFramework\Http\Request\UriPath;
-use Kartenmacherei\HttpFramework\UnitTests\Helper\CheckXdebugAvailableTrait;
+use Kartenmacherei\HttpFramework\UnitTest\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
 
 /**

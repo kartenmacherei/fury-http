@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Kartenmacherei\HttpFramework\UnitTests\Helper;
+namespace Kartenmacherei\HttpFramework\UnitTest\Helper;
 
 trait CheckXdebugAvailableTrait
 {
