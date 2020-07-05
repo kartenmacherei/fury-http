@@ -52,7 +52,7 @@ class PostRequestTest extends TestCase
     private function getPostRequest()
     {
         return $this->getMockForAbstractClass(
-            PostRequest::class, [$this->getUriPathMock(), $this->getRequestCookieJarMock()]
+            PostRequest::class, [[], $this->getUriPathMock(), $this->getRequestCookieJarMock()]
         );
     }
 

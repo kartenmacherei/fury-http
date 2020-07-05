@@ -27,7 +27,8 @@ class GetRequestTest extends TestCase
         $this->request = new GetRequest(
             $this->getUriPathMock(),
             $this->getRequestCookieJarMock(),
-            ['foo' => 'bar']
+            ['foo' => 'bar'],
+            []
         );
     }
 
@@ -36,6 +37,7 @@ class GetRequestTest extends TestCase
         $request = new GetRequest(
             $this->getUriPathMock(),
             $this->getRequestCookieJarMock(),
+            [],
             []
         );
 

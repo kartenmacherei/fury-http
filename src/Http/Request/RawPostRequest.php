@@ -12,9 +12,9 @@ class RawPostRequest extends PostRequest
      */
     private $body;
 
-    public function __construct(UriPath $path, RequestCookieJar $cookies, RawBody $body)
+    public function __construct(UriPath $path, RequestCookieJar $cookies, RawBody $body, array $server)
     {
-        parent::__construct($path, $cookies);
+        parent::__construct($server, $path, $cookies);
         $this->body = $body;
     }
 

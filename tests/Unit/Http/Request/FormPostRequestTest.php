@@ -27,7 +27,8 @@ class FormPostRequestTest extends TestCase
         $this->request = new FormPostRequest(
             $this->getUriPathMock(),
             $this->getRequestCookieJarMock(),
-            ['foo' => 'bar']
+            ['foo' => 'bar'],
+            []
         );
     }
 

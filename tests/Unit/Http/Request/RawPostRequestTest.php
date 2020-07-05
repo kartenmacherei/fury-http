@@ -34,7 +34,8 @@ class RawPostRequestTest extends TestCase
         $this->request = new RawPostRequest(
             $this->getUriPathMock(),
             $this->getRequestCookieJarMock(),
-            $this->body
+            $this->body,
+            []
         );
     }
 

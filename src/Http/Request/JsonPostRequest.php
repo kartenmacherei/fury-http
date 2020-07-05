@@ -12,9 +12,9 @@ class JsonPostRequest extends PostRequest
      */
     private $body;
 
-    public function __construct(UriPath $path, RequestCookieJar $cookies, JsonBody $body)
+    public function __construct(UriPath $path, RequestCookieJar $cookies, JsonBody $body, array $server)
     {
-        parent::__construct($path, $cookies);
+        parent::__construct($server, $path, $cookies);
         $this->body = $body;
     }
 

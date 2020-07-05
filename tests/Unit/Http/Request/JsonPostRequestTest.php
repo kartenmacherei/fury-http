@@ -34,7 +34,8 @@ class JsonPostRequestTest extends TestCase
         $this->request = new JsonPostRequest(
             $this->getUriPathMock(),
             $this->getRequestCookieJarMock(),
-            $this->body
+            $this->body,
+            []
         );
     }
 

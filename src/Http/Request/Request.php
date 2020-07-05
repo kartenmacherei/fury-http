@@ -1,11 +1,13 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Request;
 
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
 use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
 use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
+use Kartenmacherei\HttpFramework\Http\Url;
 
 abstract class Request
 {
@@ -24,11 +26,18 @@ abstract class Request
     private $cookies;
 
     /**
+     * @var array
+     */
+    private $server;
+
+    /**
+     * @param array $server
      * @param UriPath $path
      * @param RequestCookieJar $cookies
      */
-    public function __construct(UriPath $path, RequestCookieJar $cookies)
+    public function __construct(array $server, UriPath $path, RequestCookieJar $cookies)
     {
+        $this->server = $server;
         $this->path = $path;
         $this->cookies = $cookies;
     }
@@ -36,9 +45,9 @@ abstract class Request
     /**
      * @param string $inputStream
      *
+     * @return GetRequest|PostRequest|Request
      * @throws UnsupportedRequestMethodException
      *
-     * @return GetRequest|PostRequest|Request
      */
     public static function fromSuperGlobals(string $inputStream = 'php://input'): Request
     {
@@ -48,7 +57,7 @@ abstract class Request
         switch ($method) {
             case self::METHOD_HEAD:
             case self::METHOD_GET:
-                return new GetRequest($uriPath, RequestCookieJar::fromSuperGlobals(), $_GET);
+                return new GetRequest($uriPath, RequestCookieJar::fromSuperGlobals(), $_GET, $_SERVER);
             case self::METHOD_POST:
                 return self::createPostRequest($uriPath, $inputStream);
             default:
@@ -71,6 +80,16 @@ abstract class Request
     public function isPostRequest(): bool
     {
         return false;
+    }
+
+    public function hasOrigin(): bool
+    {
+        return isset($this->server['HTTP_ORIGIN']);
+    }
+
+    public function getOrigin(): Url
+    {
+        return new Url($this->server['HTTP_ORIGIN']);
     }
 
     /**
@@ -107,15 +126,15 @@ abstract class Request
 
         switch ($_SERVER['CONTENT_TYPE']) {
             case '':
-                return new RawPostRequest($path, $cookieJar, new RawBody($content));
+                return new RawPostRequest($path, $cookieJar, new RawBody($content), $_SERVER);
             case ContentType::JSON:
             case ContentType::JSON_UTF8:
-                return new JsonPostRequest($path, $cookieJar, new JsonBody($content));
+                return new JsonPostRequest($path, $cookieJar, new JsonBody($content), $_SERVER);
             case ContentType::WWW_FORM:
             case ContentType::WWW_FORM_UTF8:
-                return new FormPostRequest($path, $cookieJar, $_POST);
+                return new FormPostRequest($path, $cookieJar, $_POST, $_SERVER);
         }
 
-        return new RawPostRequest($path, $cookieJar, new RawBody($content));
+        return new RawPostRequest($path, $cookieJar, new RawBody($content), $_SERVER);
     }
 }

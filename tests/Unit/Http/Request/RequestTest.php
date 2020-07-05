@@ -14,6 +14,7 @@ use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
 use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
 use Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException;
 use Kartenmacherei\HttpFramework\Http\Request\UriPath;
+use Kartenmacherei\HttpFramework\Http\Url;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -21,6 +22,9 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Kartenmacherei\HttpFramework\Http\Request\Request
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\GetRequest
+ * @uses \Kartenmacherei\HttpFramework\Http\Request\UriPath
+ * @uses \Kartenmacherei\HttpFramework\Http\Url
  */
 class RequestTest extends TestCase
 {
@@ -152,7 +156,7 @@ class RequestTest extends TestCase
         $_SERVER['REQUEST_URI'] = $requestUri;
         $_GET = $getParameter;
 
-        $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET);
+        $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET, $_SERVER);
         $this->assertEquals($expected, Request::fromSuperGlobals());
     }
 
@@ -165,8 +169,26 @@ class RequestTest extends TestCase
         $_SERVER['REQUEST_URI'] = '/foo';
         $_GET = ['foo' => 'bar'];
 
-        $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET);
+        $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET, $_SERVER);
         $this->assertEquals($expected, Request::fromSuperGlobals());
+    }
+
+    public function testHasOriginReturnsFalseIfHeaderIsNotSet(): void
+    {
+        $request = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), [], []);
+        $this->assertFalse($request->hasOrigin());
+    }
+
+    public function testHasOriginReturnsTrueIfHeaderIsSet(): void
+    {
+        $request = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), [], ['HTTP_ORIGIN' => 'https://example.com']);
+        $this->assertTrue($request->hasOrigin());
+    }
+
+    public function testReturnsExpectedOriginUrl(): void
+    {
+        $request = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), [], ['HTTP_ORIGIN' => 'https://example.com']);
+        $this->assertEquals(new Url('https://example.com'), $request->getOrigin());
     }
 
     /**
@@ -189,7 +211,7 @@ class RequestTest extends TestCase
         $pathMock = $this->createMock(UriPath::class);
         $cookiesMock = $this->createMock(RequestCookieJar::class);
 
-        $request = $this->getMockForAbstractClass(Request::class, [$pathMock, $cookiesMock]);
+        $request = $this->getMockForAbstractClass(Request::class, [[], $pathMock, $cookiesMock]);
         $expected = new SupportedRequestMethods('HEAD', 'GET', 'POST');
         $this->assertEquals($expected, $request->getSupportedRequestMethods());
     }
@@ -199,7 +221,7 @@ class RequestTest extends TestCase
      */
     private function getRequest()
     {
-        return $this->getMockForAbstractClass(Request::class, [$this->path, $this->cookieJar]);
+        return $this->getMockForAbstractClass(Request::class, [[], $this->path, $this->cookieJar]);
     }
 
     /**

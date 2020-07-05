@@ -10,9 +10,9 @@ class GetRequest extends Request
      */
     private $parameters;
 
-    public function __construct(UriPath $path, RequestCookieJar $cookies, array $parameters)
+    public function __construct(UriPath $path, RequestCookieJar $cookies, array $parameters, array $server)
     {
-        parent::__construct($path, $cookies);
+        parent::__construct($server, $path, $cookies);
         $this->parameters = $parameters;
     }
 
