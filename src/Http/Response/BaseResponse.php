@@ -10,9 +10,19 @@ abstract class BaseResponse implements Response
      */
     private $cookies = [];
 
+    /**
+     * @var array
+     */
+    private $headers = [];
+
     public function addCookie(ResponseCookie $cookie): void
     {
         $this->cookies[] = $cookie;
+    }
+
+    public function addHeader(string $key, string $value): void
+    {
+        $this->headers[$key] = $value;
     }
 
     public function send(): void
@@ -21,6 +31,10 @@ abstract class BaseResponse implements Response
 
         foreach ($this->cookies as $cookie) {
             $cookie->send();
+        }
+
+        foreach ($this->headers as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
         }
 
         $this->flush();

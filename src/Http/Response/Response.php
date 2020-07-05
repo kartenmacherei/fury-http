@@ -8,4 +8,6 @@ interface Response
     public function send(): void;
 
     public function addCookie(ResponseCookie $cookie): void;
+
+    public function addHeader(string $key, string $value): void;
 }

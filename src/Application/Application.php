@@ -23,12 +23,18 @@ abstract class Application
     {
         if ($request->isGetRequest()) {
             /* @var GetRequest $request */
-            return $this->handleGetRequest($request);
+            $response = $this->handleGetRequest($request);
+            $this->addCorsHeaders($request, $response);
+
+            return $response;
         }
 
         if ($request->isPostRequest()) {
             /* @var PostRequest $request */
-            return $this->handlePostRequest($request);
+            $response = $this->handlePostRequest($request);
+            $this->addCorsHeaders($request, $response);
+
+            return $response;
         }
 
         return new MethodNotAllowedResponse($request->getSupportedRequestMethods());
@@ -62,6 +68,16 @@ abstract class Application
         $result = $query->execute();
 
         return $this->handleResult($result);
+    }
+
+    private function addCorsHeaders(Request $request, Response $response): void
+    {
+        if (!$request->hasOrigin()) {
+            return;
+        }
+        $response->addHeader('Access-Control-Allow-Origin', $request->getOrigin()->asString());
+        $response->addHeader('Access-Control-Allow-Methods', 'OPTIONS,GET,POST');
+        $response->addHeader('Access-Control-Allow-Headers', 'Authorization');
     }
 
     /**

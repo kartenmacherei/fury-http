@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 namespace Kartenmacherei\HttpFramework\Http\Request;
 
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
@@ -46,8 +45,6 @@ abstract class Request
      * @param string $inputStream
      *
      * @return GetRequest|PostRequest|Request
-     * @throws UnsupportedRequestMethodException
-     *
      */
     public static function fromSuperGlobals(string $inputStream = 'php://input'): Request
     {

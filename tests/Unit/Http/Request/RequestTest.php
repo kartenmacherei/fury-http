@@ -22,6 +22,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Kartenmacherei\HttpFramework\Http\Request\Request
+ *
  * @uses \Kartenmacherei\HttpFramework\Http\Request\GetRequest
  * @uses \Kartenmacherei\HttpFramework\Http\Request\UriPath
  * @uses \Kartenmacherei\HttpFramework\Http\Url
