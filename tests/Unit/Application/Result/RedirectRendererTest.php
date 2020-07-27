@@ -6,6 +6,7 @@ namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 use Kartenmacherei\HttpFramework\Application\Response\RedirectResponse;
 use Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer;
 use Kartenmacherei\HttpFramework\Application\Result\RedirectResult;
+use Kartenmacherei\HttpFramework\Http\Domain;
 use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -14,6 +15,7 @@ use PHPUnit\Framework\TestCase;
  * @covers \Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer
  *
  * @uses \Kartenmacherei\HttpFramework\Application\Response\RedirectResponse
+ * @uses \Kartenmacherei\HttpFramework\Http\Domain
  */
 class RedirectRendererTest extends TestCase
 {
@@ -48,7 +50,15 @@ class RedirectRendererTest extends TestCase
             ->method('getUriPath')
             ->willReturn($this->uriPathMock);
 
-        $expectedResponse = new RedirectResponse($this->uriPathMock);
+        $this->redirectResultMock->expects($this->once())
+            ->method('getParameters')
+            ->willReturn([]);
+
+        $this->redirectResultMock->expects($this->once())
+            ->method('getDomain')
+            ->willReturn(new Domain('kartenmacherei.de'));
+
+        $expectedResponse = new RedirectResponse($this->uriPathMock, [], new Domain('kartenmacherei.de'));
         $this->assertEquals($expectedResponse, $this->renderer->render());
     }
 }

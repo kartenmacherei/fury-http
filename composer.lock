@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5d0ee7c10326ec8f9c649461648ea4d",
+    "content-hash": "8649b49ba27daec47ed202a1d543362f",
     "packages": [],
     "packages-dev": [
         {
@@ -2659,5 +2659,6 @@
         "php": "^7.1",
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

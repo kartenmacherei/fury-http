@@ -3,6 +3,7 @@
 declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\Application\Response;
 
+use Kartenmacherei\HttpFramework\Http\Domain;
 use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use Kartenmacherei\HttpFramework\Http\Response\BaseResponse;
 use Kartenmacherei\HttpFramework\Http\Response\StatusCode;
@@ -16,11 +17,20 @@ class RedirectResponse extends BaseResponse
     private $uriPath;
 
     /**
-     * @param UriPath $uriPath
+     * @var array|null
      */
-    public function __construct(UriPath $uriPath)
+    private $parameters;
+
+    /**
+     * @var Domain|null
+     */
+    private $domain;
+
+    public function __construct(UriPath $uriPath, array $parameters = [], ?Domain $domain = null)
     {
         $this->uriPath = $uriPath;
+        $this->parameters = $parameters;
+        $this->domain = $domain;
     }
 
     public function getStatusCode(): StatusCode
@@ -30,6 +40,15 @@ class RedirectResponse extends BaseResponse
 
     protected function flush(): void
     {
-        header(sprintf('Location: %s', $this->uriPath->asString()));
+        $queryString = '';
+        if (!empty($this->parameters)) {
+            $queryString = sprintf('?%s', http_build_query($this->parameters));
+        }
+        $domainName = '';
+        if ($this->domain) {
+            $domainName = sprintf('https://%s', $this->domain->asString());
+        }
+
+        header(sprintf('Location: %s%s%s', $domainName, $this->uriPath->asString(), $queryString));
     }
 }
