@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Response\RedirectResponse;
+use Kartenmacherei\HttpFramework\Http\Domain;
 use Kartenmacherei\HttpFramework\Http\Request\UriPath;
 use Kartenmacherei\HttpFramework\UnitTest\Helper\CheckXdebugAvailableTrait;
 use PHPUnit\Framework\TestCase;
@@ -17,17 +18,50 @@ class RedirectResponseTest extends TestCase
 
     /**
      * @runInSeparateProcess
+     *
+     * @dataProvider getTestData
+     *
+     * @param string $expectedRedirect ,
+     * @param UriPath $uriPath
+     * @param array $parameters
+     * @param Domain|null $domain
      */
-    public function testIfConstructorSetsCookie(): void
-    {
+    public function testRedirect(
+        string $expectedRedirect,
+        UriPath $uriPath,
+        array $parameters = null,
+        Domain $domain = null
+    ): void {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
 
         $uriPathString = '/foo/bar';
-        $uriPath = new UriPath($uriPathString);
 
-        $response = new RedirectResponse($uriPath);
+        $response = new RedirectResponse($uriPath, $parameters, $domain);
         $response->send();
 
-        $this->assertTrue(in_array(sprintf('Location: %s', $uriPathString), xdebug_get_headers(), true));
+        $header = xdebug_get_headers()[0];
+        $this->assertSame($expectedRedirect, $header);
+    }
+
+    public function getTestData(): array
+    {
+        return [
+            [
+                'Location: /foo/bar',
+                new UriPath('/foo/bar'),
+                [],
+            ],
+            [
+                'Location: /foo/bar?foo=1%262&bar=baz',
+                new UriPath('/foo/bar'),
+                ['foo' => '1&2', 'bar' => 'baz'],
+            ],
+            [
+                'Location: https://kartenmacherei.de/foo/bar?foo=1%262&bar=baz',
+                new UriPath('/foo/bar'),
+                ['foo' => '1&2', 'bar' => 'baz'],
+                new Domain('kartenmacherei.de'),
+            ],
+        ];
     }
 }
