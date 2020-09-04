@@ -14,7 +14,6 @@ use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
 use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
 use Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException;
 use Kartenmacherei\HttpFramework\Http\Request\UriPath;
-use Kartenmacherei\HttpFramework\Http\Url;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -172,24 +171,6 @@ class RequestTest extends TestCase
 
         $expected = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), $_GET, $_SERVER);
         $this->assertEquals($expected, Request::fromSuperGlobals());
-    }
-
-    public function testHasOriginReturnsFalseIfHeaderIsNotSet(): void
-    {
-        $request = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), [], []);
-        $this->assertFalse($request->hasOrigin());
-    }
-
-    public function testHasOriginReturnsTrueIfHeaderIsSet(): void
-    {
-        $request = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), [], ['HTTP_ORIGIN' => 'https://example.com']);
-        $this->assertTrue($request->hasOrigin());
-    }
-
-    public function testReturnsExpectedOriginUrl(): void
-    {
-        $request = new GetRequest(new UriPath('/foo'), new RequestCookieJar(), [], ['HTTP_ORIGIN' => 'https://example.com']);
-        $this->assertEquals(new Url('https://example.com'), $request->getOrigin());
     }
 
     /**
