@@ -6,7 +6,6 @@ namespace Kartenmacherei\HttpFramework\Http\Request;
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
 use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
 use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
-use Kartenmacherei\HttpFramework\Http\Url;
 
 abstract class Request
 {
@@ -77,16 +76,6 @@ abstract class Request
     public function isPostRequest(): bool
     {
         return false;
-    }
-
-    public function hasOrigin(): bool
-    {
-        return isset($this->server['HTTP_ORIGIN']);
-    }
-
-    public function getOrigin(): Url
-    {
-        return new Url($this->server['HTTP_ORIGIN']);
     }
 
     /**
