@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FuryHttp">
+
+    <target name="docker-build">
+        <exec executable="docker-compose" failonerror="true">
+            <arg value="build"/>
+        </exec>
+    </target>
+
+    <target name="docker-composer-install">
+        <exec executable="docker-compose" failonerror="true">
+            <arg value="run"/>
+            <arg value="--rm"/>
+            <arg value="php"/>
+            <arg value="sh"/>
+            <arg value="-c"/>
+            <arg value="composer install"/>
+        </exec>
+    </target>
+
+    <target name="docker-composer-update">
+        <exec executable="docker-compose" failonerror="true">
+            <arg value="run"/>
+            <arg value="--rm"/>
+            <arg value="php"/>
+            <arg value="sh"/>
+            <arg value="-c"/>
+            <arg value="composer update"/>
+        </exec>
+    </target>
+
+    <target name="docker-php-cs-fixer">
+        <exec executable="docker-compose" failonerror="true">
+            <arg value="run"/>
+            <arg value="--rm"/>
+            <arg value="php"/>
+            <arg value="sh"/>
+            <arg value="-c"/>
+            <arg value="vendor/bin/php-cs-fixer fix -v --diff --diff-format=udiff"/>
+        </exec>
+    </target>
+
+    <target name="docker-test">
+        <exec executable="docker-compose" failonerror="true">
+            <arg value="run"/>
+            <arg value="--rm"/>
+            <arg value="php"/>
+            <arg value="sh"/>
+            <arg value="-c"/>
+            <arg value="vendor/bin/phpunit --log-junit ./test-reports/junit.xml"/>
+        </exec>
+    </target>
+
+    <target name="docker-test-fast">
+        <exec executable="docker-compose" failonerror="true">
+            <arg value="run"/>
+            <arg value="--rm"/>
+            <arg value="php"/>
+            <arg value="sh"/>
+            <arg value="-c"/>
+            <arg value="vendor/bin/phpunit --no-coverage"/>
+        </exec>
+    </target>
+</project>
