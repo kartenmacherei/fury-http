@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\Http\Request\Body;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
+use Kartenmacherei\HttpFramework\Http\JsonArray;
 use Kartenmacherei\HttpFramework\Http\JsonObject;
 
 class JsonBody extends Body
@@ -30,7 +31,7 @@ class JsonBody extends Body
     /**
      * @param string $selector
      *
-     * @return JsonArray|JsonObject|string
+     * @return JsonArray|JsonObject|string|int
      */
     public function query(string $selector)
     {
