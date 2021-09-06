@@ -20,14 +20,14 @@ class ContentResponse extends BaseResponse
         $this->content = $content;
     }
 
+    public function getContent(): Content
+    {
+        return $this->content;
+    }
+
     protected function getStatusCode(): StatusCode
     {
         return new OkStatusCode();
-    }
-
-    protected function getContent(): Content
-    {
-        return $this->content;
     }
 
     protected function flush(): void
