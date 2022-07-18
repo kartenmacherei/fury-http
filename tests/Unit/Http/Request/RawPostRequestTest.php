@@ -17,14 +17,10 @@ use PHPUnit\Framework\TestCase;
  */
 class RawPostRequestTest extends TestCase
 {
-    /**
-     * @var RawPostRequest
-     */
+    /** @var RawPostRequest */
     private $request;
 
-    /**
-     * @var RawBody|MockObject
-     */
+    /** @var RawBody|MockObject */
     private $body;
 
     protected function setUp(): void

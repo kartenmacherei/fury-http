@@ -7,9 +7,7 @@ use Iterator;
 
 class JsonArray implements Iterator
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $data = [];
 
     /**

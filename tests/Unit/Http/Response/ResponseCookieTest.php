@@ -87,7 +87,8 @@ class ResponseCookieTest extends TestCase
         $this->assertEquals(
             sprintf(
                 'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=%s; path=/; secure; HttpOnly',
-                $expectedExpiredValue, self::EXPIRE_IMMEDIATALY
+                $expectedExpiredValue,
+                self::EXPIRE_IMMEDIATALY
             ),
             $xdebugHeaders[0]
         );

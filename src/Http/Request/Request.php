@@ -13,19 +13,13 @@ abstract class Request
     private const METHOD_GET = 'GET';
     private const METHOD_POST = 'POST';
 
-    /**
-     * @var UriPath
-     */
+    /** @var UriPath */
     private $path;
 
-    /**
-     * @var RequestCookieJar
-     */
+    /** @var RequestCookieJar */
     private $cookies;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $server;
 
     /**

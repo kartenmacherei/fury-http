@@ -8,9 +8,7 @@ use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 
 abstract class GetRoute
 {
-    /**
-     * @var GetRoute
-     */
+    /** @var GetRoute */
     private $nextRoute;
 
     /**

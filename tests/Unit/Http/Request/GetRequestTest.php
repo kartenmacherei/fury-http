@@ -17,9 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class GetRequestTest extends TestCase
 {
-    /**
-     * @var GetRequest
-     */
+    /** @var GetRequest */
     private $request;
 
     protected function setUp(): void

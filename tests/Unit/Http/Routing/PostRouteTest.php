@@ -15,9 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PostRouteTest extends TestCase
 {
-    /**
-     * @var MockObject|PostRoute
-     */
+    /** @var MockObject|PostRoute */
     private $route;
 
     protected function setUp(): void

@@ -8,9 +8,7 @@ use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class ContentResult implements Result
 {
-    /**
-     * @var Content
-     */
+    /** @var Content */
     private $content;
 
     /**

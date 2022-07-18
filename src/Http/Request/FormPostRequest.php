@@ -5,9 +5,7 @@ namespace Kartenmacherei\HttpFramework\Http\Request;
 
 class FormPostRequest extends PostRequest
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $parameters = [];
 
     public function __construct(UriPath $path, RequestCookieJar $cookies, array $parameters, array $server)

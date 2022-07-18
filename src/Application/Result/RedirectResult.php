@@ -9,19 +9,13 @@ use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 class RedirectResult implements Result
 {
-    /**
-     * @var UriPath
-     */
+    /** @var UriPath */
     private $uriPath;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $parameters;
 
-    /**
-     * @var Domain|null
-     */
+    /** @var Domain|null */
     private $domain;
 
     public function __construct(UriPath $uriPath, array $parameters = [], ?Domain $domain = null)

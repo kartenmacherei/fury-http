@@ -7,9 +7,7 @@ use Kartenmacherei\HttpFramework\Http\CookieNotFoundException;
 
 class RequestCookieJar
 {
-    /**
-     * @var RequestCookie[]
-     */
+    /** @var RequestCookie[] */
     private $cookies = [];
 
     public static function fromSuperGlobals(): RequestCookieJar

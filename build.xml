@@ -36,7 +36,7 @@
             <arg value="php"/>
             <arg value="sh"/>
             <arg value="-c"/>
-            <arg value="vendor/bin/php-cs-fixer fix -v --diff --diff-format=udiff"/>
+            <arg value="vendor/bin/php-cs-fixer fix -v --diff"/>
         </exec>
     </target>
 

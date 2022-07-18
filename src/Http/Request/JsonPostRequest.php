@@ -7,9 +7,7 @@ use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
 
 class JsonPostRequest extends PostRequest
 {
-    /**
-     * @var JsonBody
-     */
+    /** @var JsonBody */
     private $body;
 
     public function __construct(UriPath $path, RequestCookieJar $cookies, JsonBody $body, array $server)

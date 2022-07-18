@@ -16,9 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PostRequestTest extends TestCase
 {
-    /**
-     * @var PostRequest
-     */
+    /** @var PostRequest */
     private $request;
 
     protected function setUp(): void
@@ -52,7 +50,8 @@ class PostRequestTest extends TestCase
     private function getPostRequest()
     {
         return $this->getMockForAbstractClass(
-            PostRequest::class, [[], $this->getUriPathMock(), $this->getRequestCookieJarMock()]
+            PostRequest::class,
+            [[], $this->getUriPathMock(), $this->getRequestCookieJarMock()]
         );
     }
 

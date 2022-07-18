@@ -17,14 +17,10 @@ use PHPUnit\Framework\TestCase;
  */
 class JsonPostRequestTest extends TestCase
 {
-    /**
-     * @var JsonPostRequest
-     */
+    /** @var JsonPostRequest */
     private $request;
 
-    /**
-     * @var JsonBody|MockObject
-     */
+    /** @var JsonBody|MockObject */
     private $body;
 
     protected function setUp(): void

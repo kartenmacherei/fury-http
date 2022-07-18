@@ -28,24 +28,16 @@ use PHPUnit\Framework\TestCase;
  */
 class RequestTest extends TestCase
 {
-    /**
-     * @var Request
-     */
+    /** @var Request */
     private $request;
 
-    /**
-     * @var MockObject|UriPath
-     */
+    /** @var MockObject|UriPath */
     private $path;
 
-    /**
-     * @var MockObject|RequestCookieJar
-     */
+    /** @var MockObject|RequestCookieJar */
     private $cookieJar;
 
-    /**
-     * @var vfsStreamDirectory
-     */
+    /** @var vfsStreamDirectory */
     private $vfs;
 
     protected function setUp(): void

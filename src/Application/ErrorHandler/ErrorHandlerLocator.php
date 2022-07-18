@@ -8,9 +8,7 @@ use Kartenmacherei\HttpFramework\Application\Factory;
 
 class ErrorHandlerLocator
 {
-    /**
-     * @var Factory
-     */
+    /** @var Factory */
     private $factory;
 
     /**

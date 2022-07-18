@@ -9,14 +9,10 @@ use Kartenmacherei\HttpFramework\Http\JsonObject;
 
 class JsonBody extends Body
 {
-    /**
-     * @var JsonObject
-     */
+    /** @var JsonObject */
     private $json;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $jsonString = '';
 
     /**
