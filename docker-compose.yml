@@ -7,5 +7,5 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - ./:/var/www
-      - ~/.ssh:/root/.ssh:ro
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro
 
