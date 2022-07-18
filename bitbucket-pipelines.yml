@@ -11,5 +11,5 @@ pipelines:
           - docker-php-ext-enable xdebug
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer install
-          - vendor/bin/php-cs-fixer fix --dry-run -v --diff --diff-format=udiff
+          - vendor/bin/php-cs-fixer fix --dry-run -v --diff
           - vendor/bin/phpunit --log-junit ./test-reports/junit.xml
