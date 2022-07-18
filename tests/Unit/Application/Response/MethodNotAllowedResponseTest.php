@@ -39,7 +39,7 @@ class MethodNotAllowedResponseTest extends TestCase
         $this->assertSame(405, http_response_code());
 
         $headers = xdebug_get_headers();
-        $this->assertContains(
+        $this->assertStringContainsString(
             sprintf('Allow: HEAD, GET, POST'),
             $headers[0]
         );
