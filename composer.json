@@ -16,13 +16,6 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9.5",
-		"kartenmacherei/kam-php-coding-standard": "^5.0",
 		"mikey179/vfsstream": "^1.6"
-	},
-	"repositories": {
-		"kartenmacherei/kam-php-coding-standard": {
-			"type": "vcs",
-			"url": "git@bitbucket.org:kartenmacherei/kam-php-coding-standard.git"
-		}
 	}
 }
