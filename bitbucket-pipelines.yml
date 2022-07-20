@@ -1,15 +1,48 @@
-image: php:8.1-cli-alpine
-
 pipelines:
-  default:
-    - step:
+  step_definitions:
+    - composer: &composer
+        name: Composer
+        image: composer:2.2.16
+        script:
+          - composer install
         caches:
           - composer
+        artifacts:
+          - vendor/**
+    - phpunit: &phpunit
+        name: PHPUnit
+        image: php:8.1
         script:
-          - apk add --update git unzip openssh-client autoconf make g++
-          - pecl install xdebug-3.1.5
-          - docker-php-ext-enable xdebug
-          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - composer install
-          - vendor/bin/php-cs-fixer fix --dry-run -v --diff
           - vendor/bin/phpunit --log-junit ./test-reports/junit.xml
+        artifacts:
+          - build/coverage/**
+          - build/logs/**
+    - phpcsfixer-check: &phpcsfixer-check
+        name: PHP-CS-Fixer check
+        image:
+          name: 047136756731.dkr.ecr.eu-central-1.amazonaws.com/kam-cs:5.0.0
+          aws:
+            access-key: $AWS_ACCESS_KEY
+            secret-key: $AWS_SECRET_KEY
+        script:
+          - php /tools/kam-cs fix --verbose --no-ansi --no-interaction --dry-run --diff
+
+  default:
+    - step: *composer
+    - parallel:
+        - step: *phpcsfixer-check
+        - step: *phpunit
+
+# remove after testing
+#  default:
+#    - step:
+#        caches:
+#          - composer
+#        script:
+#          - apk add --update git unzip openssh-client autoconf make g++
+#          - pecl install xdebug-3.1.5
+#          - docker-php-ext-enable xdebug
+#          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#          - composer install
+#          - vendor/bin/php-cs-fixer fix --dry-run -v --diff
+#          - vendor/bin/phpunit --log-junit ./test-reports/junit.xml
