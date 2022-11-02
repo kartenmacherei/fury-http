@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\Http;
 
 use Iterator;
+use ReturnTypeWillChange;
 
 class JsonArray implements Iterator
 {
@@ -21,7 +22,7 @@ class JsonArray implements Iterator
     /**
      * @return JsonArray|JsonObject
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function current()
     {
         $current = current($this->data);
