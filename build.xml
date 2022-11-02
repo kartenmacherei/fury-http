@@ -29,17 +29,6 @@
         </exec>
     </target>
 
-    <target name="docker-php-cs-fixer">
-        <exec executable="docker-compose" failonerror="true">
-            <arg value="run"/>
-            <arg value="--rm"/>
-            <arg value="php"/>
-            <arg value="sh"/>
-            <arg value="-c"/>
-            <arg value="vendor/bin/php-cs-fixer fix -v --diff"/>
-        </exec>
-    </target>
-
     <target name="docker-test">
         <exec executable="docker-compose" failonerror="true">
             <arg value="run"/>
