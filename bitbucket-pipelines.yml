@@ -13,10 +13,11 @@ pipelines:
         name: PHPUnit
         image: php:8.1
         script:
-          - vendor/bin/phpunit --log-junit ./test-reports/junit.xml
+          - pecl install pcov xdebug-3.1.5
+          - docker-php-ext-enable pcov xdebug
+          - vendor/bin/phpunit
         artifacts:
           - build/coverage/**
-          - build/logs/**
     - phpcsfixer-check: &phpcsfixer-check
         name: PHP-CS-Fixer check
         image:
