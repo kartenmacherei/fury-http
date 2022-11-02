@@ -19,19 +19,13 @@ use PHPUnit\Framework\TestCase;
  */
 class RedirectRendererTest extends TestCase
 {
-    /**
-     * @var UriPath|MockObject
-     */
+    /** @var UriPath|MockObject */
     private $uriPathMock;
 
-    /**
-     * @var RedirectResult|MockObject
-     */
+    /** @var RedirectResult|MockObject */
     private $redirectResultMock;
 
-    /**
-     * @var RedirectRenderer
-     */
+    /** @var RedirectRenderer */
     private $renderer;
 
     protected function setUp(): void

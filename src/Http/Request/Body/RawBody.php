@@ -5,9 +5,7 @@ namespace Kartenmacherei\HttpFramework\Http\Request\Body;
 
 class RawBody extends Body
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $content = '';
 
     /**

@@ -3,9 +3,11 @@
 declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
+use Exception;
 use Kartenmacherei\HttpFramework\Http\JsonArray;
 use Kartenmacherei\HttpFramework\Http\JsonObject;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * @covers \Kartenmacherei\HttpFramework\Http\JsonArray
@@ -16,7 +18,7 @@ class JsonArrayTest extends TestCase
 {
     public function testIsIterable(): void
     {
-        $object = new \stdClass();
+        $object = new stdClass();
         $object->foobar = 'baz';
 
         $array = ['foo' => 'bar'];
@@ -37,7 +39,7 @@ class JsonArrayTest extends TestCase
                     $this->assertSame('foo', $item);
                     break;
                 default:
-                    throw new \Exception('Unexpected index');
+                    throw new Exception('Unexpected index');
             }
         }
     }

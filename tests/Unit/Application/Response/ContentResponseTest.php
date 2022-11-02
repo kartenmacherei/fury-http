@@ -48,7 +48,8 @@ class ContentResponseTest extends TestCase
         $response->send();
 
         $this->assertSame(
-            ['Content-Type: application/json; charset=UTF-8'], xdebug_get_headers()
+            ['Content-Type: application/json; charset=UTF-8'],
+            xdebug_get_headers()
         );
     }
 

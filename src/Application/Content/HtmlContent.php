@@ -5,9 +5,7 @@ namespace Kartenmacherei\HttpFramework\Application\Content;
 
 class HtmlContent implements Content
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $content;
 
     /**

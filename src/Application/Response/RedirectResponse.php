@@ -11,19 +11,13 @@ use Kartenmacherei\HttpFramework\Http\Response\StatusCode\RedirectStatusCode;
 
 class RedirectResponse extends BaseResponse
 {
-    /**
-     * @var UriPath
-     */
+    /** @var UriPath */
     private $uriPath;
 
-    /**
-     * @var array|null
-     */
+    /** @var array|null */
     private $parameters;
 
-    /**
-     * @var Domain|null
-     */
+    /** @var Domain|null */
     private $domain;
 
     public function __construct(UriPath $uriPath, array $parameters = [], ?Domain $domain = null)

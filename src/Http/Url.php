@@ -5,9 +5,7 @@ namespace Kartenmacherei\HttpFramework\Http;
 
 class Url
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value = '';
 
     public function __construct(string $value)

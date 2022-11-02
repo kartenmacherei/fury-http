@@ -8,14 +8,10 @@ use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 
 class GetRouter
 {
-    /**
-     * @var GetRoute
-     */
+    /** @var GetRoute */
     private $firstRoute;
 
-    /**
-     * @var GetRoute
-     */
+    /** @var GetRoute */
     private $lastRoute;
 
     public function route(GetRequest $request): Query

@@ -10,9 +10,7 @@ use Kartenmacherei\HttpFramework\Http\Response\StatusCode\OkStatusCode;
 
 class ContentResponse extends BaseResponse
 {
-    /**
-     * @var Content
-     */
+    /** @var Content */
     private $content;
 
     public function __construct(Content $content)

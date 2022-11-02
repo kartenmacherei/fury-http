@@ -9,9 +9,7 @@ use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 class RedirectRenderer implements ResultRenderer
 {
-    /**
-     * @var RedirectResult
-     */
+    /** @var RedirectResult */
     private $result;
 
     public function __construct(RedirectResult $result)

@@ -5,9 +5,7 @@ namespace Kartenmacherei\HttpFramework\Http\Request;
 
 class UriPath
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $pathUri;
 
     public function __construct(string $path)

@@ -7,9 +7,7 @@ class Pattern
 {
     private const REGEX_DELIMITER = '/';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value = '';
 
     /**

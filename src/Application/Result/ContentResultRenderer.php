@@ -9,9 +9,7 @@ use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 class ContentResultRenderer implements ResultRenderer
 {
-    /**
-     * @var ContentResult
-     */
+    /** @var ContentResult */
     private $result;
 
     /**

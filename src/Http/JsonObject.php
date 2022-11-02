@@ -7,9 +7,7 @@ use stdClass;
 
 class JsonObject
 {
-    /**
-     * @var stdClass
-     */
+    /** @var stdClass */
     private $data;
 
     /**

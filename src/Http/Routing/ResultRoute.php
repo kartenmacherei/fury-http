@@ -8,9 +8,7 @@ use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 abstract class ResultRoute
 {
-    /**
-     * @var ResultRoute
-     */
+    /** @var ResultRoute */
     private $nextRoute;
 
     /**

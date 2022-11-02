@@ -5,14 +5,10 @@ namespace Kartenmacherei\HttpFramework\Http\Request;
 
 class RequestCookie
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**

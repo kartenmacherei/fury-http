@@ -17,9 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FormPostRequestTest extends TestCase
 {
-    /**
-     * @var FormPostRequest
-     */
+    /** @var FormPostRequest */
     private $request;
 
     protected function setUp(): void

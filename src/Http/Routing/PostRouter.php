@@ -8,14 +8,10 @@ use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
 
 class PostRouter
 {
-    /**
-     * @var PostRoute
-     */
+    /** @var PostRoute */
     private $firstRoute;
 
-    /**
-     * @var PostRoute
-     */
+    /** @var PostRoute */
     private $lastRoute;
 
     public function route(PostRequest $request): Command
