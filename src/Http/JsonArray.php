@@ -21,6 +21,7 @@ class JsonArray implements Iterator
     /**
      * @return JsonArray|JsonObject
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         $current = current($this->data);
@@ -39,10 +40,7 @@ class JsonArray implements Iterator
         next($this->data);
     }
 
-    /**
-     * @return mixed
-     */
-    public function key()
+    public function key(): mixed
     {
         return key($this->data);
     }
