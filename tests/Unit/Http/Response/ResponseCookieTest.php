@@ -34,7 +34,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some+value; path=/; secure; HttpOnly',
+            'Set-Cookie: some_cookie=some%20value; path=/; secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -59,11 +59,11 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $xdebugHeaders = xdebug_get_headers();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $expectedFirstPartOfCookieHeader,
             $xdebugHeaders[0]
         );
-        $this->assertContains($expectedSecondPartOfCookieHeader, $xdebugHeaders[0]);
+        $this->assertStringContainsString($expectedSecondPartOfCookieHeader, $xdebugHeaders[0]);
 
         $matches = [];
         $result = preg_match('/Max-Age=(\d*);/', $xdebugHeaders[0], $matches);
@@ -87,7 +87,8 @@ class ResponseCookieTest extends TestCase
         $this->assertEquals(
             sprintf(
                 'Set-Cookie: some_cookie=somevalue; expires=%s; Max-Age=%s; path=/; secure; HttpOnly',
-                $expectedExpiredValue, self::EXPIRE_IMMEDIATALY
+                $expectedExpiredValue,
+                self::EXPIRE_IMMEDIATALY
             ),
             $xdebugHeaders[0]
         );
@@ -103,7 +104,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some+value; path=/; domain=myDomain; secure; HttpOnly',
+            'Set-Cookie: some_cookie=some%20value; path=/; domain=myDomain; secure; HttpOnly',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());
@@ -127,7 +128,7 @@ class ResponseCookieTest extends TestCase
         $cookie->send();
 
         $expected = [
-            'Set-Cookie: some_cookie=some+value; path=/; secure',
+            'Set-Cookie: some_cookie=some%20value; path=/; secure',
         ];
 
         $this->assertSame($expected, xdebug_get_headers());

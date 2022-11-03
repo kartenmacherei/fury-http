@@ -7,9 +7,7 @@ class Environment
 {
     private const FURY_ENV = 'FURY_ENV';
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $environmentVariables = [];
 
     public function __construct(array $environmentVariables)

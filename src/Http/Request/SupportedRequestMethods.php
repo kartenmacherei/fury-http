@@ -11,9 +11,7 @@ class SupportedRequestMethods
         'GET', 'POST', 'HEAD', 'PUT', 'PATCH', 'DELETE', 'TRACE', 'OPTIONS', 'CONNECT',
     ];
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $methods;
 
     public function __construct(string ...$methods)

@@ -5,9 +5,7 @@ namespace Kartenmacherei\HttpFramework\Application\Content;
 
 class JsonContent implements Content
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $jsonString;
 
     /**

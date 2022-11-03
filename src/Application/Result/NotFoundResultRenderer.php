@@ -9,9 +9,7 @@ use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 
 class NotFoundResultRenderer implements ResultRenderer
 {
-    /**
-     * @var NotFoundResult
-     */
+    /** @var NotFoundResult */
     private $result;
 
     /**

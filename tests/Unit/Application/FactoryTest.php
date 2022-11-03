@@ -18,9 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FactoryTest extends TestCase
 {
-    /**
-     * @var Factory
-     */
+    /** @var Factory */
     private $factory;
 
     protected function setUp(): void

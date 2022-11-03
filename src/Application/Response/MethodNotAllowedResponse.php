@@ -10,9 +10,7 @@ use Kartenmacherei\HttpFramework\Http\Response\StatusCode\MethodNotAllowedCode;
 
 class MethodNotAllowedResponse extends BaseResponse
 {
-    /**
-     * @var SupportedRequestMethods
-     */
+    /** @var SupportedRequestMethods */
     private $supportedRequestMethods;
 
     public function __construct(SupportedRequestMethods $supportedRequestMethods)

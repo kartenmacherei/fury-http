@@ -5,14 +5,10 @@ namespace Kartenmacherei\HttpFramework\Http\Response;
 
 abstract class BaseResponse implements Response
 {
-    /**
-     * @var ResponseCookie[]
-     */
+    /** @var ResponseCookie[] */
     private $cookies = [];
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $headers = [];
 
     public function addCookie(ResponseCookie $cookie): void

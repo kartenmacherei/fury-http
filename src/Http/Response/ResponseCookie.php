@@ -13,29 +13,19 @@ class ResponseCookie
     private const NO_DOMAIN = '';
     private const HTTPS_ONLY = true;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     private $isHttpOnly = true;
 
-    /**
-     * @var CookieExpiryTime|null
-     */
+    /** @var CookieExpiryTime|null */
     private $expiresAt;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $domain;
 
     public function __construct(string $name, string $value)

@@ -13,9 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RequestCookieJarTest extends TestCase
 {
-    /**
-     * @var RequestCookieJar
-     */
+    /** @var RequestCookieJar */
     private $jar;
 
     protected function setUp(): void

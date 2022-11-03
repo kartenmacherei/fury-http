@@ -7,9 +7,7 @@ use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
 
 class RawPostRequest extends PostRequest
 {
-    /**
-     * @var RawBody
-     */
+    /** @var RawBody */
     private $body;
 
     public function __construct(UriPath $path, RequestCookieJar $cookies, RawBody $body, array $server)

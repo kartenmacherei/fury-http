@@ -8,9 +8,7 @@ use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
 
 abstract class PostRoute
 {
-    /**
-     * @var PostRoute
-     */
+    /** @var PostRoute */
     private $nextRoute;
 
     /**
