@@ -52,6 +52,23 @@ class GetRequest extends Request
     }
 
     /**
+     * @param string $key
+     *
+     * @throws RequestParameterNotFoundException
+     *
+     * @return array
+     */
+    public function getArrayParameter(string $key): array
+    {
+        if (!$this->hasParameter($key)) {
+            $message = sprintf('Request does not contain parameter "%s".', $key);
+            throw new RequestParameterNotFoundException($message);
+        }
+
+        return $this->parameters[$key];
+    }
+
+    /**
      * @return bool
      */
     public function isGetRequest(): bool
