@@ -11,6 +11,10 @@ test: vendor ## run all tests
 vendor: composer.json composer.lock ## install dependencies
 	docker-compose run --rm -w /var/www php composer install
 
+.PHONY: shell
+shell: ## open a shell in a fresh container
+	docker-compose run --rm -w /var/www php ash
+
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
