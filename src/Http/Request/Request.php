@@ -99,6 +99,28 @@ abstract class Request
         );
     }
 
+    public function hasHeader(string $name): bool
+    {
+        return array_key_exists($this->normalizeHttpHeaderName($name), $this->server);
+    }
+
+    public function getHeader(string $name): string
+    {
+        if (!$this->hasHeader($name)) {
+            throw new HeaderNotFoundException(sprintf('Header %s not found in Request', $name));
+        }
+
+        return (string) $this->server[$this->normalizeHttpHeaderName($name)];
+    }
+
+    private function normalizeHttpHeaderName(string $name): string
+    {
+        $name = strtoupper($name);
+        $name = str_replace('-', '_', $name);
+
+        return 'HTTP_' . $name;
+    }
+
     private static function createPostRequest(UriPath $path, string $inputStream): PostRequest
     {
         $content = file_get_contents($inputStream);

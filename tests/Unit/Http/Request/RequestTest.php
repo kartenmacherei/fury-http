@@ -6,6 +6,7 @@ namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
 use Kartenmacherei\HttpFramework\Http\Request\FormPostRequest;
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
+use Kartenmacherei\HttpFramework\Http\Request\HeaderNotFoundException;
 use Kartenmacherei\HttpFramework\Http\Request\JsonPostRequest;
 use Kartenmacherei\HttpFramework\Http\Request\RawPostRequest;
 use Kartenmacherei\HttpFramework\Http\Request\Request;
@@ -188,6 +189,44 @@ class RequestTest extends TestCase
         $request = $this->getMockForAbstractClass(Request::class, [[], $pathMock, $cookiesMock]);
         $expected = new SupportedRequestMethods('HEAD', 'GET', 'POST');
         $this->assertEquals($expected, $request->getSupportedRequestMethods());
+    }
+
+    public function testHasExpectedHeader(): void
+    {
+        $pathMock = $this->createMock(UriPath::class);
+        $cookiesMock = $this->createMock(RequestCookieJar::class);
+        $server = [
+            'HTTP_CONTENT_TYPE' => 'foo',
+        ];
+
+        $request = $this->getMockForAbstractClass(Request::class, [$server, $pathMock, $cookiesMock]);
+        $this->assertFalse($request->hasHeader('Accept'));
+        $this->assertTrue($request->hasHeader('Content-Type'));
+        $this->assertTrue($request->hasHeader('Content_Type'));
+        $this->assertTrue($request->hasHeader('CONTENT_TYPE'));
+        $this->assertTrue($request->hasHeader('content-type'));
+    }
+
+    public function testThrowsExceptionIfHeaderIsNotSet(): void
+    {
+        $pathMock = $this->createMock(UriPath::class);
+        $cookiesMock = $this->createMock(RequestCookieJar::class);
+
+        $request = $this->getMockForAbstractClass(Request::class, [[], $pathMock, $cookiesMock]);
+        $this->expectException(HeaderNotFoundException::class);
+        $request->getHeader('foo');
+    }
+
+    public function testReturnsExpectedHeaderValue(): void
+    {
+        $pathMock = $this->createMock(UriPath::class);
+        $cookiesMock = $this->createMock(RequestCookieJar::class);
+        $server = [
+            'HTTP_CONTENT_TYPE' => 'application/json',
+        ];
+
+        $request = $this->getMockForAbstractClass(Request::class, [$server, $pathMock, $cookiesMock]);
+        $this->assertSame('application/json', $request->getHeader('Content-Type'));
     }
 
     /**
