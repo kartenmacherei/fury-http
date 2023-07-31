@@ -10,6 +10,7 @@ use Kartenmacherei\HttpFramework\Http\Query;
 use Kartenmacherei\HttpFramework\Http\Request\DeleteRequest;
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\PutRequest;
 use Kartenmacherei\HttpFramework\Http\Request\Request;
 use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
 use Kartenmacherei\HttpFramework\Http\Response\Response;
@@ -18,6 +19,7 @@ use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
 use Kartenmacherei\HttpFramework\Http\Routing\DeleteRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\GetRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\PostRouter;
+use Kartenmacherei\HttpFramework\Http\Routing\PutRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\ResultRouter;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -142,6 +144,44 @@ class ApplicationTest extends TestCase
         $this->assertSame($response, $application->handle($request));
     }
 
+    public function testHandlesPutRequest(): void
+    {
+        $request = $this->getPutRequestMock();
+        $request->method('isPutRequest')->willReturn(true);
+
+        $result = $this->getResultMock();
+
+        $command = $this->getCommandMock();
+        $command->expects($this->once())
+            ->method('execute')
+            ->willReturn($result);
+
+        $router = $this->getPutRouterMock();
+        $router->expects($this->once())
+            ->method('route')
+            ->with($request)
+            ->willReturn($command);
+
+        $response = $this->getResponseMock();
+
+        $resultRenderer = $this->getResultRendererMock();
+        $resultRenderer->expects($this->once())
+            ->method('render')
+            ->willReturn($response);
+
+        $resultRouter = $this->getResultRouterMock();
+        $resultRouter->expects($this->once())
+            ->method('route')
+            ->with($result)
+            ->willReturn($resultRenderer);
+
+        $application = $this->getApplication();
+        $application->method('createPutRouter')->willReturn($router);
+        $application->method('createResultRouter')->willReturn($resultRouter);
+
+        $this->assertSame($response, $application->handle($request));
+    }
+
     /**
      * @uses \Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse
      */
@@ -261,5 +301,15 @@ class ApplicationTest extends TestCase
     private function getDeleteRouterMock(): DeleteRouter&MockObject
     {
         return $this->createMock(DeleteRouter::class);
+    }
+
+    private function getPutRequestMock(): PutRequest&MockObject
+    {
+        return $this->createMock(PutRequest::class);
+    }
+
+    private function getPutRouterMock(): PutRouter&MockObject
+    {
+        return $this->createMock(PutRouter::class);
     }
 }

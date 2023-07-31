@@ -13,6 +13,7 @@ abstract class Request
     private const METHOD_GET = 'GET';
     private const METHOD_POST = 'POST';
     private const METHOD_DELETE = 'DELETE';
+    private const METHOD_PUT = 'PUT';
 
     /** @var UriPath */
     private $path;
@@ -53,6 +54,8 @@ abstract class Request
                 return self::createPostRequest($uriPath, $inputStream);
             case self::METHOD_DELETE:
                 return self::createDeleteRequest($uriPath);
+            case self::METHOD_PUT:
+                return self::createPutRequest($uriPath, $inputStream);
             default:
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
                 throw new UnsupportedRequestMethodException($message);
@@ -76,6 +79,11 @@ abstract class Request
      * @return bool
      */
     public function isPostRequest(): bool
+    {
+        return false;
+    }
+
+    public function isPutRequest(): bool
     {
         return false;
     }
@@ -146,6 +154,20 @@ abstract class Request
         }
 
         return new RawPostRequest($path, $cookieJar, new RawBody($content), $_SERVER);
+    }
+
+    private static function createPutRequest(UriPath $path, string $inputStream): PutRequest
+    {
+        $content = file_get_contents($inputStream);
+        $cookieJar = RequestCookieJar::fromSuperGlobals();
+
+        switch ($_SERVER['CONTENT_TYPE']) {
+            case ContentType::JSON:
+            case ContentType::JSON_UTF8:
+                return new JsonPutRequest($path, $cookieJar, new JsonBody($content), $_SERVER);
+        }
+
+        return new RawPutRequest($path, $cookieJar, new RawBody($content), $_SERVER);
     }
 
     private static function createDeleteRequest(UriPath $path): DeleteRequest

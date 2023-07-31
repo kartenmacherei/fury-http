@@ -9,7 +9,9 @@ use Kartenmacherei\HttpFramework\Http\Request\FormPostRequest;
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 use Kartenmacherei\HttpFramework\Http\Request\HeaderNotFoundException;
 use Kartenmacherei\HttpFramework\Http\Request\JsonPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\JsonPutRequest;
 use Kartenmacherei\HttpFramework\Http\Request\RawPostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\RawPutRequest;
 use Kartenmacherei\HttpFramework\Http\Request\Request;
 use Kartenmacherei\HttpFramework\Http\Request\RequestCookie;
 use Kartenmacherei\HttpFramework\Http\Request\RequestCookieJar;
@@ -65,6 +67,11 @@ class RequestTest extends TestCase
     public function testIsDeleteRequestReturnsFalse(): void
     {
         $this->assertFalse($this->request->isDeleteRequest());
+    }
+
+    public function testIsPutRequestReturnsFalse(): void
+    {
+        $this->assertFalse($this->request->isPutRequest());
     }
 
     public function testGetPathReturnsExpectedObject(): void
@@ -128,6 +135,38 @@ class RequestTest extends TestCase
             [ContentType::JSON_UTF8, '{"foo":"bar"}', JsonPostRequest::class],
             ['', '', RawPostRequest::class],
             ['foo', '', RawPostRequest::class],
+        ];
+    }
+
+    /**
+     * @runInSeparateProcess
+     *
+     * @dataProvider putRequestTestDataProvider
+     *
+     * @param string $contentType
+     * @param string $inputStream
+     * @param string $expectedClass
+     *
+     * @throws \Kartenmacherei\HttpFramework\Http\Request\UnsupportedRequestMethodException
+     */
+    public function testCreatesExpectedFormPutRequest(string $contentType, string $inputStream, string $expectedClass): void
+    {
+        $_SERVER['REQUEST_METHOD'] = 'PUT';
+        $_SERVER['REQUEST_URI'] = '/foo';
+        $_SERVER['CONTENT_TYPE'] = $contentType;
+
+        file_put_contents($this->vfs->url() . '/input', $inputStream);
+
+        $this->assertInstanceOf($expectedClass, Request::fromSuperGlobals($this->vfs->url() . '/input'));
+    }
+
+    public function putRequestTestDataProvider()
+    {
+        return [
+            [ContentType::JSON, '{"foo":"bar"}', JsonPutRequest::class],
+            [ContentType::JSON_UTF8, '{"foo":"bar"}', JsonPutRequest::class],
+            ['', '', RawPutRequest::class],
+            ['foo', '', RawPutRequest::class],
         ];
     }
 

@@ -7,11 +7,13 @@ use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
 use Kartenmacherei\HttpFramework\Http\Request\DeleteRequest;
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
+use Kartenmacherei\HttpFramework\Http\Request\PutRequest;
 use Kartenmacherei\HttpFramework\Http\Request\Request;
 use Kartenmacherei\HttpFramework\Http\Response\Response;
 use Kartenmacherei\HttpFramework\Http\Routing\DeleteRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\GetRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\PostRouter;
+use Kartenmacherei\HttpFramework\Http\Routing\PutRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\ResultRouter;
 
 abstract class Application
@@ -38,6 +40,11 @@ abstract class Application
             return $this->handlePostRequest($request);
         }
 
+        if ($request->isPutRequest()) {
+            /* @var PutRequest $request */
+            return $this->handlePutRequest($request);
+        }
+
         return new MethodNotAllowedResponse($request->getSupportedRequestMethods());
     }
 
@@ -46,6 +53,8 @@ abstract class Application
     abstract protected function createPostRouter(): PostRouter;
 
     abstract protected function createDeleteRouter(): DeleteRouter;
+
+    abstract protected function createPutRouter(): PutRouter;
 
     abstract protected function createResultRouter(): ResultRouter;
 
@@ -91,10 +100,20 @@ abstract class Application
         return $router->route($result)->render();
     }
 
-    private function handleDeleteRequest(DeleteRequest $request)
+    private function handleDeleteRequest(DeleteRequest $request): Response
     {
         $router = $this->createDeleteRouter();
         $command = $router->route($request);
+        $result = $command->execute();
+
+        return $this->handleResult($result);
+    }
+
+    private function handlePutRequest(PutRequest $request): Response
+    {
+        $router = $this->createPutRouter();
+        $command = $router->route($request);
+
         $result = $command->execute();
 
         return $this->handleResult($result);
