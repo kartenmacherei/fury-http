@@ -7,6 +7,7 @@ use Kartenmacherei\HttpFramework\Application\Application;
 use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
 use Kartenmacherei\HttpFramework\Http\Command;
 use Kartenmacherei\HttpFramework\Http\Query;
+use Kartenmacherei\HttpFramework\Http\Request\DeleteRequest;
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
 use Kartenmacherei\HttpFramework\Http\Request\Request;
@@ -14,6 +15,7 @@ use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;
 use Kartenmacherei\HttpFramework\Http\Response\Response;
 use Kartenmacherei\HttpFramework\Http\Result\Result;
 use Kartenmacherei\HttpFramework\Http\Result\ResultRenderer;
+use Kartenmacherei\HttpFramework\Http\Routing\DeleteRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\GetRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\PostRouter;
 use Kartenmacherei\HttpFramework\Http\Routing\ResultRouter;
@@ -25,6 +27,44 @@ use PHPUnit\Framework\TestCase;
  */
 class ApplicationTest extends TestCase
 {
+    public function testHandlesDeleteRequest(): void
+    {
+        $request = $this->getDeleteRequestMock();
+        $request->method('isDeleteRequest')->willReturn(true);
+
+        $result = $this->getResultMock();
+
+        $command = $this->getCommandMock();
+        $command->expects($this->once())
+            ->method('execute')
+            ->willReturn($result);
+
+        $router = $this->getDeleteRouterMock();
+        $router->expects($this->once())
+            ->method('route')
+            ->with($request)
+            ->willReturn($command);
+
+        $response = $this->getResponseMock();
+
+        $resultRenderer = $this->getResultRendererMock();
+        $resultRenderer->expects($this->once())
+            ->method('render')
+            ->willReturn($response);
+
+        $resultRouter = $this->getResultRouterMock();
+        $resultRouter->expects($this->once())
+            ->method('route')
+            ->with($result)
+            ->willReturn($resultRenderer);
+
+        $application = $this->getApplication();
+        $application->method('createDeleteRouter')->willReturn($router);
+        $application->method('createResultRouter')->willReturn($resultRouter);
+
+        $this->assertSame($response, $application->handle($request));
+    }
+
     public function testHandlesGetRequest(): void
     {
         $request = $this->getGetRequestMock();
@@ -211,5 +251,15 @@ class ApplicationTest extends TestCase
     private function getGetRouterMock()
     {
         return $this->createMock(GetRouter::class);
+    }
+
+    private function getDeleteRequestMock(): DeleteRequest&MockObject
+    {
+        return $this->createMock(DeleteRequest::class);
+    }
+
+    private function getDeleteRouterMock(): DeleteRouter&MockObject
+    {
+        return $this->createMock(DeleteRouter::class);
     }
 }

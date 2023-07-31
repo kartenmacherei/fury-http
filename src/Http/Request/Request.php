@@ -12,6 +12,7 @@ abstract class Request
     private const METHOD_HEAD = 'HEAD';
     private const METHOD_GET = 'GET';
     private const METHOD_POST = 'POST';
+    private const METHOD_DELETE = 'DELETE';
 
     /** @var UriPath */
     private $path;
@@ -50,10 +51,17 @@ abstract class Request
                 return new GetRequest($uriPath, RequestCookieJar::fromSuperGlobals(), $_GET, $_SERVER);
             case self::METHOD_POST:
                 return self::createPostRequest($uriPath, $inputStream);
+            case self::METHOD_DELETE:
+                return self::createDeleteRequest($uriPath);
             default:
                 $message = sprintf('Can not handle method "%s"', $_SERVER['REQUEST_METHOD']);
                 throw new UnsupportedRequestMethodException($message);
         }
+    }
+
+    public function isDeleteRequest(): bool
+    {
+        return false;
     }
 
     /**
@@ -138,5 +146,10 @@ abstract class Request
         }
 
         return new RawPostRequest($path, $cookieJar, new RawBody($content), $_SERVER);
+    }
+
+    private static function createDeleteRequest(UriPath $path): DeleteRequest
+    {
+        return new DeleteRequest($_SERVER, $path, RequestCookieJar::fromSuperGlobals());
     }
 }

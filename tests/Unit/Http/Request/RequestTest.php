@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
+use Kartenmacherei\HttpFramework\Http\Request\DeleteRequest;
 use Kartenmacherei\HttpFramework\Http\Request\FormPostRequest;
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
 use Kartenmacherei\HttpFramework\Http\Request\HeaderNotFoundException;
@@ -59,6 +60,11 @@ class RequestTest extends TestCase
     public function testIsPostRequestReturnsFalse(): void
     {
         $this->assertFalse($this->request->isPostRequest());
+    }
+
+    public function testIsDeleteRequestReturnsFalse(): void
+    {
+        $this->assertFalse($this->request->isDeleteRequest());
     }
 
     public function testGetPathReturnsExpectedObject(): void
@@ -171,7 +177,7 @@ class RequestTest extends TestCase
      */
     public function testThrowsExceptionIfRequestMethodIsNotSupported(): void
     {
-        $_SERVER['REQUEST_METHOD'] = 'DELETE';
+        $_SERVER['REQUEST_METHOD'] = 'FOO';
         $_SERVER['REQUEST_URI'] = '/foo';
         $this->expectException(UnsupportedRequestMethodException::class);
 
@@ -227,6 +233,17 @@ class RequestTest extends TestCase
 
         $request = $this->getMockForAbstractClass(Request::class, [$server, $pathMock, $cookiesMock]);
         $this->assertSame('application/json', $request->getHeader('Content-Type'));
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testCreatesExpectedDeleteRequest(): void
+    {
+        $_SERVER['REQUEST_METHOD'] = 'DELETE';
+        $_SERVER['REQUEST_URI'] = '/foo';
+        $request = Request::fromSuperGlobals();
+        $this->assertInstanceOf(DeleteRequest::class, $request);
     }
 
     /**
