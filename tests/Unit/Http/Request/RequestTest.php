@@ -232,7 +232,7 @@ class RequestTest extends TestCase
         $cookiesMock = $this->createMock(RequestCookieJar::class);
 
         $request = $this->getMockForAbstractClass(Request::class, [[], $pathMock, $cookiesMock]);
-        $expected = new SupportedRequestMethods('HEAD', 'GET', 'POST');
+        $expected = new SupportedRequestMethods('HEAD', 'GET', 'POST', 'PUT', 'DELETE');
         $this->assertEquals($expected, $request->getSupportedRequestMethods());
     }
 

@@ -111,7 +111,9 @@ abstract class Request
         return new SupportedRequestMethods(
             self::METHOD_HEAD,
             self::METHOD_GET,
-            self::METHOD_POST
+            self::METHOD_POST,
+            self::METHOD_PUT,
+            self::METHOD_DELETE
         );
     }
 
