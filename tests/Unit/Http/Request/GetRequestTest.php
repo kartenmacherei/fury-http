@@ -27,7 +27,7 @@ class GetRequestTest extends TestCase
         $this->request = new GetRequest(
             $this->getUriPathMock(),
             $this->getRequestCookieJarMock(),
-            ['foo' => 'bar'],
+            ['foo' => 'bar', 'foo1' => ['bar1', 'baz1']],
             []
         );
     }
@@ -64,6 +64,17 @@ class GetRequestTest extends TestCase
     public function testGetParameterReturnsExpectedValue(): void
     {
         $this->assertSame('bar', $this->request->getParameter('foo'));
+    }
+
+    public function testGetArrayParameterThrowsExceptionIfParameterIsNotPresent(): void
+    {
+        $this->expectException(RequestParameterNotFoundException::class);
+        $this->request->getArrayParameter('baz');
+    }
+
+    public function testGetArrayParameterReturnsExpectedValue(): void
+    {
+        $this->assertEquals(['bar1', 'baz1'], $this->request->getArrayParameter('foo1'));
     }
 
     public function testIsGetRequestReturnsTrue(): void
