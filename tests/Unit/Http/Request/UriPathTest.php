@@ -117,6 +117,8 @@ class UriPathTest extends TestCase
             ['/foo/bar', '/foo/bar', true],
             ['/foo', '/foo', true],
             ['/foo?ignore=me', '/foo', true],
+            ['//', '/', true],
+            ['//foo/bar', '/foo/bar', true],
         ];
     }
 
