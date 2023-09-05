@@ -6,14 +6,14 @@ cs: vendor ## run PHP CS Fixer
 
 .PHONY: vendor
 test: vendor ## run all tests
-	docker-compose run --rm -w /var/www php vendor/bin/phpunit
+	docker compose run --rm -w /var/www php vendor/bin/phpunit
 
 vendor: composer.json composer.lock ## install dependencies
-	docker-compose run --rm -w /var/www php composer install
+	docker compose run --rm -w /var/www php composer install
 
 .PHONY: shell
 shell: ## open a shell in a fresh container
-	docker-compose run --rm -w /var/www php ash
+	docker compose run --rm -w /var/www php ash
 
 .PHONY: help
 help:
