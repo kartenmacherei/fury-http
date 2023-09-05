@@ -11,7 +11,7 @@ class UriPath
     public function __construct(string $path)
     {
         $this->ensureStartsWithSlash($path);
-        $this->ensureNoDoubleStartingSlash($path);
+        $this->ensureNoDoubleSlash($path);
         $this->pathUri = parse_url($path, PHP_URL_PATH);
     }
 
@@ -56,9 +56,9 @@ class UriPath
         }
     }
 
-    private function ensureNoDoubleStartingSlash(string $pathUri): void
+    private function ensureNoDoubleSlash(string $pathUri): void
     {
-        if (str_starts_with($pathUri, '//')) {
+        if (str_contains($pathUri, '//')) {
             $message = sprintf('Expected path to start with "/", got path "%s"', $pathUri);
             throw new InvalidUriPathException($message);
         }
