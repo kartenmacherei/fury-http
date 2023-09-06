@@ -59,7 +59,7 @@ class UriPath
     private function ensureNoDoubleSlash(string $pathUri): void
     {
         if (str_contains($pathUri, '//')) {
-            $message = sprintf('Expected path to start with "/", got path "%s"', $pathUri);
+            $message = sprintf('Expected path not to contain "//", got path "%s"', $pathUri);
             throw new InvalidUriPathException($message);
         }
     }
