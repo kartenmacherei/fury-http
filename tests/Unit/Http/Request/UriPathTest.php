@@ -22,6 +22,15 @@ class UriPathTest extends TestCase
     }
 
     /**
+     * @dataProvider doubleSlashTestDataProvider
+     */
+    public function testThrowsExceptionIfPathStartsWithDoubleSlash(string $uriPath): void
+    {
+        $this->expectException(InvalidUriPathException::class);
+        new UriPath($uriPath);
+    }
+
+    /**
      * @dataProvider startsWithTestDataProvider
      *
      * @param string $pathValue
@@ -117,6 +126,14 @@ class UriPathTest extends TestCase
             ['/foo/bar', '/foo/bar', true],
             ['/foo', '/foo', true],
             ['/foo?ignore=me', '/foo', true],
+        ];
+    }
+
+    public function doubleSlashTestDataProvider(): array
+    {
+        return [
+            ['//'],
+            ['//foo/bar'],
         ];
     }
 
