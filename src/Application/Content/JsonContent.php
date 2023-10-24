@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\Content;
 
 class JsonContent implements Content
@@ -24,17 +25,11 @@ class JsonContent implements Content
         $this->jsonString = $encodedData;
     }
 
-    /**
-     * @return string
-     */
     public function asString(): string
     {
         return $this->jsonString;
     }
 
-    /**
-     * @return ContentType
-     */
     public function getContentType(): ContentType
     {
         return new JsonContentType();

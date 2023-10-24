@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Command;
@@ -11,9 +12,7 @@ abstract class PutRoute
     /** @var PutRoute */
     private $nextRoute;
 
-    /**
-     * @param PutRoute $route
-     */
+    /** @param PutRoute $route */
     public function setNextRoute(PutRoute $route): void
     {
         $this->nextRoute = $route;

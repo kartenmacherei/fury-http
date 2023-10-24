@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Result\Result;
@@ -57,25 +58,19 @@ class ResultRouteTest extends TestCase
         $this->assertSame($resultRenderer, $this->route->route($result));
     }
 
-    /**
-     * @return MockObject|ResultRoute
-     */
+    /** @return MockObject|ResultRoute */
     private function getResultRouteMock()
     {
         return $this->createMock(ResultRoute::class);
     }
 
-    /**
-     * @return MockObject|Result
-     */
+    /** @return MockObject|Result */
     private function getResultMock()
     {
         return $this->createMock(Result::class);
     }
 
-    /**
-     * @return MockObject|ResultRenderer
-     */
+    /** @return MockObject|ResultRenderer */
     private function getResultRendererMock()
     {
         return $this->createMock(ResultRenderer::class);

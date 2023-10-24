@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\PutRequest;
@@ -44,9 +45,7 @@ class PutRequestTest extends TestCase
         $this->assertFalse($this->request->isGetRequest());
     }
 
-    /**
-     * @return MockObject|PutRequest
-     */
+    /** @return MockObject|PutRequest */
     private function getPutRequest()
     {
         return $this->getMockForAbstractClass(
@@ -55,17 +54,13 @@ class PutRequestTest extends TestCase
         );
     }
 
-    /**
-     * @return MockObject|RequestCookieJar
-     */
+    /** @return MockObject|RequestCookieJar */
     private function getRequestCookieJarMock()
     {
         return $this->createMock(RequestCookieJar::class);
     }
 
-    /**
-     * @return MockObject|UriPath
-     */
+    /** @return MockObject|UriPath */
     private function getUriPathMock()
     {
         return $this->createMock(UriPath::class);

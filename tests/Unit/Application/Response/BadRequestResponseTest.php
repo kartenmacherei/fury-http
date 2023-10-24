@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\Content;
@@ -20,9 +21,7 @@ class BadRequestResponseTest extends TestCase
     private const CONTENT_VALUE = 'foo';
     private const CONTENT_TYPE_VALUE = 'text/html';
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedContentTypeHeader(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
@@ -39,9 +38,7 @@ class BadRequestResponseTest extends TestCase
         );
     }
 
-    /**
-     * @return MockObject|Content
-     */
+    /** @return MockObject|Content */
     private function getContentMock()
     {
         $contentMock = $this->createMock(Content::class);

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
@@ -25,9 +26,7 @@ class ResponseCookieTest extends TestCase
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeader(): void
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');
@@ -40,9 +39,7 @@ class ResponseCookieTest extends TestCase
         $this->assertSame($expected, xdebug_get_headers());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeaderWithExpiryTimeInTheFuture(): void
     {
         $dateTimeValue = '2999-03-27 13:57:00';
@@ -71,9 +68,7 @@ class ResponseCookieTest extends TestCase
         $this->assertGreaterThan((int) self::EXPIRE_IMMEDIATALY, (int) $matches[1]);
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeaderWithExpiryTimeInThePast(): void
     {
         $dateTimeValue = '2018-03-27 13:57:00';
@@ -94,9 +89,7 @@ class ResponseCookieTest extends TestCase
         );
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeaderWithDomain(): void
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');
@@ -118,9 +111,7 @@ class ResponseCookieTest extends TestCase
         $cookie->forDomain('');
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeaderWithoutHttpOnly(): void
     {
         $cookie = new ResponseCookie('some_cookie', 'some value');

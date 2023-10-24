@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Command;
@@ -57,25 +58,19 @@ class PutRouteTest extends TestCase
         $this->assertSame($command, $this->route->route($this->getPutRequestMock()));
     }
 
-    /**
-     * @return MockObject|PutRoute
-     */
+    /** @return MockObject|PutRoute */
     private function getPutRouteMock()
     {
         return $this->createMock(PutRoute::class);
     }
 
-    /**
-     * @return MockObject|Command
-     */
+    /** @return MockObject|Command */
     private function getCommandMock()
     {
         return $this->createMock(Command::class);
     }
 
-    /**
-     * @return MockObject|PutRequest
-     */
+    /** @return MockObject|PutRequest */
     private function getPutRequestMock()
     {
         return $this->createMock(PutRequest::class);

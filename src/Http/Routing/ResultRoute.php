@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Result\Result;
@@ -11,9 +12,7 @@ abstract class ResultRoute
     /** @var ResultRoute */
     private $nextRoute;
 
-    /**
-     * @param ResultRoute $route
-     */
+    /** @param ResultRoute $route */
     public function setNextRoute(ResultRoute $route): void
     {
         $this->nextRoute = $route;

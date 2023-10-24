@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
@@ -85,17 +86,13 @@ class GetRequestTest extends TestCase
         $this->assertFalse($this->request->isPostRequest());
     }
 
-    /**
-     * @return MockObject|RequestCookieJar
-     */
+    /** @return MockObject|RequestCookieJar */
     private function getRequestCookieJarMock()
     {
         return $this->createMock(RequestCookieJar::class);
     }
 
-    /**
-     * @return MockObject|UriPath
-     */
+    /** @return MockObject|UriPath */
     private function getUriPathMock()
     {
         return $this->createMock(UriPath::class);

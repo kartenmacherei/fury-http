@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Environment;
@@ -23,9 +24,7 @@ class EnvironmentTest extends TestCase
         $this->assertSame($expectedValue, $environment->isDevelopment());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testFromSuperGlobalsReturnsExpectedObject(): void
     {
         $_SERVER = ['foo' => 'bar'];

@@ -1,15 +1,14 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\ErrorHandler;
 
 use Throwable;
 
 abstract class ErrorHandler
 {
-    /**
-     * @codeCoverageIgnore
-     */
+    /** @codeCoverageIgnore */
     public function register(): void
     {
         error_reporting(-1);
@@ -33,14 +32,10 @@ abstract class ErrorHandler
         throw new ErrorException($errorMessage, $errorNumber, 0, $errorFile, $errorLine);
     }
 
-    /**
-     * @param Throwable $throwable
-     */
+    /** @param Throwable $throwable */
     abstract public function handleException(Throwable $throwable): void;
 
-    /**
-     * @codeCoverageIgnore
-     */
+    /** @codeCoverageIgnore */
     public function handleShutdown(): void
     {
         $error = error_get_last();

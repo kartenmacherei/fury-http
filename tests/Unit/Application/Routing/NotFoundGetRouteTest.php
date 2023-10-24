@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Query\NotFoundQuery;
@@ -27,9 +28,7 @@ class NotFoundGetRouteTest extends TestCase
         $this->assertInstanceOf(NotFoundQuery::class, $actual);
     }
 
-    /**
-     * @return MockObject|GetRequest
-     */
+    /** @return MockObject|GetRequest */
     private function getGetRequestMock()
     {
         return $this->createMock(GetRequest::class);

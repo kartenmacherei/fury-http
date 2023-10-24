@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\Response;
 
 use Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods;

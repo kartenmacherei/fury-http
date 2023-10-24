@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\Content;
@@ -20,9 +21,7 @@ class NotFoundResultTest extends TestCase
         $this->assertSame($content, $result->getContent());
     }
 
-    /**
-     * @return MockObject|Content
-     */
+    /** @return MockObject|Content */
     private function getContentMock()
     {
         return $this->createMock(Content::class);

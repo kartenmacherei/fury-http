@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;
@@ -16,9 +17,7 @@ class MethodNotAllowedResponseTest extends TestCase
 {
     use CheckXdebugAvailableTrait;
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedHttpResponseCode(): void
     {
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();

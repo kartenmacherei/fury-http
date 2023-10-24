@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Request\Body;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
@@ -15,9 +16,7 @@ class JsonBody extends Body
     /** @var string */
     private $jsonString = '';
 
-    /**
-     * @param string $jsonString
-     */
+    /** @param string $jsonString */
     public function __construct(string $jsonString)
     {
         $this->json = $this->decode($jsonString);
@@ -34,17 +33,11 @@ class JsonBody extends Body
         return $this->json->query($selector);
     }
 
-    /**
-     * @return JsonObject
-     */
     public function getJson(): JsonObject
     {
         return $this->json;
     }
 
-    /**
-     * @return string
-     */
     public function getEncodedString(): string
     {
         return $this->jsonString;

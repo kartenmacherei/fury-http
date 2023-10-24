@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Result\Result;
@@ -30,9 +31,7 @@ class ResultRouter
         return $this->firstRoute->route($result);
     }
 
-    /**
-     * @param ResultRoute $route
-     */
+    /** @param ResultRoute $route */
     public function addRoute(ResultRoute $route): void
     {
         if ($this->firstRoute === null) {

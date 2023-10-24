@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Request;
 
 class Pattern
@@ -10,9 +11,7 @@ class Pattern
     /** @var string */
     private $value = '';
 
-    /**
-     * @param string $value
-     */
+    /** @param string $value */
     public function __construct($value)
     {
         $this->value = str_replace(self::REGEX_DELIMITER, '\\' . self::REGEX_DELIMITER, $value);

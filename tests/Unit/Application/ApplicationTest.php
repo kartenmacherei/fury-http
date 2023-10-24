@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Application;
@@ -182,9 +183,7 @@ class ApplicationTest extends TestCase
         $this->assertSame($response, $application->handle($request));
     }
 
-    /**
-     * @uses \Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse
-     */
+    /** @uses \Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse */
     public function testReturnsUnsupportedRequestTypeExceptionIfRequestIsNeitherGetNorPost(): void
     {
         $request = $this->getRequestMock();
@@ -197,97 +196,73 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(MethodNotAllowedResponse::class, $application->handle($request));
     }
 
-    /**
-     * @return MockObject|Request
-     */
+    /** @return MockObject|Request */
     private function getRequestMock()
     {
         return $this->createMock(Request::class);
     }
 
-    /**
-     * @return MockObject|Application
-     */
+    /** @return MockObject|Application */
     private function getApplication()
     {
         return $this->getMockForAbstractClass(Application::class);
     }
 
-    /**
-     * @return MockObject|PostRouter
-     */
+    /** @return MockObject|PostRouter */
     private function getPostRouterMock()
     {
         return $this->createMock(PostRouter::class);
     }
 
-    /**
-     * @return MockObject|PostRequest
-     */
+    /** @return MockObject|PostRequest */
     private function getPostRequestMock()
     {
         return $this->createMock(PostRequest::class);
     }
 
-    /**
-     * @return MockObject|Command
-     */
+    /** @return MockObject|Command */
     private function getCommandMock()
     {
         return $this->createMock(Command::class);
     }
 
-    /**
-     * @return MockObject|Response
-     */
+    /** @return MockObject|Response */
     private function getResponseMock()
     {
         return $this->createMock(Response::class);
     }
 
-    /**
-     * @return MockObject|ResultRenderer
-     */
+    /** @return MockObject|ResultRenderer */
     private function getResultRendererMock()
     {
         return $this->createMock(ResultRenderer::class);
     }
 
-    /**
-     * @return MockObject|ResultRouter
-     */
+    /** @return MockObject|ResultRouter */
     private function getResultRouterMock()
     {
         return $this->createMock(ResultRouter::class);
     }
 
-    /**
-     * @return MockObject|Result
-     */
+    /** @return MockObject|Result */
     private function getResultMock()
     {
         return $this->createMock(Result::class);
     }
 
-    /**
-     * @return MockObject|GetRequest
-     */
+    /** @return MockObject|GetRequest */
     private function getGetRequestMock()
     {
         return $this->createMock(GetRequest::class);
     }
 
-    /**
-     * @return MockObject|Query
-     */
+    /** @return MockObject|Query */
     private function getQueryMock()
     {
         return $this->createMock(Query::class);
     }
 
-    /**
-     * @return MockObject|GetRouter
-     */
+    /** @return MockObject|GetRouter */
     private function getGetRouterMock()
     {
         return $this->createMock(GetRouter::class);

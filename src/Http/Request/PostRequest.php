@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Request;
 
 abstract class PostRequest extends Request
@@ -15,9 +16,6 @@ abstract class PostRequest extends Request
         return false;
     }
 
-    /**
-     * @return bool
-     */
     public function isPostRequest(): bool
     {
         return true;

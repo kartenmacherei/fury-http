@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\Result;
 
 use Kartenmacherei\HttpFramework\Application\Response\NotFoundResponse;
@@ -12,17 +13,12 @@ class NotFoundResultRenderer implements ResultRenderer
     /** @var NotFoundResult */
     private $result;
 
-    /**
-     * @param NotFoundResult $result
-     */
+    /** @param NotFoundResult $result */
     public function __construct(NotFoundResult $result)
     {
         $this->result = $result;
     }
 
-    /**
-     * @return Response
-     */
     public function render(): Response
     {
         return new NotFoundResponse($this->result->getContent());

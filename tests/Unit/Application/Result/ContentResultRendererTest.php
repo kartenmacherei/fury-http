@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\Content;
@@ -31,17 +32,13 @@ class ContentResultRendererTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @return MockObject|Content
-     */
+    /** @return MockObject|Content */
     private function getContentMock()
     {
         return $this->createMock(Content::class);
     }
 
-    /**
-     * @return MockObject|ContentResult
-     */
+    /** @return MockObject|ContentResult */
     private function getContentResultMock()
     {
         return $this->createMock(ContentResult::class);

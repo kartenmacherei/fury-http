@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Command\NotFoundCommand;
@@ -27,9 +28,7 @@ class NotFoundPostRouteTest extends TestCase
         $this->assertInstanceOf(NotFoundCommand::class, $actual);
     }
 
-    /**
-     * @return MockObject|PostRequest
-     */
+    /** @return MockObject|PostRequest */
     private function getPostRequestMock()
     {
         return $this->createMock(PostRequest::class);

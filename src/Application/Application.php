@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application;
 
 use Kartenmacherei\HttpFramework\Application\Response\MethodNotAllowedResponse;

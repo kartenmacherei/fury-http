@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Command;
@@ -21,9 +22,7 @@ class DeleteRouter
         return $this->firstRoute->route($request);
     }
 
-    /**
-     * @param DeleteRoute $route
-     */
+    /** @param DeleteRoute $route */
     public function addRoute(DeleteRoute $route): void
     {
         if ($this->firstRoute === null) {

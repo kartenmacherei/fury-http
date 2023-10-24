@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
@@ -23,9 +24,7 @@ class DeletionResponseCookieTest extends TestCase
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeader(): void
     {
         $cookie = new DeletionResponseCookie('some_cookie');
@@ -38,9 +37,7 @@ class DeletionResponseCookieTest extends TestCase
         $this->assertSame($expected, xdebug_get_headers());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSettingExpiryDateThrowsAnException(): void
     {
         $this->expectException(Exception::class);
@@ -49,9 +46,7 @@ class DeletionResponseCookieTest extends TestCase
         $cookie->expiresAt(new CookieExpiryTime('2999-03-27 13:57:00'));
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeaderWithDomain(): void
     {
         $cookie = new DeletionResponseCookie('some_cookie');
@@ -65,9 +60,7 @@ class DeletionResponseCookieTest extends TestCase
         $this->assertSame($expected, xdebug_get_headers());
     }
 
-    /**
-     * @uses \Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime
-     */
+    /** @uses \Kartenmacherei\HttpFramework\Http\Response\CookieExpiryTime */
     public function testSetInvalidDomainThrowsException(): void
     {
         $this->expectException(EnsureException::class);
@@ -76,9 +69,7 @@ class DeletionResponseCookieTest extends TestCase
         $cookie->forDomain('');
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedCookieHeaderWithoutHttpOnly(): void
     {
         $cookie = new DeletionResponseCookie('some_cookie');
