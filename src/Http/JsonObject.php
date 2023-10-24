@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http;
 
 use stdClass;
@@ -10,9 +11,7 @@ class JsonObject
     /** @var stdClass */
     private $data;
 
-    /**
-     * @param stdClass $data
-     */
+    /** @param stdClass $data */
     public function __construct(stdClass $data)
     {
         $this->data = $data;

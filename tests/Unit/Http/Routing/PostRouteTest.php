@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Command;
@@ -57,25 +58,19 @@ class PostRouteTest extends TestCase
         $this->assertSame($command, $this->route->route($this->getPostRequestMock()));
     }
 
-    /**
-     * @return MockObject|PostRoute
-     */
+    /** @return MockObject|PostRoute */
     private function getPostRouteMock()
     {
         return $this->createMock(PostRoute::class);
     }
 
-    /**
-     * @return MockObject|Command
-     */
+    /** @return MockObject|Command */
     private function getCommandMock()
     {
         return $this->createMock(Command::class);
     }
 
-    /**
-     * @return MockObject|PostRequest
-     */
+    /** @return MockObject|PostRequest */
     private function getPostRequestMock()
     {
         return $this->createMock(PostRequest::class);

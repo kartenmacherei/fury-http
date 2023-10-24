@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Result\ContentResult;
@@ -28,9 +29,7 @@ class ContentResultRouteTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @return MockObject|ContentResult
-     */
+    /** @return MockObject|ContentResult */
     private function getContentResultMock()
     {
         return $this->createMock(ContentResult::class);

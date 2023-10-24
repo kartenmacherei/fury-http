@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\GetRequest;
@@ -48,17 +49,13 @@ class GetRouterTest extends TestCase
         $router->route($this->getGetRequestMock());
     }
 
-    /**
-     * @return MockObject|GetRoute
-     */
+    /** @return MockObject|GetRoute */
     private function getGetRouteMock()
     {
         return $this->createMock(GetRoute::class);
     }
 
-    /**
-     * @return MockObject|GetRequest
-     */
+    /** @return MockObject|GetRequest */
     private function getGetRequestMock()
     {
         return $this->createMock(GetRequest::class);

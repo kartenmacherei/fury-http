@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\Command;
 
 use Kartenmacherei\HttpFramework\Application\Content\HtmlContent;

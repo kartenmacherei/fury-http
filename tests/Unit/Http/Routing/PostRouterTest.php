@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\PostRequest;
@@ -48,17 +49,13 @@ class PostRouterTest extends TestCase
         $router->route($this->getPostRequestMock());
     }
 
-    /**
-     * @return MockObject|PostRoute
-     */
+    /** @return MockObject|PostRoute */
     private function getPostRouteMock()
     {
         return $this->createMock(PostRoute::class);
     }
 
-    /**
-     * @return MockObject|PostRequest
-     */
+    /** @return MockObject|PostRequest */
     private function getPostRequestMock()
     {
         return $this->createMock(PostRequest::class);

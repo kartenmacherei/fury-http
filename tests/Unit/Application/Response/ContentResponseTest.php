@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Content\Content;
@@ -26,9 +27,7 @@ class ContentResponseTest extends TestCase
         $this->checkXdebugGetHeadersIsAvailableOrSkipTest();
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedHttpResponseCode(): void
     {
         $this->expectOutputString(self::CONTENT_VALUE);
@@ -37,9 +36,7 @@ class ContentResponseTest extends TestCase
         $this->assertSame(200, http_response_code());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSetsExpectedContentTypeHeader(): void
     {
         $this->expectOutputString(self::CONTENT_VALUE);
@@ -53,9 +50,7 @@ class ContentResponseTest extends TestCase
         );
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSendsCookies(): void
     {
         $this->expectOutputString(self::CONTENT_VALUE);
@@ -73,17 +68,13 @@ class ContentResponseTest extends TestCase
         $response->send();
     }
 
-    /**
-     * @return MockObject|ResponseCookie
-     */
+    /** @return MockObject|ResponseCookie */
     private function getResponseCookieMock()
     {
         return $this->createMock(ResponseCookie::class);
     }
 
-    /**
-     * @return MockObject|Content
-     */
+    /** @return MockObject|Content */
     private function getContentMock()
     {
         $contentMock = $this->createMock(Content::class);

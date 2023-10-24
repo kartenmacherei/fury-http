@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Query;
@@ -11,9 +12,7 @@ abstract class GetRoute
     /** @var GetRoute */
     private $nextRoute;
 
-    /**
-     * @param GetRoute $route
-     */
+    /** @param GetRoute $route */
     public function setNextRoute(GetRoute $route): void
     {
         $this->nextRoute = $route;

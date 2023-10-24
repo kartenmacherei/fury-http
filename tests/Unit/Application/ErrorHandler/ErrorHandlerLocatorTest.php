@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Environment;
@@ -41,17 +42,13 @@ class ErrorHandlerLocatorTest extends TestCase
         ];
     }
 
-    /**
-     * @return MockObject|Environment
-     */
+    /** @return MockObject|Environment */
     private function getEnvironmentMock()
     {
         return $this->createMock(Environment::class);
     }
 
-    /**
-     * @return MockObject|Factory
-     */
+    /** @return MockObject|Factory */
     private function getFactoryMock()
     {
         return $this->createMock(Factory::class);

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\Routing;
 
 use Kartenmacherei\HttpFramework\Application\Result\RedirectRenderer;

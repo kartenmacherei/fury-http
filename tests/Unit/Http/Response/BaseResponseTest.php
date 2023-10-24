@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Response\BaseResponse;
@@ -14,9 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BaseResponseTest extends TestCase
 {
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSendSetsExpectedHttpResponseCode(): void
     {
         $statusCode = $this->getStatusCodeMock();
@@ -30,9 +29,7 @@ class BaseResponseTest extends TestCase
         $this->assertSame(301, http_response_code());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSendCallsFlushMethod(): void
     {
         $statusCode = $this->getStatusCodeMock();
@@ -45,9 +42,7 @@ class BaseResponseTest extends TestCase
         $response->send();
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testSendsCookies(): void
     {
         $response = $this->getBaseResponse();
@@ -64,25 +59,19 @@ class BaseResponseTest extends TestCase
         $response->send();
     }
 
-    /**
-     * @return MockObject|ResponseCookie
-     */
+    /** @return MockObject|ResponseCookie */
     private function getResponseCookieMock()
     {
         return $this->createMock(ResponseCookie::class);
     }
 
-    /**
-     * @return MockObject|StatusCode
-     */
+    /** @return MockObject|StatusCode */
     private function getStatusCodeMock()
     {
         return $this->createMock(StatusCode::class);
     }
 
-    /**
-     * @return MockObject|BaseResponse
-     */
+    /** @return MockObject|BaseResponse */
     private function getBaseResponse()
     {
         return $this->getMockForAbstractClass(BaseResponse::class);

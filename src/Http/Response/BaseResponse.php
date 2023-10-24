@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Response;
 
 abstract class BaseResponse implements Response
@@ -36,9 +37,7 @@ abstract class BaseResponse implements Response
         $this->flush();
     }
 
-    /**
-     * @return StatusCode
-     */
+    /** @return StatusCode */
     abstract protected function getStatusCode(): StatusCode;
 
     abstract protected function flush(): void;

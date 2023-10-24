@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\ErrorHandler\ErrorException;
@@ -27,9 +28,7 @@ class ErrorHandlerTest extends TestCase
         );
     }
 
-    /**
-     * @return MockObject|ErrorHandler
-     */
+    /** @return MockObject|ErrorHandler */
     private function getErrorHandler()
     {
         return $this->getMockForAbstractClass(ErrorHandler::class);

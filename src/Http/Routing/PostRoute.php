@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Command;
@@ -11,9 +12,7 @@ abstract class PostRoute
     /** @var PostRoute */
     private $nextRoute;
 
-    /**
-     * @param PostRoute $route
-     */
+    /** @param PostRoute $route */
     public function setNextRoute(PostRoute $route): void
     {
         $this->nextRoute = $route;

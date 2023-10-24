@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application;
 
 use Kartenmacherei\HttpFramework\Application\ErrorHandler\DevelopmentErrorHandler;
@@ -10,9 +11,7 @@ use Kartenmacherei\HttpFramework\Application\ErrorHandler\ProductionErrorHandler
 
 class Factory
 {
-    /**
-     * @return ErrorHandler
-     */
+    /** @return ErrorHandler */
     public function createErrorHandler(): ErrorHandler
     {
         $errorHandlerLocator = $this->createErrorHandlerLocator();
@@ -20,33 +19,25 @@ class Factory
         return $errorHandlerLocator->locate($this->createEnvironment());
     }
 
-    /**
-     * @return DevelopmentErrorHandler
-     */
+    /** @return DevelopmentErrorHandler */
     public function createDevelopmentErrorHandler(): DevelopmentErrorHandler
     {
         return new DevelopmentErrorHandler();
     }
 
-    /**
-     * @return ProductionErrorHandler
-     */
+    /** @return ProductionErrorHandler */
     public function createProductionErrorHandler(): ProductionErrorHandler
     {
         return new ProductionErrorHandler();
     }
 
-    /**
-     * @return ErrorHandlerLocator
-     */
+    /** @return ErrorHandlerLocator */
     private function createErrorHandlerLocator(): ErrorHandlerLocator
     {
         return new ErrorHandlerLocator($this);
     }
 
-    /**
-     * @return Environment
-     */
+    /** @return Environment */
     private function createEnvironment(): Environment
     {
         return Environment::fromSuperGlobals();

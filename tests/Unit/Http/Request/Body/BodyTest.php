@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
@@ -17,9 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BodyTest extends TestCase
 {
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testCreatesRawBodyIfInputStreamAndPostArrayAreEmpty(): void
     {
         $this->assertEquals(new RawBody(''), Body::fromSuperGlobals());
@@ -57,9 +56,7 @@ class BodyTest extends TestCase
         ];
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testThrowsExceptionIfContentTypeIsUnsupported(): void
     {
         $_SERVER['CONTENT_TYPE'] = 'foo';

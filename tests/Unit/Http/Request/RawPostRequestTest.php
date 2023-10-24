@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\Body\RawBody;
@@ -46,25 +47,19 @@ class RawPostRequestTest extends TestCase
         $this->assertSame('some content', $this->request->getBody());
     }
 
-    /**
-     * @return MockObject|RawBody
-     */
+    /** @return MockObject|RawBody */
     private function getRawBodyMock()
     {
         return $this->createMock(RawBody::class);
     }
 
-    /**
-     * @return MockObject|RequestCookieJar
-     */
+    /** @return MockObject|RequestCookieJar */
     private function getRequestCookieJarMock()
     {
         return $this->createMock(RequestCookieJar::class);
     }
 
-    /**
-     * @return MockObject|UriPath
-     */
+    /** @return MockObject|UriPath */
     private function getUriPathMock()
     {
         return $this->createMock(UriPath::class);

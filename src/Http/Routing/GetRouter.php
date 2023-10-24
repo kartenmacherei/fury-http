@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Routing;
 
 use Kartenmacherei\HttpFramework\Http\Query;
@@ -23,9 +24,7 @@ class GetRouter
         return $this->firstRoute->route($request);
     }
 
-    /**
-     * @param GetRoute $route
-     */
+    /** @param GetRoute $route */
     public function addRoute(GetRoute $route): void
     {
         if ($this->firstRoute === null) {

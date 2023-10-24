@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
@@ -198,9 +199,7 @@ class RequestTest extends TestCase
         $this->assertEquals($expected, Request::fromSuperGlobals());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testCreatesExpectedGetRequest(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'GET';
@@ -211,9 +210,7 @@ class RequestTest extends TestCase
         $this->assertEquals($expected, Request::fromSuperGlobals());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testThrowsExceptionIfRequestMethodIsNotSupported(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'FOO';
@@ -223,9 +220,7 @@ class RequestTest extends TestCase
         Request::fromSuperGlobals();
     }
 
-    /**
-     * @uses \Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods
-     */
+    /** @uses \Kartenmacherei\HttpFramework\Http\Request\SupportedRequestMethods */
     public function testGetAllowedRequestMethods(): void
     {
         $pathMock = $this->createMock(UriPath::class);
@@ -274,9 +269,7 @@ class RequestTest extends TestCase
         $this->assertSame('application/json', $request->getHeader('Content-Type'));
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testCreatesExpectedDeleteRequest(): void
     {
         $_SERVER['REQUEST_METHOD'] = 'DELETE';
@@ -285,33 +278,25 @@ class RequestTest extends TestCase
         $this->assertInstanceOf(DeleteRequest::class, $request);
     }
 
-    /**
-     * @return MockObject|Request
-     */
+    /** @return MockObject|Request */
     private function getRequest()
     {
         return $this->getMockForAbstractClass(Request::class, [[], $this->path, $this->cookieJar]);
     }
 
-    /**
-     * @return MockObject|RequestCookieJar
-     */
+    /** @return MockObject|RequestCookieJar */
     private function getRequestCookieJarMock()
     {
         return $this->createMock(RequestCookieJar::class);
     }
 
-    /**
-     * @return MockObject|UriPath
-     */
+    /** @return MockObject|UriPath */
     private function getUriPathMock()
     {
         return $this->createMock(UriPath::class);
     }
 
-    /**
-     * @return MockObject|RequestCookie
-     */
+    /** @return MockObject|RequestCookie */
     private function getRequestCookieMock()
     {
         return $this->createMock(RequestCookie::class);

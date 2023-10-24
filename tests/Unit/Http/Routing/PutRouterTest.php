@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\PutRequest;
@@ -48,17 +49,13 @@ class PutRouterTest extends TestCase
         $router->route($this->getPutRequestMock());
     }
 
-    /**
-     * @return MockObject|PutRoute
-     */
+    /** @return MockObject|PutRoute */
     private function getPutRouteMock()
     {
         return $this->createMock(PutRoute::class);
     }
 
-    /**
-     * @return MockObject|PutRequest
-     */
+    /** @return MockObject|PutRequest */
     private function getPutRequestMock()
     {
         return $this->createMock(PutRequest::class);

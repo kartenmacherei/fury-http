@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Application\ErrorHandler;
 
 use Kartenmacherei\HttpFramework\Application\Environment;
@@ -11,9 +12,7 @@ class ErrorHandlerLocator
     /** @var Factory */
     private $factory;
 
-    /**
-     * @param Factory $factory
-     */
+    /** @param Factory $factory */
     public function __construct(Factory $factory)
     {
         $this->factory = $factory;

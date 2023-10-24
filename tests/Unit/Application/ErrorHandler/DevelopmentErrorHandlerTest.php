@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\ErrorHandler\DevelopmentErrorHandler;
@@ -25,9 +26,7 @@ class DevelopmentErrorHandlerTest extends TestCase
         $errorHandler->handleException($exception);
     }
 
-    /**
-     * @return MockObject|DevelopmentErrorHandler
-     */
+    /** @return MockObject|DevelopmentErrorHandler */
     private function getErrorHandler()
     {
         return $this->createPartialMock(DevelopmentErrorHandler::class, ['terminate']);

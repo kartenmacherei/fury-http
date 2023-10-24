@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http\Request;
 
 use Kartenmacherei\HttpFramework\Application\Content\ContentType;
@@ -67,17 +68,13 @@ abstract class Request
         return false;
     }
 
-    /**
-     * @return bool
-     */
+    /** @return bool */
     public function isGetRequest(): bool
     {
         return false;
     }
 
-    /**
-     * @return bool
-     */
+    /** @return bool */
     public function isPostRequest(): bool
     {
         return false;
@@ -88,9 +85,7 @@ abstract class Request
         return false;
     }
 
-    /**
-     * @return UriPath
-     */
+    /** @return UriPath */
     public function getPath(): UriPath
     {
         return $this->path;

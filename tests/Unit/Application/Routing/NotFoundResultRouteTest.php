@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Application;
 
 use Kartenmacherei\HttpFramework\Application\Result\NotFoundResult;
@@ -27,9 +28,7 @@ class NotFoundResultRouteTest extends TestCase
         $this->assertInstanceOf(NotFoundResultRenderer::class, $actual);
     }
 
-    /**
-     * @return MockObject|NotFoundResult
-     */
+    /** @return MockObject|NotFoundResult */
     private function getNotFoundResultMock()
     {
         return $this->createMock(NotFoundResult::class);

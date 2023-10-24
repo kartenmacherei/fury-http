@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
@@ -45,25 +46,19 @@ class JsonPostRequestTest extends TestCase
         $this->assertSame($this->body, $this->request->getBody());
     }
 
-    /**
-     * @return MockObject|JsonBody
-     */
+    /** @return MockObject|JsonBody */
     private function getJsonBodyMock()
     {
         return $this->createMock(JsonBody::class);
     }
 
-    /**
-     * @return MockObject|RequestCookieJar
-     */
+    /** @return MockObject|RequestCookieJar */
     private function getRequestCookieJarMock()
     {
         return $this->createMock(RequestCookieJar::class);
     }
 
-    /**
-     * @return MockObject|UriPath
-     */
+    /** @return MockObject|UriPath */
     private function getUriPathMock()
     {
         return $this->createMock(UriPath::class);

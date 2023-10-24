@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Request\InvalidUriPathException;
@@ -21,9 +22,7 @@ class UriPathTest extends TestCase
         new UriPath('foo');
     }
 
-    /**
-     * @dataProvider doubleSlashTestDataProvider
-     */
+    /** @dataProvider doubleSlashTestDataProvider */
     public function testThrowsExceptionIfPathStartsWithDoubleSlash(string $uriPath): void
     {
         $this->expectException(InvalidUriPathException::class);

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Query;
@@ -57,25 +58,19 @@ class GetRouteTest extends TestCase
         $this->assertSame($query, $this->route->route($this->getGetRequestMock()));
     }
 
-    /**
-     * @return MockObject|GetRoute
-     */
+    /** @return MockObject|GetRoute */
     private function getGetRouteMock()
     {
         return $this->createMock(GetRoute::class);
     }
 
-    /**
-     * @return MockObject|Query
-     */
+    /** @return MockObject|Query */
     private function getQueryMock()
     {
         return $this->createMock(Query::class);
     }
 
-    /**
-     * @return MockObject|GetRequest
-     */
+    /** @return MockObject|GetRequest */
     private function getGetRequestMock()
     {
         return $this->createMock(GetRequest::class);

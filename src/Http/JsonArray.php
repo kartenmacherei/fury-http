@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\Http;
 
 use Iterator;
@@ -11,17 +12,13 @@ class JsonArray implements Iterator
     /** @var array */
     private $data = [];
 
-    /**
-     * @param array $data
-     */
+    /** @param array $data */
     public function __construct(array $data)
     {
         $this->data = $data;
     }
 
-    /**
-     * @return JsonArray|JsonObject
-     */
+    /** @return JsonArray|JsonObject */
     #[ReturnTypeWillChange]
     public function current()
     {
@@ -46,9 +43,7 @@ class JsonArray implements Iterator
         return key($this->data);
     }
 
-    /**
-     * @return bool
-     */
+    /** @return bool */
     public function valid(): bool
     {
         return array_key_exists($this->key(), $this->data);

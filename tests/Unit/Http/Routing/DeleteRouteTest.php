@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\Command;
@@ -15,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DeleteRouteTest extends TestCase
 {
-    private DeleteRoute&MockObject$route;
+    private DeleteRoute&MockObject $route;
 
     protected function setUp(): void
     {
