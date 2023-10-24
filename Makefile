@@ -2,7 +2,7 @@
 
 .PHONY: cs
 cs: vendor ## run PHP CS Fixer
-	docker run --rm -v $(PWD):/var/www 047136756731.dkr.ecr.eu-central-1.amazonaws.com/kam-cs:5.1.0
+	docker run --rm -v $(PWD):/var/www 047136756731.dkr.ecr.eu-central-1.amazonaws.com/kam-cs:6.0.1
 
 .PHONY: vendor
 test: vendor ## run all tests

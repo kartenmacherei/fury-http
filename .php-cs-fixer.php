@@ -1,8 +1,8 @@
 <?php
-use Kartenmacherei\CodingStandard\KamStandard2017Php70;
+use Kartenmacherei\CodingStandard\KamCodingStandard;
 use PhpCsFixer\Finder;
 
-$config = new KamStandard2017Php70();
+$config = new KamCodingStandard();
 return $config
     ->setFinder(
         Finder::create()
