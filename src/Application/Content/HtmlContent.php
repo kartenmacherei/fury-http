@@ -15,13 +15,11 @@ class HtmlContent implements Content
         $this->content = $content;
     }
 
-    /** @return string */
     public function asString(): string
     {
         return $this->content;
     }
 
-    /** @return ContentType */
     public function getContentType(): ContentType
     {
         return new HtmlContentType();

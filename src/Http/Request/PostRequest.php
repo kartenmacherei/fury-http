@@ -16,7 +16,6 @@ abstract class PostRequest extends Request
         return false;
     }
 
-    /** @return bool */
     public function isPostRequest(): bool
     {
         return true;

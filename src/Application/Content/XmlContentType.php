@@ -6,7 +6,6 @@ namespace Kartenmacherei\HttpFramework\Application\Content;
 
 class XmlContentType extends ContentType
 {
-    /** @return string */
     public function asString(): string
     {
         return 'text/xml';

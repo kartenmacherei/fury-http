@@ -25,7 +25,6 @@ class GetRequest extends Request
         return isset($this->parameters[$key]);
     }
 
-    /** @return bool */
     public function hasParameters(): bool
     {
         return count($this->parameters) > 0;
@@ -65,7 +64,6 @@ class GetRequest extends Request
         return $this->parameters[$key];
     }
 
-    /** @return bool */
     public function isGetRequest(): bool
     {
         return true;

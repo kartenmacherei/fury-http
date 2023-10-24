@@ -8,6 +8,5 @@ use Kartenmacherei\HttpFramework\Http\Result\Result;
 
 interface Query
 {
-    /** @return Result */
     public function execute(): Result;
 }

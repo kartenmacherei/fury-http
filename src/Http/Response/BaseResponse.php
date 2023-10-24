@@ -37,7 +37,6 @@ abstract class BaseResponse implements Response
         $this->flush();
     }
 
-    /** @return StatusCode */
     abstract protected function getStatusCode(): StatusCode;
 
     abstract protected function flush(): void;

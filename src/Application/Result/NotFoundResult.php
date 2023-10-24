@@ -18,7 +18,6 @@ class NotFoundResult implements Result
         $this->content = $content;
     }
 
-    /** @return Content */
     public function getContent(): Content
     {
         return $this->content;

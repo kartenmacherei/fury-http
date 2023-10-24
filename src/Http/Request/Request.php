@@ -68,13 +68,11 @@ abstract class Request
         return false;
     }
 
-    /** @return bool */
     public function isGetRequest(): bool
     {
         return false;
     }
 
-    /** @return bool */
     public function isPostRequest(): bool
     {
         return false;
@@ -85,7 +83,6 @@ abstract class Request
         return false;
     }
 
-    /** @return UriPath */
     public function getPath(): UriPath
     {
         return $this->path;

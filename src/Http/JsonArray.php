@@ -43,7 +43,6 @@ class JsonArray implements Iterator
         return key($this->data);
     }
 
-    /** @return bool */
     public function valid(): bool
     {
         return array_key_exists($this->key(), $this->data);

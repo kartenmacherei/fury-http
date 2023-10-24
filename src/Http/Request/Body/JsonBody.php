@@ -33,13 +33,11 @@ class JsonBody extends Body
         return $this->json->query($selector);
     }
 
-    /** @return JsonObject */
     public function getJson(): JsonObject
     {
         return $this->json;
     }
 
-    /** @return string */
     public function getEncodedString(): string
     {
         return $this->jsonString;

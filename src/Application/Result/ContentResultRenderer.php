@@ -19,7 +19,6 @@ class ContentResultRenderer implements ResultRenderer
         $this->result = $result;
     }
 
-    /** @return Response */
     public function render(): Response
     {
         return new ContentResponse($this->result->getContent());

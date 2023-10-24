@@ -6,9 +6,7 @@ namespace Kartenmacherei\HttpFramework\Application\Content;
 
 interface Content
 {
-    /** @return string */
     public function asString(): string;
 
-    /** @return ContentType */
     public function getContentType(): ContentType;
 }

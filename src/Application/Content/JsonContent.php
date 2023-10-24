@@ -25,13 +25,11 @@ class JsonContent implements Content
         $this->jsonString = $encodedData;
     }
 
-    /** @return string */
     public function asString(): string
     {
         return $this->jsonString;
     }
 
-    /** @return ContentType */
     public function getContentType(): ContentType
     {
         return new JsonContentType();

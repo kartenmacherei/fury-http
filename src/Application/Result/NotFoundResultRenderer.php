@@ -19,7 +19,6 @@ class NotFoundResultRenderer implements ResultRenderer
         $this->result = $result;
     }
 
-    /** @return Response */
     public function render(): Response
     {
         return new NotFoundResponse($this->result->getContent());

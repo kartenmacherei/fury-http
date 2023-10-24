@@ -12,6 +12,5 @@ abstract class ContentType
     public const WWW_FORM = 'application/x-www-form-urlencoded';
     public const WWW_FORM_UTF8 = 'application/x-www-form-urlencoded; charset=UTF-8';
 
-    /** @return string */
     abstract public function asString(): string;
 }
