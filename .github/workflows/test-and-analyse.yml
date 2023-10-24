@@ -22,9 +22,6 @@ jobs:
       packages: read
     container:
       image: ghcr.io/kartenmacherei/kam-cs:6.0.1
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.github_token }}
     steps:
       - uses: actions/checkout@v4
       - name: Run kam-cs
