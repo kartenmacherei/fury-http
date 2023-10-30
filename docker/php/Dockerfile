@@ -1,4 +1,4 @@
-FROM php:8.1.12-cli-alpine
+FROM php:8.1.25-cli-alpine
 
 RUN apk add --update git unzip openssh-client autoconf make g++
 RUN pecl install xdebug-3.1.5 \
