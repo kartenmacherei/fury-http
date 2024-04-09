@@ -10,7 +10,7 @@ use Kartenmacherei\HttpFramework\Http\JsonObject;
 
 class JsonBody extends Body
 {
-    /** @var JsonObject */
+    /** @var JsonObject|JsonArray */
     private $json;
 
     /** @var string */
@@ -33,7 +33,8 @@ class JsonBody extends Body
         return $this->json->query($selector);
     }
 
-    public function getJson(): JsonObject
+    /** @return JsonArray|JsonObject */
+    public function getJson()
     {
         return $this->json;
     }
@@ -48,13 +49,17 @@ class JsonBody extends Body
      *
      * @throws EnsureException
      *
-     * @return JsonObject
+     * @return JsonObject|JsonArray
      */
-    private function decode(string $jsonString): JsonObject
+    private function decode(string $jsonString)
     {
         $decoded = json_decode($jsonString, false);
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new EnsureException(sprintf('JSON body could not be decoded: %s', json_last_error_msg()));
+        }
+
+        if (is_array($decoded)) {
+            return new JsonArray($decoded);
         }
 
         return new JsonObject($decoded);
