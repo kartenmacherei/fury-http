@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kartenmacherei\HttpFramework\UnitTest\Http;
 
 use Kartenmacherei\HttpFramework\Http\EnsureException;
+use Kartenmacherei\HttpFramework\Http\JsonArray;
 use Kartenmacherei\HttpFramework\Http\JsonObject;
 use Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody;
 use PHPUnit\Framework\TestCase;
@@ -13,6 +14,7 @@ use PHPUnit\Framework\TestCase;
  * @covers \Kartenmacherei\HttpFramework\Http\Request\Body\JsonBody
  *
  * @uses \Kartenmacherei\HttpFramework\Http\JsonObject
+ * @uses \Kartenmacherei\HttpFramework\Http\JsonArray
  */
 class JsonBodyTest extends TestCase
 {
@@ -44,5 +46,14 @@ class JsonBodyTest extends TestCase
         $jsonString = '{"foo":"bar"}';
         $body = new JsonBody($jsonString);
         $this->assertSame('bar', $body->query('foo'));
+    }
+
+    public function testGetJsonReturnsJsonArrayForArrayStrings(): void
+    {
+        $jsonString = '["foo","bar"]';
+        $body = new JsonBody($jsonString);
+        $expected = new JsonArray(json_decode($jsonString));
+
+        $this->assertEquals($expected, $body->getJson());
     }
 }
