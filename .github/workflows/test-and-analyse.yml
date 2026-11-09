@@ -7,7 +7,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup PHP Action
         uses: ./.github/actions/setup-php
@@ -23,6 +23,6 @@ jobs:
     container:
       image: ghcr.io/kartenmacherei/kam-cs:6.0.1
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Run kam-cs
         run: php /tools/kam-cs fix --verbose --no-ansi --no-interaction --dry-run --diff
